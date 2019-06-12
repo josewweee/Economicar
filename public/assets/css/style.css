@@ -143,7 +143,7 @@ textarea {
     top: 0;
     width: 100%;
     z-index: 998;
-    background-color: #5c1ef9;
+    background-color: #2f435e;
 }
 
 .menu-area {
@@ -275,7 +275,7 @@ END Header Area
     display: flex;
     align-items: center;
     height: 800px;
-    background: #5d12f8;
+    background: #4abdac;
     padding-top: 80px;
 }
 
@@ -442,7 +442,7 @@ END Service Area
     bottom: 0;
     height: 2px;
     width: 130px;
-    background-color: #5a10fb;
+    background-color: #2f435e;
     left: calc(50% - 65px);
 }
 
@@ -457,7 +457,7 @@ END Service Area
     bottom: -3px;
     height: 8px;
     width: 8px;
-    background-color: #5a10fb;
+    background-color: #2f435e;
     left: calc(50% - 4px);
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
@@ -545,7 +545,7 @@ END About Area
 }
 
 .ft-screen-img img {
-    max-width: 100%;
+    max-width: 80%;
 }
 
 
@@ -571,7 +571,7 @@ END Feature Area
     top: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(89, 30, 251,0.9);
+    background-color: rgba(74, 189, 172,0.9);
 }
 
 .ach-single {
@@ -759,7 +759,7 @@ END Testimonial Area
     top: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(89, 30, 251,0.9);
+    background-color: rgba(74, 189, 172,0.9);
 }
 .video-area h2{
 	font-size: 40px;
@@ -776,7 +776,7 @@ END Testimonial Area
 }
 .video-area a{
 	font-size: 22px;
-    color: #7f21e6;
+    color: #4abdac;
     height: 50px;
     width: 50px;
 	position: relative;
@@ -973,7 +973,7 @@ END Pricing Area
     height: 100%;
     width: 100%;
     z-index: -1;
-    background-color: rgba(89, 30, 251,0.9);
+    background-color: rgba(74, 189, 172,0.9);
 }
 .download-btns a {
     margin: 0px 32px;
@@ -1155,7 +1155,7 @@ END Contact Area
 .footer-area{
     height: 80px;
     text-align: center;
-    background-color: #5a10fb;
+    background-color: #4abdac;
     display: flex;
     align-items: center;
 }
