@@ -319,7 +319,6 @@ END Header Area
     font-size: 20px;
     font-weight: 400;
     letter-spacing: 0;
-    padding-left: 44px;
 }
 
 .slider-inner a i {
@@ -481,14 +480,16 @@ END Service Area
 .about-left-img {}
 
 .about-left-img img {
-    max-width: 100%;
+    max-width: 150%;
 }
 
 .about-content {}
 
 .about-content p {
+    margin-top: 25px;
     color: #666666;
     margin-bottom: 25px;
+    font-size: larger;
 }
 
 

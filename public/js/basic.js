@@ -110,6 +110,11 @@ function irVista(VistaDestino_STR, btnActual_STR, btnSiguiente_STR, lblNumeroAct
             break;
     }
 
+    if(this.pantallaActual == "VistaConfirmacion"){
+        document.getElementById("ModeloConfirmacion").innerHTML = this.datosAnteriores.marca + " " + this.datosAnteriores.modelo;
+        document.getElementById("PrecioConfirmacion").innerHTML = 'Precio inicial ' + 'X'+"'"+'XXX.XXX';
+    }
+
 }
 
 
@@ -127,10 +132,10 @@ function irPerfil(){
     this.datosAnteriores.apellido = document.getElementById('InputApellido').value;
     this.datosAnteriores.correo = document.getElementById('InputCorreo').value;
     this.datosAnteriores.telefono = document.getElementById('InputTelefono').value;
-
+    window.location.href= "perfil.html";
     localStorage.removeItem('DATOS');
     saveInfo(this.datosAnteriores, 'usuario');
-    //window.location.href= "perfil.html";
+    window.location.href= "perfil.html";
 }
 
 function iluminarSiguienteBoton(idbotonActual_STR, idbotonSiguiente_STR){
