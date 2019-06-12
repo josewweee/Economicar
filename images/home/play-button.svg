@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="190px" height="190px" viewBox="0 0 190 190" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>play-button-inside-a-circle</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="how-it-works" transform="translate(-739.000000, -2939.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="video" transform="translate(-117.000000, 2082.000000)">
+                <g id="play-button-inside-a-circle" transform="translate(856.000000, 857.000000)">
+                    <path d="M76,137.75 L133,95 L76,52.25 L76,137.75 Z M95,0 C42.75,0 0,42.75 0,95 C0,147.25 42.75,190 95,190 C147.25,190 190,147.25 190,95 C190,42.75 147.25,0 95,0 Z M95,171 C53.2,171 19,136.8 19,95 C19,53.2 53.2,19 95,19 C136.8,19 171,53.2 171,95 C171,136.8 136.8,171 95,171 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

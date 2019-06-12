@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>¡Economicar! | Economicar&reg;</title>
+
+    <!--  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K6DKVL3');</script> -->
+
+
+
+
+    <link href="css/vendor.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
+    <link rel="shortcut icon" href="https://cdn.carbuckets.com/images/favicon.png">
+    <template id="headerTemplate" style="display:none">
+        <header class="sticky-top">
+            <nav class="navbar navbar-white bg-white">
+                <a class="navbar-brand w-25" href="index.html" style="max-width: 200px">
+                    <img class="img-fluid" src="images/logo.png">
+                </a>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="btn btn-sm btn-outline-dark rounded-pill" href="login.html">
+                            Iniciar sesión
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    </template>
+    <script>
+        window.GOOGLE_MAPS_KEY = "AIzaSyCRFQ9nIMPXqaGUFm7lsPjLwEayGSUD-BE"
+        window.STRIPE_KEY = "pk_live_w6SRqRCntSbUGS7OEN3cj4ee"
+        window.carbuckets = {
+            meta: {
+                host: 'www.carbuckets.com'
+            },
+            wizard: {
+                headerTemplate: document.querySelector('template#headerTemplate').innerHTML
+            }
+        }
+    </script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="2QVQaXW4wmlhgYviCBC1rEHf3OMCktNEWwfgOqaW">
+
+    <meta name="description"
+        content="Hate the car-buying process? We're going to fix that. Try CarBuckets Group Buying method for low prices, no hassle, and a stress free way to purchase the new car you've been eyeing. Learn more here.">
+    <meta property="og:title" content="Group Buying for Cars | CarBuckets&reg;" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://cdn.carbuckets.com/images/og-cb.png" />
+    <meta property="og:url" content="https://www.carbuckets.com/join-a-carbucket" />
+    <meta property="og:description"
+        content="Hate the car-buying process? We're going to fix that. Try CarBuckets Group Buying method for low prices, no hassle, and a stress free way to purchase the new car you've been eyeing. Learn more here." />
+    <meta property="og:site_name" content="CarBuckets&reg;" />
+
+    <link rel="canonical" href="join-a-carbucket">
+
+
+    <!--  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K6DKVL3" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
+
+</head>
+
+<body>
+
+    <div class="content-wrapper">
+        <section id="wizard">
+            <div id="app">
+                <div class="wizard-container" style="min-height: 100vh;">
+                    <div class="row no-gutters" wide="true" style="overflow: hidden scroll;">
+                        <div data-v-43dfaa2c=""
+                            class="wizard-sidebar col-12 col-sm-6 col-md-6 col-lg-5 col-xl-4 position-fixed">
+                            <div data-v-43dfaa2c="" class="row">
+                                <div data-v-43dfaa2c="" class="col">
+                                    <div data-v-c170a866="" data-v-43dfaa2c="">
+                                        <header class="sticky-top">
+                                            <nav class="navbar navbar-white bg-white">
+                                                <a class="navbar-brand w-25" href="index.html"
+                                                    style="max-width: 200px">
+                                                    <img class="img-fluid"
+                                                        src="images/logo.png">
+                                                </a>
+                                                <ul class="navbar-nav">
+                                                    <li class="nav-item">
+                                                        <a class="btn btn-sm btn-outline-dark rounded-pill"
+                                                            href="login.html">
+                                                            Iniciar sesión
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+                                        </header>
+                                    </div>
+                                    <div data-v-43dfaa2c="" class="row">
+                                        <div data-v-43dfaa2c="" class="col">
+                                            <div data-v-43dfaa2c="" id="WizardAccordion" class="accordion">
+                                                <div data-v-4fa46acd="" class="card" data-v-43dfaa2c="">
+                                                    <div data-v-4fa46acd="" id="WizardRebatesLocationToggle"
+                                                        data-toggle="collapse" data-target="#WizardRebatesLocation"
+                                                        class="card-header d-flex justify-content-between align-items-center active"
+                                                        style="opacity: 1;" onclick="irVista('VistaLocacion')">
+                                                        <div data-v-4fa46acd="" class="d-flex align-items-center"><span
+                                                                data-v-4fa46acd="" class="position active" id="number1">
+                                                                01
+                                                            </span>
+                                                            <div data-v-4fa46acd="" class="ml-2"><span
+                                                                    data-v-4fa46acd="">
+                                                                    ¿Cual es tu ciudad?
+                                                                </span></div>
+                                                        </div>
+                                                        <div data-v-4fa46acd=""
+                                                            class="d-flex justify-content-between align-items-center d-flex justify-content-between">
+                                                            
+                                                            <strong data-v-4fa46acd="" class="value">
+
+                                                            </strong> <svg data-v-4fa46acd="" aria-hidden="true"
+                                                                focusable="false" data-prefix="fas"
+                                                                data-icon="arrow-right" role="img"
+                                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                                                                class="svg-inline--fa fa-arrow-right fa-w-14">
+                                                                <path data-v-4fa46acd="" fill="currentColor"
+                                                                    d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                                                                    class=""></path>
+                                                            </svg></div>
+                                                    </div>
+<!--                                                     <div data-v-4fa46acd="" id="WizardRebatesLocation"
+                                                        data-parent="#WizardAccordion" class="collapse show">
+                                                        <div data-v-4fa46acd="" hidden="hidden"
+                                                            class="card-body p-0 pb-3">
+                                                            <div id="RebatesLocation" class="col" data-v-4fa46acd="">
+                                                                <div class="row">
+                                                                    <div
+                                                                        class="card col-lg-8 col-xl-6 bg-white card-shadow">
+                                                                        <div class="card-body">
+                                                                            <h6 class="card-title">What is your Zip
+                                                                                Code?</h6>
+                                                                            <div class="input-group"><input
+                                                                                    name="zipcode" type="text"
+                                                                                    placeholder="e.g. 33132" class="form-control"
+                                                                                    style="height: auto;">
+                                                                                <div class="input-group-append"><a
+                                                                                        class="btn btn-outline-light"
+                                                                                        style="border-color: rgb(166, 181, 195);"><svg
+                                                                                            aria-hidden="true"
+                                                                                            focusable="false"
+                                                                                            data-prefix="fas"
+                                                                                            data-icon="compass"
+                                                                                            role="img"
+                                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                                            viewBox="0 0 496 512"
+                                                                                            class="svg-inline--fa fa-compass fa-w-16">
+                                                                                            <path fill="currentColor"
+                                                                                                d="M225.38 233.37c-12.5 12.5-12.5 32.76 0 45.25 12.49 12.5 32.76 12.5 45.25 0 12.5-12.5 12.5-32.76 0-45.25-12.5-12.49-32.76-12.49-45.25 0zM248 8C111.03 8 0 119.03 0 256s111.03 248 248 248 248-111.03 248-248S384.97 8 248 8zm126.14 148.05L308.17 300.4a31.938 31.938 0 0 1-15.77 15.77l-144.34 65.97c-16.65 7.61-33.81-9.55-26.2-26.2l65.98-144.35a31.938 31.938 0 0 1 15.77-15.77l144.34-65.97c16.65-7.6 33.8 9.55 26.19 26.2z"
+                                                                                                class=""></path>
+                                                                                        </svg></a></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="card-body">
+                                                                            <div class="text-muted">
+                                                                                Procuraremos que la prueba de conducción
+                                                                                de tu vehículo sea cerca a ti.
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="card-body"><button
+                                                                                disabled="disabled"
+                                                                                class="btn btn-block text-white btn-rounded">
+                                                                                Select Purchase Type
+                                                                            </button></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div> -->
+                                                </div>
+                                                <div data-v-4fa46acd="" class="card" data-v-43dfaa2c="">
+                                                    <div data-v-4fa46acd="" id="WizardRebatesPurchaseTypeToggle"
+                                                        data-toggle="" data-target="#WizardRebatesPurchaseType"
+                                                        class="card-header d-flex justify-content-between align-items-center"
+                                                        style="opacity: 0.5;" onclick="irVista('VistaConfirmacion')">
+                                                        <div data-v-4fa46acd="" class="d-flex align-items-center"><span
+                                                                data-v-4fa46acd="" class="position" id="number2">
+                                                                02
+                                                            </span>
+                                                            <div data-v-4fa46acd="" class="ml-2"><span
+                                                                    data-v-4fa46acd="">
+                                                                    Confirmacion
+                                                                </span></div>
+                                                        </div>
+                                                        <div data-v-4fa46acd=""
+                                                            class="d-flex justify-content-between align-items-center d-flex justify-content-between">
+                                                            <!---->
+                                                            <!----> <strong data-v-4fa46acd="" class="value">
+
+                                                            </strong>
+                                                            <!---->
+                                                        </div>
+                                                    </div>
+                                                    <div data-v-4fa46acd="" id="WizardRebatesPurchaseType"
+                                                        data-parent="#WizardAccordion" class="collapse">
+                                                        <div data-v-4fa46acd="" hidden="hidden"
+                                                            class="card-body p-0 pb-3">
+                                                            <div data-v-c6cee054="" id="RebatesPurchaseType"
+                                                                class="col align-items-center" data-v-4fa46acd="">
+                                                                <div data-v-c6cee054="" class="row">
+                                                                    <div data-v-c6cee054="" class="col col-lg-8">
+                                                                        <div data-v-c6cee054="" class="mini-card-pair">
+                                                                            <label data-v-c6cee054=""
+                                                                                class="mini-card justify-content-center"
+                                                                                style="height: 10em;">
+                                                                                <h5 data-v-c6cee054="">I want to <br
+                                                                                        data-v-c6cee054=""> buy a car.
+                                                                                </h5> <input data-v-c6cee054=""
+                                                                                    name="purchase" type="radio"
+                                                                                    id="buy" value="1"
+                                                                                    class="radio-ninja">
+                                                                            </label> <label data-v-c6cee054=""
+                                                                                class="mini-card justify-content-center"
+                                                                                style="height: 10em;">
+                                                                                <h5 data-v-c6cee054="">I want to <br
+                                                                                        data-v-c6cee054=""> lease a car.
+                                                                                </h5> <input data-v-c6cee054=""
+                                                                                    name="purchase" type="radio"
+                                                                                    id="lease" value="2"
+                                                                                    class="radio-ninja">
+                                                                            </label></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div data-v-4fa46acd="" class="card" data-v-43dfaa2c="">
+                                                    <div data-v-4fa46acd="" id="WizardRebatesSelectToggle"
+                                                        data-toggle="" data-target="#WizardRebatesSelect"
+                                                        class="card-header d-flex justify-content-between align-items-center"
+                                                        style="opacity: 0.5;" onclick="irVista('VistaRegistro')">
+                                                        <div data-v-4fa46acd="" class="d-flex align-items-center"><span
+                                                                data-v-4fa46acd="" class="position" id="number3">
+                                                                03
+                                                            </span>
+                                                            <div data-v-4fa46acd="" class="ml-2"><span
+                                                                    data-v-4fa46acd="">
+                                                                    Registro
+                                                                </span></div>
+                                                        </div>
+                                                        <div data-v-4fa46acd=""
+                                                            class="d-flex justify-content-between align-items-center d-flex justify-content-between">
+                                                            <!---->
+                                                            <!----> <strong data-v-4fa46acd="" class="value">
+                                                            </strong>
+                                                            <!---->
+                                                        </div>
+                                                    </div>
+                                                    <div data-v-4fa46acd="" id="WizardRebatesSelect"
+                                                        data-parent="#WizardAccordion" class="collapse">
+                                                        <div data-v-4fa46acd="" hidden="hidden"
+                                                            class="card-body p-0 pb-3"></div>
+                                                    </div>
+                                                </div>
+                                                <!-- <div id="DisclaimerModalButton" class="row" data-v-43dfaa2c="">
+                                                    <div class="col text-center"><a
+                                                            class="btn btn-link text-primary font-weight-500">
+                                                            View Disclaimers
+                                                        </a></div>
+                                                </div> -->
+                                                <div data-v-43dfaa2c="" class="px-3"><button data-v-43dfaa2c=""
+                                                        disabled="disabled"
+                                                        class="btn btn-block btn-rounded text-white mt-4 btn-secondary" id="CompleteStep" onclick="irPerfil()"><span
+                                                            data-v-43dfaa2c=""
+                                                            style="display: grid; grid-template-columns: 0.5fr 2fr 0.5fr; align-items: center;"><span
+                                                                data-v-43dfaa2c=""></span>
+                                                            Finalizar
+                                                            <svg data-v-43dfaa2c="" aria-hidden="true" focusable="false"
+                                                                data-prefix="fas" data-icon="arrow-right" role="img"
+                                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                                                                class="svg-inline--fa fa-arrow-right fa-w-14"
+                                                                style="justify-self: end;">
+                                                                <path data-v-43dfaa2c="" fill="currentColor"
+                                                                    d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                                                                    class=""></path>
+                                                            </svg></span></button></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-v-43dfaa2c="" class="row no-gutters bg-white">
+                                <div data-v-43dfaa2c="" class="col">
+                                    <div data-v-43dfaa2c="" class="mx-4"></div>
+                                    <div data-v-43dfaa2c="" class="row">
+                                        <div data-v-43dfaa2c="" class="col m-4">
+                                            <div data-v-6a3a9dc3="" data-v-43dfaa2c="" class="wizard-progress">
+                                                <div data-v-6a3a9dc3="" class="progress">
+                                                    <div data-v-6a3a9dc3="" role="progressbar" aria-valuenow="44"
+                                                        aria-valuemin="0" aria-valuemax="100" class="progress-bar"
+                                                        style="width: 44%;"></div>
+                                                </div>
+                                                <div data-v-6a3a9dc3="" class="point-container"><a data-v-6a3a9dc3=""
+                                                        href="#" class="">
+                                                        <div data-v-6a3a9dc3="" class="circle justify-self-start">
+                                                            <div data-v-6a3a9dc3="" class="inner-circle"></div>
+                                                        </div>
+                                                    </a> <a data-v-6a3a9dc3="" href="#" class="disabled">
+                                                        <div data-v-6a3a9dc3="" class="circle mx-auto disabled">
+                                                            <div data-v-6a3a9dc3="" class="inner-circle"></div>
+                                                        </div>
+                                                    </a> <a data-v-6a3a9dc3="" href="#" disabled="disabled"
+                                                        class="disabled">
+                                                        <div data-v-6a3a9dc3="" class="circle float-right disabled">
+                                                            <div data-v-6a3a9dc3="" class="inner-circle"></div>
+                                                        </div>
+                                                    </a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--CIUDAD-->
+                         <div id="VistaLocacion" style="display: block;" class="col vh-100 mt-5 mb-5 px-5 offset-md-6 offset-lg-5 offset-xl-4"
+                            incentives="" selected="selected" value="" style="padding-top: 4em !important;">
+                            <div class="row">
+                                <div class="card col-lg-8 col-xl-6 bg-white card-shadow">
+                                    <div class="card-body">
+                                        <h6 class="card-title">¿Cual es tu ciudad?</h6>
+                                        <div class="input-group">
+                                            <input name="zipcode" type="text" placeholder="e.j, Medellin"
+                                                class="form-control" style="height: auto;" id="InputCiudad">
+                                            <div class="input-group-append">
+                                                <a class="btn btn-outline-light"
+                                                    style="border-color: rgb(166, 181, 195);" onclick="irVista('VistaConfirmacion','WizardRebatesLocationToggle', 'WizardRebatesPurchaseTypeToggle', 'number1', 'number2', 'ciudad')">
+                                                    <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                                        data-icon="compass" role="img"
+                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"
+                                                        class="svg-inline--fa fa-compass fa-w-16">
+                                                        <path fill="currentColor"
+                                                            d="M225.38 233.37c-12.5 12.5-12.5 32.76 0 45.25 12.49 12.5 32.76 12.5 45.25 0 12.5-12.5 12.5-32.76 0-45.25-12.5-12.49-32.76-12.49-45.25 0zM248 8C111.03 8 0 119.03 0 256s111.03 248 248 248 248-111.03 248-248S384.97 8 248 8zm126.14 148.05L308.17 300.4a31.938 31.938 0 0 1-15.77 15.77l-144.34 65.97c-16.65 7.61-33.81-9.55-26.2-26.2l65.98-144.35a31.938 31.938 0 0 1 15.77-15.77l144.34-65.97c16.65-7.6 33.8 9.55 26.19 26.2z"
+                                                            class="">
+
+                                                        </path>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="text-muted">
+                                            Procuraremos que la prueba de conducción de tu vehículo sea cerca a ti.
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <button disabled="disabled" class="btn btn-block text-white btn-rounded">
+                                            Confirmar Datos
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- CONFIRMACION -->
+                        <div data-v-1ba29c07="" style="display:none;" id="VistaConfirmacion" class="col mt-4 mb-5 p-5 p-md-0 pt-lg-5 offset-md-6 offset-lg-5 offset-xl-4">
+    <div data-v-1ba29c07="" class="row">
+        <div data-v-1ba29c07="" class="col-6 col-md col-lg col-xl-7 mx-auto">
+            <div data-v-7cff97f7="" data-v-1ba29c07="" id="AccountReview" class="col-lg align-items-center p-2">
+                <div data-v-7cff97f7="" class="card">
+                    <div data-v-7cff97f7="" class="card-body">
+                        <div data-v-c3c64868="" data-v-7cff97f7="" id="Preview" class="row flex-column justify-content-center align-items-center text-center">
+                            <img data-v-c3c64868="" src="https://media.chromedata.com/MediaGallery/media/MjkzODk3Xk1lZGlhIEdhbGxlcnk/on5zQhPIJp7N7FdFJBWskkmtfTB8awTrEGsYgY4dF6z4kxTmTQ9yQvKNilaoWbiBUgTS2wU5K3U/cc_2019BMC730001_01_640_A75.png" class="preview-image"> 
+                            <h2 data-v-c3c64868="">2019 3 Series</h2> 
+                            <p data-v-c3c64868="">
+                                Precio Inicial $400'250.000*
+                            </p> 
+                            <div data-v-c3c64868="" class="d-flex justify-content-center pb-3">
+                                <div data-v-c3c64868="" class="colour-value">
+                                    <button data-v-c3c64868="" class="active" style="background-color: rgb(78, 12, 21);">
+                                    </button>
+                                </div>
+                                <div data-v-c3c64868="" class="colour-value">
+                                    <button data-v-c3c64868="" class="" style="background-color: rgb(157, 148, 135);">
+                                    </button>
+                                </div>
+                            </div>
+                        </div> 
+                        <div data-v-7cff97f7="" class="row mb-2">
+                            <button data-v-7cff97f7="" class="btn btn-blue rounded-pill mx-auto" onclick="irVista('VistaRegistro','WizardRebatesPurchaseTypeToggle','WizardRebatesSelectToggle', 'number2', 'number3', '')">Continuar</button>
+                        </div> 
+                        <div data-v-7cff97f7="" class="row mt-4">
+                            <div data-v-7cff97f7="" class="col-lg-10 mx-auto">
+                                <div data-v-7cff97f7="" class="media">
+                                    <picture data-v-7cff97f7="" class="align-self-start mr-3" style="width: 25px;">
+                                        <svg data-v-7cff97f7="" wdith="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet" viewBox="0 0 25 25">
+                                            <g data-v-7cff97f7="" fill="none" fill-rule="evenodd">
+                                                <path data-v-7cff97f7="" d="M24.463 5.76c.17.048.287.202.287.377v3.53a.39.39 0 0 1-.087.245l-1.583 1.96a.397.397 0 0 1-.31.148h-.427a2.728 2.728 0 0 1-.803 1.568h2.814c.219 0 .396.176.396.392a3.51 3.51 0 0 1-1.328 2.745h.932c.219 0 .396.176.396.393v5.49a.394.394 0 0 1-.396.392H10.83a5.21 5.21 0 0 1-2.302-.538l-4.615-2.285a1.664 1.664 0 0 1-.934-1.499v-.085c0-.47.202-.92.554-1.235A3.54 3.54 0 0 1 1 13.98c0-.216.177-.392.396-.392H4.21a2.728 2.728 0 0 1-.803-1.568h-2.01a.394.394 0 0 1-.396-.393V9.625c0-.012.003-.026.003-.04a3.48 3.48 0 0 1 .084-.694c.073-.35.201-.69.378-1.003a.41.41 0 0 1 .064-.082 3.573 3.573 0 0 1 2.53-1.657l2.73-.387.654-.454a12.968 12.968 0 0 1 13.978-.507l.092.052c.051.028.102.057.153.088l.079.05 2.717.77zm-7.598 6.26h-7.98a2.729 2.729 0 0 1-.803 1.568h9.587a2.727 2.727 0 0 1-.804-1.568zm2.625-6.275l.95-.589a12.178 12.178 0 0 0-5.586-1.372v1.96h4.636zM14.063 3.81c-2.09.128-4.11.795-5.859 1.934h5.858V3.81zM8.971 18.705a1.525 1.525 0 0 1 .165-1.195h-2.8l2.635 1.195z" fill="#000" fill-rule="nonzero"></path>
+                                                <path data-v-7cff97f7="" d="M1.831 9.2c.012-.077.03-.153.049-.227.021-.088.048-.175.079-.26a2.706 2.706 0 0 1 .1-.24h.92l-.594.787-.562.008A.446.446 0 0 1 1.83 9.2z" fill="#FFF" fill-rule="nonzero"></path>
+                                                <path data-v-7cff97f7="" d="M1.792 10.053l.797-.01a.397.397 0 0 0 .31-.158l1.188-1.568a.39.39 0 0 0 .038-.411.396.396 0 0 0-.354-.217H2.623a2.77 2.77 0 0 1 1.548-.764l2.795-.396h7.096v4.706H8.89c-.005-.03-.012-.059-.018-.089a1.864 1.864 0 0 0-.06-.258l-.031-.104c-.017-.05-.036-.1-.055-.149-.012-.03-.023-.062-.036-.092a2.155 2.155 0 0 0-.08-.16l-.034-.07a2.403 2.403 0 0 0-.133-.215c-.011-.018-.025-.034-.04-.05a2.593 2.593 0 0 0-.114-.153c-.02-.025-.043-.048-.064-.072l-.107-.118c-.024-.025-.05-.048-.076-.072-.036-.034-.073-.068-.11-.1l-.086-.068c-.04-.03-.077-.059-.119-.086a2.869 2.869 0 0 0-.448-.253l-.102-.044a2.775 2.775 0 0 0-.142-.052c-.035-.011-.069-.024-.104-.034-.05-.015-.102-.027-.154-.04l-.101-.023a2.906 2.906 0 0 0-.176-.027c-.03-.003-.059-.01-.088-.012a2.84 2.84 0 0 0-.536.001c-.03.003-.059.01-.088.013a2.47 2.47 0 0 0-.176.027c-.035.006-.068.015-.102.023-.051.012-.103.025-.154.04-.035.01-.069.022-.104.034-.047.016-.095.032-.142.051l-.102.045c-.044.02-.089.039-.132.062a2.814 2.814 0 0 0-.223.129c-.031.02-.062.039-.093.061-.04.028-.079.057-.118.087-.03.022-.058.044-.086.068-.04.032-.074.066-.11.1a2.11 2.11 0 0 0-.183.19l-.065.071c-.04.05-.079.1-.114.153l-.038.05c-.048.07-.092.142-.133.216-.012.022-.022.046-.034.069a3.368 3.368 0 0 0-.08.16c-.013.03-.023.062-.036.093-.019.05-.04.098-.054.148-.012.034-.02.07-.03.105a7.504 7.504 0 0 0-.04.146c-.009.037-.015.074-.022.112-.005.03-.013.058-.017.089H1.792v-1.184z" fill="#FFF" fill-rule="nonzero"></path>
+                                                <path data-v-7cff97f7="" d="M4.667 11.627c0 .806.661 1.46 1.479 1.461a1.47 1.47 0 0 0 1.479-1.46 1.47 1.47 0 0 0-1.48-1.462 1.47 1.47 0 0 0-1.478 1.461z" stroke="#000" fill="#FFF" fill-rule="nonzero"></path>
+                                                <path data-v-7cff97f7="" d="M8.883 21.76l-4.616-2.286a.884.884 0 0 1-.496-.796v-.085a.887.887 0 0 1 .412-.75.904.904 0 0 1 .86-.059l4.5 2.043a.4.4 0 0 0 .165.036h3.959a.394.394 0 0 0 .396-.392.394.394 0 0 0-.396-.393H10.5a.788.788 0 0 1-.792-.784c0-.433.355-.784.792-.784h3.035a.397.397 0 0 0 .19-.048l.1-.055a5.325 5.325 0 0 1 4.988-.056v4.865H10.83a4.398 4.398 0 0 1-1.947-.456zM23.958 17.51v4.706h-4.354V17.51z" fill="#FFF" fill-rule="nonzero"></path>
+                                                <path data-v-7cff97f7="" d="M23.93 14.372a2.768 2.768 0 0 1-2.742 2.353h-1.882a6.117 6.117 0 0 0-5.858-.007l-2.948.007H4.562a2.767 2.767 0 0 1-2.742-2.353h22.11z" fill="#FFF" fill-rule="nonzero"></path>
+                                                <path data-v-7cff97f7="" d="M19.604 13.088a1.472 1.472 0 0 0 1.48-1.46 1.47 1.47 0 0 0-1.48-1.462 1.47 1.47 0 0 0-1.48 1.461c0 .806.662 1.46 1.48 1.461zm0 0z" stroke="#000" fill="#FFF" fill-rule="nonzero"></path>
+                                                <path data-v-7cff97f7="" d="M22.58 11.235h-.233c-.004-.03-.012-.059-.018-.089l-.02-.112a1.823 1.823 0 0 0-.04-.146l-.031-.104c-.016-.05-.036-.1-.055-.149-.012-.03-.023-.062-.036-.092a2.154 2.154 0 0 0-.079-.16c-.012-.023-.022-.047-.035-.07a2.424 2.424 0 0 0-.132-.215c-.012-.018-.026-.034-.038-.05a2.595 2.595 0 0 0-.115-.153c-.02-.025-.042-.048-.064-.072l-.106-.118c-.025-.025-.05-.048-.077-.072-.036-.034-.072-.068-.11-.1l-.086-.068a4.266 4.266 0 0 0-.212-.148 2.621 2.621 0 0 0-.354-.19 2.771 2.771 0 0 0-.244-.096c-.035-.012-.07-.025-.105-.035-.05-.015-.102-.027-.153-.04l-.102-.023a2.698 2.698 0 0 0-.176-.027c-.03-.003-.058-.01-.088-.012a2.838 2.838 0 0 0-.538.001c-.03.003-.058.01-.088.013-.06.007-.119.015-.176.027-.034.006-.068.015-.102.023-.051.012-.103.025-.153.04-.035.01-.07.022-.104.034-.048.016-.095.032-.142.051-.035.014-.069.03-.103.045-.044.02-.088.039-.131.062a2.814 2.814 0 0 0-.223.129c-.032.02-.063.039-.093.061a4.53 4.53 0 0 0-.119.087c-.029.022-.058.044-.086.068-.04.032-.074.066-.11.1a2.15 2.15 0 0 0-.183.19c-.022.023-.044.047-.064.071-.04.05-.08.1-.115.153l-.038.05a2.97 2.97 0 0 0-.132.216c-.013.022-.023.046-.035.069a3.276 3.276 0 0 0-.079.16c-.014.03-.024.062-.036.093-.02.05-.04.098-.055.148-.012.034-.02.07-.03.105l-.04.146-.022.112c-.005.03-.013.058-.017.089h-2.003V6.529h4.75c.075 0 .147-.02.21-.06l1.413-.874.018.011.129.078a.39.39 0 0 0 .1.045l2.484.704v.88h-1.583v.785h1.583v1.43l-1.377 1.707z" fill="#FFF" fill-rule="nonzero"></path>
+                                                <path data-v-7cff97f7="" fill="#000" d="M22 18h1.25v1.25H22zM11 7h1.75v.75H11z"></path>
+                                            </g>
+                                        </svg>
+                                    </picture> 
+                                    <div data-v-7cff97f7="" class="media-body">
+                                        <p data-v-7cff97f7="">
+                                            <span data-v-7cff97f7="">
+                                                Los vendedores de Medellín
+                                            </span>
+                                           Pujaran por tu grupo, desde:
+                  <span data-v-7cff97f7="" class="date-text"> Jueves, Mayo 4</span> hasta el
+                  <span data-v-7cff97f7="" class="date-text"> Jueves, Junio 5</span>
+                </p>
+            </div>
+        </div> 
+        <div data-v-7cff97f7="" class="media">
+            <picture data-v-7cff97f7="" class="align-self-start mr-3" style="width: 25px;">
+                <svg data-v-7cff97f7="" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet" viewBox="0 0 150 150">
+                    <path data-v-7cff97f7="" d="M18.75 23.438V4.688A4.685 4.685 0 0 1 23.438 0a4.684 4.684 0 0 1 4.687 4.688v18.75a4.684 4.684 0 0 1-4.687 4.687 4.684 4.684 0 0 1-4.688-4.687zm79.689 4.687a4.685 4.685 0 0 0 4.687-4.687V4.688A4.685 4.685 0 0 0 98.44 0a4.686 4.686 0 0 0-4.69 4.688v18.75a4.686 4.686 0 0 0 4.69 4.687zM150 112.5C150 133.21 133.21 150 112.5 150 91.792 150 75 133.21 75 112.499c0-20.708 16.791-37.5 37.5-37.5 20.71 0 37.5 16.791 37.5 37.5zm-9.374 0c0-15.507-12.616-28.125-28.126-28.125-15.508 0-28.124 12.618-28.124 28.125 0 15.51 12.616 28.126 28.124 28.126 15.51 0 28.126-12.616 28.126-28.126zM37.5 56.25H18.75V75H37.5V56.25zm-18.75 46.875H37.5v-18.75H18.75v18.75zM46.875 75h18.75V56.25h-18.75V75zm0 28.125h18.75v-18.75h-18.75v18.75zm-37.5 8.442V46.875H112.5v18.75h9.376V29.06c0-5.694-4.542-10.31-10.154-10.31h-3.91v4.69c0 5.162-4.202 9.374-9.373 9.374-5.172 0-9.375-4.212-9.375-9.375V18.75H32.812v4.688c0 5.163-4.202 9.375-9.374 9.375-5.173 0-9.375-4.212-9.375-9.375V18.75h-3.905C4.546 18.75 0 23.365 0 29.06v82.507c0 5.676 4.546 10.309 10.158 10.309h55.468v-9.377H10.158c-.425 0-.783-.439-.783-.932zM93.75 75V56.25H75V75h18.75zm32.814 37.499H112.5V98.436a4.684 4.684 0 0 0-4.688-4.686 4.683 4.683 0 0 0-4.686 4.686v18.752a4.684 4.684 0 0 0 4.686 4.687h18.75a4.685 4.685 0 0 0 4.688-4.687 4.686 4.686 0 0 0-4.687-4.69z" fill="#000000" fill-rule="nonzero"></path>
+                </svg></picture> 
+                <div data-v-7cff97f7="" class="media-body">
+                <p data-v-7cff97f7="">
+                  El precio final de tu descuento sera enviado el:
+                  <span data-v-7cff97f7="" class="date-text">Martes, Junio 6</span>
+                </p>
+            </div>
+        </div> 
+        <div data-v-7cff97f7="" class="media">
+            <picture data-v-7cff97f7="" class="align-self-start mr-3" style="width: 25px;">
+                <svg data-v-7cff97f7="" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet" viewBox="0 0 150 150">
+                    <path data-v-7cff97f7="" d="M128.033 21.967C113.868 7.801 95.033 0 75 0S36.133 7.801 21.967 21.967C7.8 36.133 0 54.967 0 75s7.801 38.867 21.967 53.033C36.133 142.199 54.967 150 75 150s38.867-7.801 53.033-21.967C142.2 113.868 150 95.033 150 75s-7.801-38.867-21.967-53.033zM75 16.777c29.526 0 53.987 22.092 57.727 50.614l-36.092-3.515C92.59 56.038 84.413 50.663 75 50.663c-9.413 0-17.589 5.375-21.635 13.213l-36.092 3.515C21.013 38.869 45.474 16.776 75 16.776zM17.253 82.433l35.663 2.779a24.507 24.507 0 0 0 10.77 11.324l2.337 35.994c-25.443-3.954-45.486-24.442-48.77-50.097zM75 82.561c-4.17 0-7.561-3.392-7.561-7.561 0-4.17 3.392-7.561 7.561-7.561 4.169 0 7.561 3.392 7.561 7.561 0 4.169-3.391 7.561-7.561 7.561zm8.978 49.97l2.337-35.994a24.507 24.507 0 0 0 10.77-11.324l35.663-2.779c-3.285 25.655-23.328 46.143-48.77 50.097z" fill="#2E2E2E" fill-rule="nonzero"></path>
+                </svg>
+            </picture> 
+            <div data-v-7cff97f7="" class="media-body">
+                <p data-v-7cff97f7="">
+                  Tienes un test de conducción, sin obligación a comprar.
+                  <span data-v-7cff97f7="" class="date-text">Martes, Junio 6</span>
+                  hasta el
+                  <span data-v-7cff97f7="" class="date-text">Lunes, Junio 10</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+                        <!--REGISTRO-->
+                        <div data-v-1ba29c07="" style="display: none;" id="VistaRegistro" class="col mt-4 mb-5 p-5 p-md-0 pt-lg-5 offset-md-6 offset-lg-5 offset-xl-4">
+    <div data-v-1ba29c07="" class="row">
+        <div data-v-1ba29c07="" class="col-6 col-md col-lg col-xl-7 mx-auto">
+            <div data-v-24358ebe="" data-v-1ba29c07="" id="AccountSignUpStripe" class="col align-items-center" wide="true">
+                <h3 data-v-24358ebe="">Registro</h3> 
+                <div data-v-24358ebe="" class="card bg-white card-shadow">
+                    <div data-v-24358ebe="" class="card-body">
+                        <div data-v-24358ebe="" class="text-center">
+                            <p data-v-24358ebe="" class="card-title h3">
+                                ¡Genial!, ahora escribe tus datos de contacto para saber donde te enviaremos el precio final de Economicar.
+                            </p> 
+                            <p data-v-24358ebe="" class="card-subtitle mt-3 mb-5 text-muted">
+                                Nunca compartiremos tu informacion personal con terceros.
+                            </p>
+                        </div> 
+                        <section data-v-700dee7d="" data-v-24358ebe="" class="">
+                            <form data-v-24358ebe="" data-v-700dee7d="">
+                                <div data-v-24358ebe="" data-v-700dee7d="" class="form-row">
+                                    <div data-v-24358ebe="" data-v-700dee7d="" class="col">
+                                        <div data-v-24358ebe="" data-v-700dee7d="" class="form-group">
+                                            <div data-v-b99254f6="" data-v-24358ebe="" data-v-700dee7d="">
+                                                <label data-v-b99254f6="" for="firstName">Nombre</label> 
+                                                <input data-v-b99254f6="" type="text" id="InputNombre" required="required" class="form-control"> 
+                                                <ul data-v-b99254f6="" class="invalid-feedback">
+                                                    <li data-v-b99254f6="">Este campo es requerido.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    <div data-v-24358ebe="" data-v-700dee7d="" class="col">
+                                        <div data-v-24358ebe="" data-v-700dee7d="" class="form-group">
+                                            <div data-v-b99254f6="" data-v-24358ebe="" data-v-700dee7d="">
+                                                <label data-v-b99254f6="" for="lastName">Apellido</label> 
+                                                <input data-v-b99254f6="" type="text" id="InputApellido" required="required" class="form-control"> 
+                                                <ul data-v-b99254f6="" class="invalid-feedback">
+                                                    <li data-v-b99254f6="">Este campo es requerido.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div data-v-24358ebe="" data-v-700dee7d="" class="form-row">
+                                    <div data-v-24358ebe="" data-v-700dee7d="" class="col">
+                                        <div data-v-24358ebe="" data-v-700dee7d="" class="form-group">
+                                            <div data-v-b99254f6="" data-v-24358ebe="" data-v-700dee7d="">
+                                                <label data-v-b99254f6="" for="email">Correo electronico</label> 
+                                                <input data-v-b99254f6="" type="email" id="InputCorreo" required="required" class="form-control"> 
+                                                <ul data-v-b99254f6="" class="invalid-feedback">
+                                                    <li data-v-b99254f6="">Este campo es requerido.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    <div data-v-24358ebe="" data-v-700dee7d="" class="col-12 col-xl-5">
+                                        <div data-v-24358ebe="" data-v-700dee7d="" class="form-group">
+                                            <div data-v-b99254f6="" data-v-24358ebe="" data-v-700dee7d="">
+                                                <label data-v-b99254f6="" for="phone">Telefono</label> 
+                                                <input data-v-b99254f6="" type="tel" id="InputTelefono" required="required" class="form-control"> 
+                                                <ul data-v-b99254f6="" class="invalid-feedback">
+                                                    <li data-v-b99254f6="">Este campo es requerido.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="my-4"> 
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input id="terms" type="checkbox" required="required" class="custom-control-input"> 
+                                                    <label for="terms" class="custom-control-label">
+                                                        Acepto los
+                                                        <a href="perfil.html">
+                                                            Terminos y Condiciones.
+                                                        </a>
+                                                    </label> 
+                                                    <div class="invalid-feedback">
+                                                        Debes de aceptar antes de continuar.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button data-v-24358ebe="" class="btn btn-blue rounded-pill mx-auto" data-v-700dee7d="" onclick="irPerfil()">
+                                        Confirmar
+                                    </button>
+                                </div> 
+                                <div data-v-24358ebe="" data-v-700dee7d="" class="form-badges form-row mt-5 mx-2 justify-content-center justify-content-md-between align-items-center">
+                                    <a data-v-24358ebe="" data-v-700dee7d="" title="Click for the Business Review of CarBuckets.com, L.L.C., a Car Buying Service  in Miami FL" href="https://www.bbb.org/us/fl/miami/profile/car-buying/carbucketscom-0633-90420712#sealclick">
+                                        <img data-v-24358ebe="" data-v-700dee7d="" alt="Click for the BBB Business Review of this Car Buying Service  in Miami FL" src="https://seal-Seflorida.bbb.org/seals/blue-seal-293-61-carbucketscomllc-90420712.png" class="bbb mt-2" style="border: 0px;">
+                                    </a> 
+                                        <span data-v-24358ebe="" data-v-700dee7d="">
+
+                                        </span>
+                                    </div>
+                                </form>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+                        <div id="DisclaimerModal" class="modal fade">
+                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                                <div class="modal-content border-dark mb-3">
+                                    <div class="modal-header border-0">
+                                        <h3 class="modal-title text-truncate">
+                                            Disclaimers
+                                        </h3> <button type="button" data-dismiss="modal" class="close"><svg
+                                                class="svg-inline--fa fa-times fa-w-11" aria-hidden="true"
+                                                focusable="false" data-prefix="fas" data-icon="times" role="img"
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"
+                                                data-fa-i2svg="">
+                                                <path fill="currentColor"
+                                                    d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z">
+                                                </path>
+                                            </svg><!-- <i class="fas fa-times"></i> --></button>
+                                    </div>
+                                    <div class="modal-body pt-0">
+                                        <article>
+                                            <h4>MSRP Disclaimer</h4>
+                                            <p>
+                                                MSRP for this Vehicle is provided for informational purposes only based
+                                                on data received from our service providers and does not reflect the
+                                                purchase price which will be offered to you by the Winning Dealership.
+                                            </p>
+                                            <h4>Images Disclaimer: </h4>
+                                            <p>
+                                                The images provided above are shown for illustration purposes only and
+                                                do not reflect the final Trim or accessories packages that may be
+                                                available to you from the Dealership. Please review our Consumer Terms
+                                                of Use for more information <a href="/legal/consumers/terms-of-use"
+                                                    target="_blank">[Consumer Terms of Use]</a>.
+                                            </p>
+                                            <h4>Rebates Disclaimer: </h4>
+                                            <p>
+                                                Please carefully read the eligibility requirements in each disclaimer in
+                                                order to ensure that you are only selecting Rebates for which you
+                                                actually qualify. Please note that your ultimate eligibility for any
+                                                Rebates will be determined by the applicable Dealership or Vehicle
+                                                manufacturer, as the case may be, at the time of purchase or lease of a
+                                                Vehicle. Information regarding Cash Rebates is provided by our
+                                                third-party affiliates. CarBuckets does not guarantee the accuracy or
+                                                availability of any Cash Rebate or similar incentives provided on our
+                                                Website. The availability of and your eligibility for any Cash Rebates
+                                                will be determined by at the time of purchase or lease by the
+                                                Dealership. Please review our Consumer Terms of Use for more
+                                                information.<a href="/legal/consumers/terms-of-use"
+                                                    target="_blank">[Consumer Terms of Use]</a>.
+                                            </p>
+                                        </article>
+                                    </div>
+                                    <div class="modal-footer "><button type="button" data-dismiss="modal"
+                                            class="btn btn-outline-secondary btn-block">Close</button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://js.stripe.com/v3/"></script>
+
+
+    <script>
+            (function (d) {
+                var config = {
+                    kitId: 'pnx5lhk',
+                    scriptTimeout: 3000,
+                    async: true
+                },
+                    h = d.documentElement, t = setTimeout(function () { h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive"; }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a; h.className += " wf-loading"; tk.src = 'https://use.typekit.net/' + config.kitId + '.js'; tk.async = true; tk.onload = tk.onreadystatechange = function () { a = this.readyState; if (f || a && a != "complete" && a != "loaded") return; f = true; clearTimeout(t); try { Typekit.load(config) } catch (e) { } }; s.parentNode.insertBefore(tk, s)
+            })(document);
+    </script>
+
+     <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
+<!--   <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-messaging.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-functions.js"></script> -->
+  <script src="js/crudDB.js"></script>
+
+    <script src="js/basic.js"></script>
+    <script src="js/app.js"></script>
+     
+   </body>

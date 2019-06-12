@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+                  <title>Configuración | Economicar&reg;</title>
+        
+
+
+
+<link href="css/vendor.css" rel="stylesheet">
+<link href="css/app.css" rel="stylesheet">
+<link rel="shortcut icon" href="https://cdn.carbuckets.com/images/favicon.png">
+  <link href="css/buyer.css" rel="stylesheet">
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="csrf-token" content="BgXynjSQGQO5viNRSPDMnsWPVrcmSgmULekPsnkF">
+
+<meta name="description" content="Hate the car-buying process? We're going to fix that. Try CarBuckets Group Buying method for low prices, no hassle, and a stress free way to purchase the new car you've been eyeing. Learn more here.">
+<meta property="og:title" content="Group Buying for Cars | CarBuckets&reg;" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://cdn.carbuckets.com/images/og-cb.png" />
+<meta property="og:url" content="https://www.carbuckets.com/buyer/settings" />
+<meta property="og:description" content="Hate the car-buying process? We're going to fix that. Try CarBuckets Group Buying method for low prices, no hassle, and a stress free way to purchase the new car you've been eyeing. Learn more here." />
+<meta property="og:site_name" content="CarBuckets&reg;" />
+
+<link rel="canonical" href="https://www.carbuckets.com/buyer/settings">
+
+                  
+          <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K6DKVL3" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+          
+            </head>
+    <body>
+      
+              <header class="sticky-top" id="configuracion">
+  <nav class="navbar navbar-white bg-white">
+    <a class="navbar-brand w-25" href="perfil.html" style="max-width: 180px">
+      <img class="img-fluid" src="images/logo.png">
+    </a>
+          <button class="btn btn-sm btn-outline-dark px-3 rounded-pill text-capitalize" type="button" data-toggle="collapse" data-target="#mainNav">
+        <i class="fas fa-bars"></i> Menu
+      </button>
+      <div class="navbar-collapse collapse" id="mainNav">
+        <ul class="navbar-nav mr-auto align-items-end">
+                      <a class="nav-link text-capitalize pr-md-3" href="perfil.html">Mi Cuenta</a>
+
+<li class="nav-item">
+  <a class="nav-link text-capitalize pr-md-3 " href="join-a-carbucket.html">Unirse A Un Grupo</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link text-capitalize pr-md-3 " href="faq.html">Preguntas Frecuentes</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link text-capitalize pr-md-3 " href="contact.html">Contactanos</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link text-capitalize pr-md-3 " href="settings.html">Configuración</a>
+</li>
+
+<div class="dropdown-divider"></div>
+<form class="form-inline my-2 my-lg-0" action="https://www.carbuckets.com/logout" method="POST">
+  <input type="hidden" name="_token" value="BgXynjSQGQO5viNRSPDMnsWPVrcmSgmULekPsnkF">  <button class="btn btn-outline-dark btn-sm text-capitalize rounded-pill" type="submit">Log Out</button>
+</form>
+                            </ul>
+      </div>
+      </nav>
+</header>
+      
+      <div class="content-wrapper">
+          <section class="buyer-settings-section py-4">
+    <div class="container">
+      <div class="row">
+       <div class="col-12">
+         <nav aria-label="breadcrumb">
+          <ol class="breadcrumb bg-transparent p-0 m-0">
+            <li class="breadcrumb-item">
+              <a href="perfil.html">
+                <i class="fas fa-arrow-left mr-1 small" style="margin-top:-1px;"></i>Perfil
+              </a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Configuración</li>
+          </ol>
+          <p>Actualizar tu perfil
+                      </p>
+        </nav>
+       </div>
+     </div>
+      <div class="row">
+       <div class="col-12 col-md-6 mt-2 mt-md-2">
+         <div class="card depth">
+           <div class="card-body">
+                          <div class="card-title">
+               <h5>Informacion del perfil</h5>
+             </div>
+                          <div class="card-text">
+                                <form id="profile" action="./settings/profile" method="POST">
+                                             <input type="hidden" name="_method" value="PUT">               
+                                             <input type="hidden" name="_token" value="BgXynjSQGQO5viNRSPDMnsWPVrcmSgmULekPsnkF">               <div class="form-group">
+                 <label class="small" for="name">Nombre Completo</label>
+                 <input type="text" class="form-control form-control-sm" id="nombreCompleto" name="name" required>
+                 <label id="helpBlock" class="small form-text text-muted">
+                   Nombre y Apellido
+                 </label>
+               </div>
+               <div class="form-group">
+                 <label class="small" for="inputAddress">Numero Celular</label>
+                 <input type="tel" class="form-control form-control-sm"  id="telefonoCelular" name="phone" required>
+               </div>
+               <button type="submit" class="btn btn-sm btn-success text-white" onclick="GuardarCambios()">Guardar cambios</button>
+             </form>
+           </div>
+         </div>
+         </div>
+       </div>
+       <div class="col-12 col-md-6 mt-4 mt-md-2">
+         <div class="card depth">
+           <div class="card-body">
+             <div class="card-title">
+               <h5>Correo y contraseña</h5>
+             </div>
+             <div class="card-text">
+               <form onsubmit="preventDefault()">
+                 <div class="form-group mb-2">
+                   <label class="small" for="email" >Correo</label>
+                   <input id="Correo"
+                          class="form-control form-control-sm"
+                          name="email" readonly>
+                                        <a href="./settings/email" class="small underline pb-0">Editar Correo</a>
+                                                       </div>
+                 <div class="form-group">
+                   <label class="small">Contraseña</label>
+                   <input class="form-control form-control-sm" value="********" readonly id="contraseña">
+                                        <div class="my-3">
+                       <a href="./settings/password"  class="small underline pb-0">Editar contraseña</a>
+                     </div>
+                                                       </div>
+               </form>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+      <div class="row mt-3">
+             </div>
+    </div>
+  </section>
+      </div>
+
+              <section class="resource-links py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col col-md-10 col-lg-8 mx-auto">
+        <div class="row">
+          <div class="col-12 col-md">
+            <nav class="nav flex-column">
+              Compradores
+                              <form action="https://www.carbuckets.com/logout" method="POST">
+                  <input type="hidden" name="_token" value="BgXynjSQGQO5viNRSPDMnsWPVrcmSgmULekPsnkF">
+                  <button id="FooterLogout" class="btn btn-link m-0 p-0 font-weight-bold text-capitalize" type="submit">Cerrar Sesión
+                  </button>
+                </form>
+                <a class="nav-link" href="join-a-carbucket.html">Unirse a un grupo</a>
+                            <a class="nav-link" href="https://www.carbuckets.com/legal/consumers/terms-of-use">Terminos de uso</a>
+            </nav>
+          </div>
+          <div class="col-12 col-md">
+            <nav class="nav flex-column">
+              Vendedores
+              <a class="nav-link" href="https://www.carbuckets.com/legal/dealer/code-of-conduct">Codigo de conducta</a>
+              <a class="nav-link" href="https://www.carbuckets.com/legal/dealer/bidding-guidelines">Reglas de puja</a>
+              <a class="nav-link" href="https://www.carbuckets.com/legal/dealer/terms-of-use">Terminos de uso</a>
+            </nav>
+          </div>
+          <div class="col-12 col-md">
+            <nav class="nav flex-column">
+              Recursos
+              <a class="nav-link" href="faq.html">FAQ</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="container-full">
+    <div class="row pt-5 pb-2 align-items-center">
+      <div class="col order-lg-first">
+        <a class="d-block" href="index.html" style="max-width: 150px">
+          <img class="img-fluid" src="images/logo.png">
+        </a>
+      </div>
+      <div class="col-12 order-last col-lg order-lg-2 pt-5 pb-3 py-lg-0">
+        <div class="legal">
+          <a href="https://www.carbuckets.com/legal/cookie-policy">Politicas de cookies</a>
+          <span class="mx-1">·</span>&nbsp;
+          <a href="https://www.carbuckets.com/legal/privacy-policy">Politicas de Privacidad</a>
+          <span class="mx-1">·</span>&nbsp;
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </div>
+      <div class="col order-lg-last">
+        <div class="d-flex justify-content-end align-items-center">
+          <a class="mr-2" href="https://twitter.com/carbuckets" target="_blank">
+            <img src="https://cdn.carbuckets.com/images/home/twitter.png" srcset="https://cdn.carbuckets.com/images/home/twitter@2x.png 2x"/>
+          </a>
+          <a class="mr-2" href="https://www.instagram.com/carbuckets" target="_blank">
+            <img src="https://cdn.carbuckets.com/images/home/instagram.png" srcset="https://cdn.carbuckets.com/images/home/instagram@2x.png 2x"/>
+          </a>
+          <a class="mr-2" href="https://www.facebook.com/carbuckets" target="_blank">
+            <img src="https://cdn.carbuckets.com/images/home/facebook.png" srcset="https://cdn.carbuckets.com/images/home/facebook@2x.png 2x"/>
+          </a>
+          <a class="mr-2" href="https://www.youtube.com/channel/UCPipKbiPxzA-jsXFE1du5hA" target="_blank">
+            <img src="https://cdn.carbuckets.com/images/home/youtube.png" srcset="https://cdn.carbuckets.com/images/home/youtube@2x.png 2x"/>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+            
+      <script src="https://js.stripe.com/v3/"></script>
+
+
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'pnx5lhk',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+
+ <!-- The core Firebase JS SDK is always required and must be listed first -->
+ <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+
+ <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
+<!--   <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-messaging.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-functions.js"></script> -->
+<script src="js/crudDB.js"></script>
+<script src="js/app.js"></script>
+<script src="js/perfil.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+     
+
+    </body>
+</html>

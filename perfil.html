@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>¡Economicar! | Economicar&reg;</title>
+
+  <!--  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K6DKVL3');</script> -->
+
+
+
+
+  <link href="css/vendor.css?id=38d0a4061256f63d2ae7" rel="stylesheet">
+  <link href="css/app.css?id=2d66de76b38d670c1349" rel="stylesheet">
+  <link rel="shortcut icon" href="https://cdn.carbuckets.com/images/favicon.png">
+  <link href="css/buyer.css?id=4c0825d6638ff2cd87b5" rel="stylesheet">
+  <template id="headerTemplate" style="display:none">
+    <header class="sticky-top">
+      <nav class="navbar navbar-white bg-white">
+        <a class="navbar-brand w-25" href="index.html" style="max-width: 200px">
+          <img class="img-fluid" src="images/logo.png">
+        </a>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="btn btn-sm btn-outline-dark rounded-pill" href="login.html">
+              Iniciar sesión
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  </template>
+  <script>
+    window.GOOGLE_MAPS_KEY = "AIzaSyCRFQ9nIMPXqaGUFm7lsPjLwEayGSUD-BE"
+    window.STRIPE_KEY = "pk_live_w6SRqRCntSbUGS7OEN3cj4ee"
+    window.carbuckets = {
+      meta: {
+        host: 'www.carbuckets.com'
+      },
+      wizard: {
+        headerTemplate: document.querySelector('template#headerTemplate').innerHTML
+      }
+    }
+  </script>
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="csrf-token" content="2QVQaXW4wmlhgYviCBC1rEHf3OMCktNEWwfgOqaW">
+
+  <meta name="description"
+    content="Hate the car-buying process? We're going to fix that. Try CarBuckets Group Buying method for low prices, no hassle, and a stress free way to purchase the new car you've been eyeing. Learn more here.">
+  <meta property="og:title" content="Group Buying for Cars | CarBuckets&reg;" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://cdn.carbuckets.com/images/og-cb.png" />
+  <meta property="og:url" content="https://www.carbuckets.com/join-a-carbucket" />
+  <meta property="og:description"
+    content="Hate the car-buying process? We're going to fix that. Try CarBuckets Group Buying method for low prices, no hassle, and a stress free way to purchase the new car you've been eyeing. Learn more here." />
+  <meta property="og:site_name" content="CarBuckets&reg;" />
+
+  <link rel="canonical" href="join-a-carbucket">
+
+
+  <!--  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K6DKVL3" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
+
+</head>
+
+<body>
+
+  <header class="sticky-top" id="perfil">
+    <nav class="navbar navbar-white bg-white">
+      <a class="navbar-brand w-25" href="perfil.html" style="max-width: 200px">
+        <img class="img-fluid" src="images/logo.png">
+      </a>
+      <button class="btn btn-sm btn-outline-dark px-3 rounded-pill text-capitalize" type="button" data-toggle="collapse"
+        data-target="#mainNav">
+        <svg class="svg-inline--fa fa-bars fa-w-14" aria-hidden="true" focusable="false" data-prefix="fas"
+          data-icon="bars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+          <path fill="currentColor"
+            d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z">
+          </path>
+        </svg><!-- <i class="fas fa-bars"></i> --> Menu
+      </button>
+      <div class="navbar-collapse collapse" id="mainNav">
+        <ul class="navbar-nav mr-auto align-items-end">
+          <a class="nav-link text-capitalize pr-md-3" href="perfil.html">Mi Cuenta</a>
+
+          <li class="nav-item">
+            <a class="nav-link text-capitalize pr-md-3 " href="join-a-carbucket.html">Unirse A Un Grupo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-capitalize pr-md-3 " href="faq.html">Preguntas Frecuentes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-capitalize pr-md-3 " href="contact.html">Contactanos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-capitalize pr-md-3 " href="settings.html">Configuración</a>
+          </li>
+
+          <div class="dropdown-divider"></div>
+          <form class="form-inline my-2 my-lg-0" action="https://www.carbuckets.com/logout" method="POST">
+            <input type="hidden" name="_token" value="BgXynjSQGQO5viNRSPDMnsWPVrcmSgmULekPsnkF">
+            <button class="btn btn-outline-dark btn-sm text-capitalize rounded-pill" type="submit">Cerrar
+              Sesión</button>
+          </form>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div class="content-wrapper">
+
+
+    <section id="dashboard" class="dashboard pb-5 mb-5">
+      <div class="container mt-4">
+        <section class="status-section">
+          <div class="card status-bar depth mb-4">
+            <ul class="list-inline mx-auto pt-3">
+              <li class="list-inline-item">
+                <span class="circle-with-text">1</span>
+              </li>
+              <span class="d-none d-lg-inline">
+                <li class="list-inline-item">Preparando Grupo</li>
+              </span>
+              <li class="list-inline-item">
+                <svg class="svg-inline--fa fa-arrow-right fa-w-14 ml-2 mr-1" aria-hidden="true" focusable="false"
+                  data-prefix="fas" data-icon="arrow-right" role="img" xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512" data-fa-i2svg="">
+                  <path fill="currentColor"
+                    d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z">
+                  </path>
+                </svg><!-- <i class="fas fa-arrow-right ml-2 mr-1"></i> -->
+              </li>
+              <li class="list-inline-item">
+                <span class="circle-with-text-outline">2</span>
+              </li>
+              <span class="d-none d-lg-inline">
+                <li class="list-inline-item">¡Comienza La Puja!</li>
+              </span>
+              <li class="list-inline-item">
+                <svg class="svg-inline--fa fa-arrow-right fa-w-14 ml-2 mr-1" aria-hidden="true" focusable="false"
+                  data-prefix="fas" data-icon="arrow-right" role="img" xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512" data-fa-i2svg="">
+                  <path fill="currentColor"
+                    d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z">
+                  </path>
+                </svg><!-- <i class="fas fa-arrow-right ml-2 mr-1"></i> -->
+              </li>
+              <li class="list-inline-item">
+                <span class="circle-with-text-outline">3</span>
+              </li>
+              <span class="d-none d-lg-inline">
+                <li class="list-inline-item">Agendamiento Del Test</li>
+              </span>
+              <li class="list-inline-item">
+                <svg class="svg-inline--fa fa-arrow-right fa-w-14 ml-2 mr-1" aria-hidden="true" focusable="false"
+                  data-prefix="fas" data-icon="arrow-right" role="img" xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512" data-fa-i2svg="">
+                  <path fill="currentColor"
+                    d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z">
+                  </path>
+                </svg><!-- <i class="fas fa-arrow-right ml-2 mr-1"></i> -->
+              </li>
+              <li class="list-inline-item">
+                <span class="circle-with-text-outline">4</span>
+              </li>
+              <span class="d-none d-lg-inline">
+                <li class="list-inline-item">¡Todo Listo!</li>
+              </span>
+            </ul>
+          </div>
+        </section>
+        <section id="section-to-print" class="card-section">
+          <img id="section-to-show-on-print" class="d-none print-logo mx-auto"
+            src="https://cdn.carbuckets.com/images/logo.svg">
+
+          <div class="card-deck mb-sm-4">
+
+
+            <div class="buyer-dash card  status-card depth">
+              <div class="card-body">
+                <div class="card-title">
+                  <h1 class="text-center text-sm-left">
+                    1. Buyers Joining Your BMW Bucket
+                  </h1>
+                </div>
+
+                <div class="card-text">
+                  <p class="main-status">
+                    Here's what's next:
+                  </p>
+                  <ol>
+                    <li>
+                      Your Bucket will close on <strong class="text-underline">Monday, June 3</strong> at 11:59pm.
+                    </li>
+                    <li>
+                      Local dealers will bid on <strong class="text-underline">Tuesday, June 4</strong> and <strong
+                        class="text-underline">Wednesday, June 5</strong>.
+                    </li>
+                    <li>
+                      You’ll receive an email with your real, out-the-door-price from the winning dealership on <strong
+                        class="text-underline">Thursday, June 6</strong>
+                    </li>
+                    <li>
+                      Schedule to take your test drive at the winning dealership <strong
+                        class="text-underline">Thursday, June 6</strong> through <strong class="text-underline">Monday,
+                        June 10</strong> . Remember, there is no obligation to buy the car.
+                    </li>
+                    <li>
+                      Rate the dealer and your overall CarBuckets experience in our post-test drive survey. We rely on
+                      our community to help us keep dealers honest.
+                    </li>
+                  </ol>
+                  <p></p>
+                </div>
+              </div>
+
+            </div>
+
+
+            <div class="buyer-dash card  vehicle-card depth">
+              <div class="card-body">
+                <div class="card-title">
+                  <h1 class="text-center text-sm-left">
+                    Tu Carro
+                  </h1>
+                </div>
+
+                <div class="card-text">
+                  <div class="row">
+                    <div class="col-6">
+                      <dl>
+                        <dt class="key">Comprando:</dt>
+                        <dd class="value" id="nombreCarro">
+                          
+                        </dd>
+                      </dl>
+                    </div>
+                    <div class="col-6">
+                      <div class="test-drive-scheduled">
+                        <dl class="">
+                          <dt class="key">Transmisión:</dt>
+                          <dd class="value" id="transmisionCarro"> </dd>
+                        </dl>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="vehicle-img mx-auto pt-3">
+                    <div class="row text-center">
+
+                      <div class="col-6 col-md-4 mx-auto">
+                        <figure>
+                          <img
+                            src="https://media.chromedata.com/MediaGallery/media/MjkzODk3Xk1lZGlhIEdhbGxlcnk/on5zQhPIJp7bTi5UTyxmz1JBhcxP59_4snqD06kG2O4dN3MVNvB-LTJg-t9qksOs_e7C1d3EljU/cc_2019BMC800006_01_640_A75.png"
+                            class="img-fluid">
+                          <figcaption class="color-name text-center" id="colorCarro">
+                            
+                            <p class="option-number">
+                              Opción 1
+                            </p>
+                          </figcaption>
+                        </figure>
+                      </div>
+                      <div class="col-6 col-md-4 mx-auto">
+                        <figure>
+                          <img
+                            src="https://media.chromedata.com/MediaGallery/media/MjkzODk3Xk1lZGlhIEdhbGxlcnk/on5zQhPIJp7bTi5UTyxmz1JBhcxP59_4qkfGedCTPgODeH2WXWfi1kwvDrSigA6oVZRhmlcjyn0/cc_2019BMC800009_01_640_C1X.png"
+                            class="img-fluid">
+                          <figcaption class="color-name text-center" id="colorCarro_op2">
+                            
+                            <p class="option-number">
+                              Opción 2
+                            </p>
+                          </figcaption>
+                        </figure>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            <!--   <div class="card-footer">
+                <p class="text-muted mb-0" style="font-size:12px;">
+                  Disclaimer: All vehicle images are for display purposes only and do not reflect the final trim or
+                  accessories packages available to the consumer. Exact color may vary depending on dealer availability,
+                  please review our <a href="/legal/consumers/terms-of-use" target="_blank">Consumer Terms of Use
+                  </a>for more information.
+                </p>
+              </div> -->
+            </div>
+
+          </div>
+
+          <div class="card-deck">
+
+
+            <!-- <div class="buyer-dash card  rebates-card depth">
+<div class="card-body">
+<div class="card-title">
+<h1 class="text-center text-sm-left">
+Check Rebate Availability
+</h1>
+</div>
+
+<div class="card-text">
+<p class="rebate-status">
+Your CarBucket is filling up with other buyers. In the meantime, click below to see which cash rebates are available to you.    </p>
+
+
+<a href="https://www.carbuckets.com/buyer/rebates/490" class="btn btn-lg btn-block btn-primary" style="overflow:hidden;white-space: nowrap;text-overflow: ellipsis;">Select Rebates</a>
+</div>
+</div>
+
+</div> -->
+
+
+
+
+
+            <div class="buyer-dash card  invisible depth">
+              <div class="card-body">
+
+                <div class="card-text">
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+  </div>
+
+  <section class="resource-links py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col col-md-10 col-lg-8 mx-auto">
+          <div class="row">
+            <div class="col-12 col-md">
+              <nav class="nav flex-column">
+                Compradores
+                <form action="https://www.carbuckets.com/logout" method="POST">
+                  <input type="hidden" name="_token" value="BgXynjSQGQO5viNRSPDMnsWPVrcmSgmULekPsnkF">
+                  <button id="FooterLogout" class="btn btn-link m-0 p-0 font-weight-bold text-capitalize"
+                    type="submit">Cerrar Sesión
+                  </button>
+                </form>
+                <a class="nav-link" href="join-a-carbucket.html">Join a Bucket</a>
+                <a class="nav-link" href="https://www.carbuckets.com/legal/consumers/terms-of-use">Terminos de uso</a>
+              </nav>
+            </div>
+            <div class="col-12 col-md">
+              <nav class="nav flex-column">
+                Vendedores
+                <a class="nav-link" href="https://www.carbuckets.com/legal/dealer/code-of-conduct">Codigo de conducta</a>
+                <a class="nav-link" href="https://www.carbuckets.com/legal/dealer/bidding-guidelines">Reglas de puja</a>
+                <a class="nav-link" href="https://www.carbuckets.com/legal/dealer/terms-of-use">Terminos de uso</a>
+              </nav>
+            </div>
+            <div class="col-12 col-md">
+              <nav class="nav flex-column">
+                Resources
+                <a class="nav-link" href="faq.html">FAQ</a>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="container-full">
+      <div class="row pt-5 pb-2 align-items-center">
+        <div class="col order-lg-first">
+          <a class="d-block" href="index.html" style="max-width: 200px">
+            <img class="img-fluid" src="images/logo.png">
+          </a>
+        </div>
+        <div class="col-12 order-last col-lg order-lg-2 pt-5 pb-3 py-lg-0">
+          <div class="legal">
+            <a href="https://www.carbuckets.com/legal/cookie-policy">Politicas de cookies</a>
+            <span class="mx-1">·</span>&nbsp;
+            <a href="https://www.carbuckets.com/legal/privacy-policy">Politicas de privacidad</a>
+            <span class="mx-1">·</span>&nbsp;
+            <a href="contact.html">Contact Us</a>
+          </div>
+        </div>
+        <div class="col order-lg-last">
+          <div class="d-flex justify-content-end align-items-center">
+            <a class="mr-2" href="https://twitter.com/carbuckets" target="_blank">
+              <img src="https://cdn.carbuckets.com/images/home/twitter.png"
+                srcset="https://cdn.carbuckets.com/images/home/twitter@2x.png 2x">
+            </a>
+            <a class="mr-2" href="https://www.instagram.com/carbuckets" target="_blank">
+              <img src="https://cdn.carbuckets.com/images/home/instagram.png"
+                srcset="https://cdn.carbuckets.com/images/home/instagram@2x.png 2x">
+            </a>
+            <a class="mr-2" href="https://www.facebook.com/carbuckets" target="_blank">
+              <img src="https://cdn.carbuckets.com/images/home/facebook.png"
+                srcset="https://cdn.carbuckets.com/images/home/facebook@2x.png 2x">
+            </a>
+            <a class="mr-2" href="https://www.youtube.com/channel/UCPipKbiPxzA-jsXFE1du5hA" target="_blank">
+              <img src="https://cdn.carbuckets.com/images/home/youtube.png"
+                srcset="https://cdn.carbuckets.com/images/home/youtube@2x.png 2x">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+      (function (d) {
+        var config = {
+          kitId: 'pnx5lhk',
+          scriptTimeout: 3000,
+          async: true
+        },
+          h = d.documentElement, t = setTimeout(function () { h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive"; }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a; h.className += " wf-loading"; tk.src = 'https://use.typekit.net/' + config.kitId + '.js'; tk.async = true; tk.onload = tk.onreadystatechange = function () { a = this.readyState; if (f || a && a != "complete" && a != "loaded") return; f = true; clearTimeout(t); try { Typekit.load(config) } catch (e) { } }; s.parentNode.insertBefore(tk, s)
+      })(document);
+  </script>
+
+ 
+
+
+ <!-- The core Firebase JS SDK is always required and must be listed first -->
+ <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+
+ <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
+<!--   <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-messaging.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-functions.js"></script> -->
+ <script src="js/crudDB.js"></script>
+ <script src="js/app.js"></script>
+ <script src="js/basic.js"></script>
+ <script src="js/perfil.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+     
+
+</body>

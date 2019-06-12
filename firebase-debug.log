@@ -1,0 +1,35 @@
+[debug] [2019-06-05T15:20:30.019Z] ----------------------------------------------------------------------
+[debug] [2019-06-05T15:20:30.021Z] Command:       /usr/bin/node /usr/local/bin/firebase init
+[debug] [2019-06-05T15:20:30.021Z] CLI Version:   6.5.0
+[debug] [2019-06-05T15:20:30.021Z] Platform:      linux
+[debug] [2019-06-05T15:20:30.021Z] Node Version:  v8.10.0
+[debug] [2019-06-05T15:20:30.021Z] Time:          Wed Jun 05 2019 10:20:30 GMT-0500 (-05)
+[debug] [2019-06-05T15:20:30.021Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-06-05T15:20:30.058Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-06-05T15:20:30.059Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/jose/Documentos/trabajo/economiCar
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2019-06-05T15:20:58.242Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-06-05T15:20:58.243Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-06-05T15:20:58.996Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-05T15:20:59.132Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects?page_size=100  
+ 
+[debug] [2019-06-05T15:21:00.255Z] <<< HTTP RESPONSE 200
