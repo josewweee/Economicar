@@ -17,7 +17,10 @@ var datos = {
     correo: '',
     telefono: '',
     foto: '',
-    precio: ''
+    precio: '',
+    tipoCliente: '',
+    financiamiento: '',
+    entregaCarro: ''
 }; 
 var datosAnteriores = JSON.parse(localStorage.getItem('DATOS'));
 localStorage.removeItem('DATOS');
@@ -39,7 +42,6 @@ function escogerMarca(marcaVehiculo){
         this.iluminarSiguienteBoton("WizardVehicleMakeSelectToggle","WizardVehicleModelSelectToggle");
 
         this.datos.marca = marcaVehiculo;
-        console.log(this.datos.marca)
         this.ventanaMarca = true;
     }
 }
@@ -49,7 +51,6 @@ function escogerModelo(modeloVehiculo, fotoVehiculo, precioVehiculo){
         this.datos.modelo = modeloVehiculo;
         this.datos.foto = fotoVehiculo;
         this.datos.precio = precioVehiculo;
-        console.log(datos.modelo);
 
         var VistaTransmision = document.getElementById('TransmisionVehiculo');
         var VistaMarca = document.getElementById('VehicleModelSelect');
@@ -122,6 +123,14 @@ function irVista(VistaDestino_STR, btnActual_STR, btnSiguiente_STR, lblNumeroAct
             break;
         case 'registro':
             break;
+        case 'info':
+                var tiempo = document.getElementById('TiempoEspera');
+                this.datosAnteriores.tipoCliente = tiempo.options[tiempo.selectedIndex].value;
+                var _financiamiento = document.getElementById('TipoFinanciamiento');
+                this.datosAnteriores.financiamiento = _financiamiento.options[_financiamiento.selectedIndex].value;
+                var _pagoCarro = document.getElementById('PagoCarro');
+                this.datosAnteriores.entregaCarro = _pagoCarro.options[_pagoCarro.selectedIndex].value;
+            break;
         default:
             break;
     }
@@ -136,9 +145,6 @@ function irVista(VistaDestino_STR, btnActual_STR, btnSiguiente_STR, lblNumeroAct
 
 
 function irAddressAndReview(){
-    /* this.saveInfo(this.datos, 'leads'); */
-    console.log(this.datos);
-    console.log(this.person);
     localStorage.setItem('DATOS', JSON.stringify(this.datos));
     window.location.href= "adressAndReview.html";
     this.pantallaActual = "RebatesLocation";
@@ -166,7 +172,6 @@ function iluminarSiguienteBoton(idbotonActual_STR, idbotonSiguiente_STR){
 function saveInfo(data,tipo){
     if(tipo == 'leads'){
         var refLeads = firebase.database().ref("LEADS");
-        console.log(refLeads);
         refLeads.push({
             data
         });
@@ -178,7 +183,6 @@ function saveInfo(data,tipo){
         }).then((snap) => {
             var key = snap.key 
             localStorage.setItem('KEY', key);
-            console.log(key);
             window.location.href= "perfil.html";
          });
     }
