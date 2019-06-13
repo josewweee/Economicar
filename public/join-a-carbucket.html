@@ -20,7 +20,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <header class="sticky-top">
       <nav class="navbar navbar-white bg-white">
         <a class="navbar-brand w-25" href="index.html" style="max-width: 200px">
-          <img class="img-fluid" src="images/logo.png">
+          <img class="img-fluid" src="images/logo economicar fondo oscuro.png">
         </a>
         <ul class="navbar-nav">
           <li class="nav-item">
@@ -82,7 +82,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <header class="sticky-top">
                       <nav class="navbar navbar-white bg-white">
                         <a class="navbar-brand w-25" href="index.html" style="max-width: 200px">
-                          <img class="img-fluid" src="images/logo.png">
+                          <img class="img-fluid" src="images/logo economicar 4.png">
                         </a>
                         <ul class="navbar-nav">
                           <li class="nav-item">
@@ -308,7 +308,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   <span data-v-2479578e="" class="make-name text-center font-weight-normal">Audi</span>
                   <input data-v-2479578e="" id="make4" type="radio" name="make" class="radio-ninja" value="4">
                 </label>
-                <label data-v-2479578e="" for="make5" class="mini-card" onclick="escogerMarca('bmw')">
+                <label data-v-2479578e="" for="make5" class="mini-card" onclick= "escogerMarca('bmw');modelosHTML('bmw');">
                   <picture data-v-d007eb68="" data-v-2479578e="">
                     <source data-v-d007eb68="" media="(min-width: 768px)" srcset="images/brands/bmw@2x.png">
                     <img data-v-d007eb68="" srcset="images/brands/bmw.png, images/brands/bmw@2x.png 2x" alt="BMW"
@@ -317,7 +317,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   <span data-v-2479578e="" class="make-name text-center font-weight-normal">BMW</span>
                   <input data-v-2479578e="" id="make5" type="radio" name="make" class="radio-ninja" value="5">
                 </label>
-                <label data-v-2479578e="" for="make9" class="mini-card" onclick="escogerMarca('chevrolet')">
+                <label data-v-2479578e="" for="make9" class="mini-card" onclick="escogerMarca('chevrolet');modelosHTML('chevrolet');">
                   <picture data-v-d007eb68="" data-v-2479578e="">
                     <source data-v-d007eb68="" media="(min-width: 768px)" srcset="images/brands/chevrolet@2x.png">
                     <img data-v-d007eb68="" srcset="images/brands/chevrolet.png, images/brands/chevrolet@2x.png 2x"
@@ -326,7 +326,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   <span data-v-2479578e="" class="make-name text-center font-weight-normal">Chevrolet</span>
                   <input data-v-2479578e="" id="make9" type="radio" name="make" class="radio-ninja" value="9">
                 </label>
-                <label data-v-2479578e="" for="make18" class="mini-card" onclick="escogerMarca('honda')">
+               <!--  <label data-v-2479578e="" for="make18" class="mini-card" onclick="escogerMarca('honda')">
                   <picture data-v-d007eb68="" data-v-2479578e="">
                     <source data-v-d007eb68="" media="(min-width: 768px)" srcset="images/brands/honda@2x.png">
                     <img data-v-d007eb68="" srcset="images/brands/honda.png, images/brands/honda@2x.png 2x" alt="Honda"
@@ -398,7 +398,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   </picture>
                   <span data-v-2479578e="" class="make-name text-center font-weight-normal">Volkswagen</span>
                   <input data-v-2479578e="" id="make42" type="radio" name="make" class="radio-ninja" value="42">
-                </label>
+                </label> -->
                 <div data-v-2479578e="" class="mini-card">
                   <a data-v-2479578e="" href="/join-a-carbucket/brand-not-available" class="">
                     <label data-v-2479578e="" class="m-0" style="position: relative;">
@@ -423,7 +423,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <div data-v-2d184876="" class="ml-md-3 py-2">
                 <h3 data-v-2d184876="">Carros</h3>
               </div> 
-              <div data-v-2d184876="" class="d-flex">
+              <div data-v-2d184876="" class="d-flex" id="htmlAutomoviles">
                 <div data-v-2d184876="" id="DeckForCars" class="mini-card-deck">
                   <label data-v-2d184876="" for="model417" class="vehicle mini-card" onclick="escogerModelo('series2');">
                     <div data-v-2d184876="" class="model-name text-center">2019 2 Series</div> 
@@ -499,7 +499,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div data-v-2d184876="" class="ml-md-3 py-2">
           <h3 data-v-2d184876="">SUV/Camionetas</h3>
         </div> 
-        <div data-v-2d184876="" class="d-flex">
+        <div data-v-2d184876="" class="d-flex" id="htmlCamionetas">
           <div data-v-2d184876="" id="DeckForSUV/Vans" class="mini-card-deck">
             <label data-v-2d184876="" for="model588" class="vehicle mini-card" onclick="escogerModelo('x1');">
               <div data-v-2d184876="" class="model-name text-center">2019 X1</div> 
@@ -820,6 +820,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
      https://firebase.google.com/docs/web/setup#config-web-app -->
   <script src="js/app.js"></script>
   <script src="js/basic.js"></script>
+  <script src="js/joinBucket.js"></script>
 
   <div id="norton-seal" style="display:none">
     <script
