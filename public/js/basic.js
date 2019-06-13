@@ -10,7 +10,8 @@ var datos = {
     marca: '',
     modelo: '',
     transmision: '',
-    color: 'Color De Prueba',
+    color1: '',
+    color2: '',
     ciudad: '',
     nombre: '',
     apellido: '',
@@ -145,6 +146,10 @@ function irVista(VistaDestino_STR, btnActual_STR, btnSiguiente_STR, lblNumeroAct
 
 
 function irAddressAndReview(){
+    var color = document.getElementById('Color1');
+    this.datos.color1 = color.options[color.selectedIndex].value;
+    color = document.getElementById('Color2');
+    this.datos.color2 = color.options[color.selectedIndex].value;
     localStorage.setItem('DATOS', JSON.stringify(this.datos));
     window.location.href= "adressAndReview.html";
     this.pantallaActual = "RebatesLocation";

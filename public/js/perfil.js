@@ -8,8 +8,8 @@ SearchRef.orderByChild("id").on("child_added", function(snapshot) {
     apellido = snapshot.val().apellido;
     telefono = snapshot.val().telefono;
     ciudad = snapshot.val().ciudad;
-    color1 = snapshot.val().color;
-    color2 = snapshot.val().color;
+    color1 = snapshot.val().color1;
+    color2 = snapshot.val().color2;
     correo = snapshot.val().correo;
     marca = snapshot.val().marca;
     modelo = snapshot.val().modelo;
