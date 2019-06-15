@@ -3,6 +3,14 @@
     width: 75%;
   }
 
+.botonMedio {
+  background-color: #5abfad;
+  width: 70% !important;
+  height: 60px !important;
+  padding-top: 5px !important;
+  font-size: larger !important;
+}
+
 @media only screen and (max-width: 1025px) {
     .resizeSliderImg {
       margin-left: 0px;
