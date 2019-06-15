@@ -97,7 +97,7 @@
                 <div>
                     <div class="slider-inner text-right" style="text-align: center;">
                         <h2>¡Compra carros con precios al por mayor!</h2>
-                        <h5>Te agruparemos con otros compradores para obtener descuentos hasta del 40%</h5>
+                        <h5>Te agruparemos con otros compradores para obtener descuentos hasta del 7%</h5>
                         <a href="join-a-carbucket.html">Selecciona tu Carro</a>
                     </div>
                 </div>
@@ -161,8 +161,40 @@
                     <div class="about-content">
                         <p>Somos el único lugar en donde los concesionarios compiten por ventas en grupo. Por esto, podemos dar los mayores descuentos, justo como cuando compras al por mayor.</p>
                     </div>
+                    
+                </div>
+                
+            </div>
+            <div class="download-btns btn-area text-center" style="padding-top: 20px;">
+                <a onclick="AbrirModal()" class="botonMedio" id="myBtn"></i>Calculadora de ahorro</a>
+            </div>
+
+            <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2 class="HeaderModalIndex">Calcula tu descuento</h2>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <label for="precioVehiculo" class="text-center">Precio de tu Vehiuclo</label>
+                    <input type="text" id="inputPrecioVehiculo" class="form-control"> 
+                    <br>
+                    <label for="descuentoObtenido" class="text-center">Descuento Obtenido</label>
+                    <input type="text" id="inputDescuentoObtenido" readonly class="form-control"> 
+                </div>
+                <div class="row">
+                    <div class="download-btns btn-area text-center" >
+                        <a onclick="CalcularDescuento()" class="BotonModal"></i>Calcular Descuento</a>
+                    </div>
                 </div>
             </div>
+            </div>
+        </div>
+  
         </div>
     </div>
     <!-- about area end -->
@@ -746,6 +778,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="assets/js/jquery.waypoints.min.js"></script>
     <script src="assets/js/jquery.mb.YTPlayer.min.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script src="js/index.js"></script>
 </body>
 
 </html>
