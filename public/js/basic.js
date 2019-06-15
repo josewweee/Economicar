@@ -1,7 +1,9 @@
 
 
-
-/* var pantallaActual = 'VehicleMakeSelect'; */
+var is_mobile = false;
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    is_mobile = true;
+   }
 var pantallaActual = 'VistaLocacion';
 var contP
 var ventanaMarca = false, ventanaModelo = false, ventanaTransmision = false, ventanaColor = false;
@@ -34,6 +36,7 @@ function escogerMarca(marcaVehiculo){
         var Label_index_actual = document.getElementById('number1');
         var Label_index_siguiente = document.getElementById('number2');
         VistaMarca.style.display = 'none';
+        if(is_mobile){document.getElementById('VehicleMakeSelect2').style.display = 'none';}
         VistaModelo.style.display = 'block';
         this.pantallaActual = 'VehicleModelSelect';
         

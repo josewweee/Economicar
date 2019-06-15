@@ -673,7 +673,7 @@ END Screen Area
 
 .single-tst {
         text-align: center;
-    border: 2px solid #5a10fb;
+    border: 2px solid #49bdac;
     border-radius: 10px;
     margin-top: 109px;
     padding: 0px 8%;
@@ -731,7 +731,7 @@ END Screen Area
 .testimonial-slider .owl-dots .owl-dot {
     height: 15px;
     width: 15px;
-    border: 1px solid #5a10fb;
+    border: 1px solid #49bdac;
     border-radius: 50%;
     display: inline-block;
     margin: 0px 2px;
@@ -741,7 +741,7 @@ END Screen Area
 }
 
 .testimonial-slider .owl-dots .active {
-    background-color: #5a10fb;
+    background-color: #49bdac;
 }
 
 
@@ -1096,7 +1096,7 @@ END Contact Area
 .contact-form #send{
     height: 45px;
     width: 150px;
-    background: #5a10fb;
+    background: #49bdac;
     color: #fff;
     text-align: center;
     line-height: 45px;
@@ -1115,7 +1115,7 @@ END Contact Area
 }
 .s-info i{
         font-size: 21px;
-    color: #591efb;
+    color: #49bdac;
     float: left;
     margin-right: 14px;
     margin-top: 6px;
@@ -1141,7 +1141,7 @@ END Contact Area
     height: 50px;
     width: 50px;
     border-radius: 50%;
-    background-color: #5a10fb;
+    background-color: #49bdac;
     color: #fff;
     text-align: center;
     line-height: 50px;

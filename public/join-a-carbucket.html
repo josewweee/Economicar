@@ -75,7 +75,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="wizard-container" style="min-height: 100vh;">
           <div class="row no-gutters" wide="true" style="overflow: hidden;">
             <!-- BARRA DE LA IZQUIERDA (ARREGLAR BOTONES Y ANIMACIONES AQUI) -->
-            <div data-v-43dfaa2c="" class="wizard-sidebar col-12 col-sm-6 col-md-6 col-lg-5 col-xl-4 position-fixed">
+            <div data-v-43dfaa2c="" id="appVersion" class="wizard-sidebar col-12 col-sm-6 col-md-6 col-lg-5 col-xl-4 position-fixed">
               <div data-v-43dfaa2c="" class="row">
                 <div data-v-43dfaa2c="" class="col">
                   <div data-v-c170a866="" data-v-43dfaa2c="">
@@ -97,11 +97,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   <div data-v-43dfaa2c="" class="row">
                     <div data-v-43dfaa2c="" class="col">
                       <div data-v-43dfaa2c="" id="WizardAccordion" class="accordion">
-                        <div data-v-4fa46acd="" class="card" data-v-43dfaa2c="" onclick="irVista('VehicleMakeSelect')">
+                        <div data-v-4fa46acd="" class="card" data-v-43dfaa2c="">
                           <div data-v-4fa46acd="" id="WizardVehicleMakeSelectToggle" data-toggle="collapse"
                             data-target="#WizardVehicleMakeSelect"
                             class="card-header d-flex justify-content-between align-items-center active"
-                            style="opacity: 1;">
+                            style="opacity: 1;" onclick="irVista('VehicleMakeSelect')">
                             <div data-v-4fa46acd="" class="d-flex align-items-center">
                               <span data-v-4fa46acd="" class="position active" id="number1">
                                 01
@@ -114,9 +114,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             </div>
                             <div data-v-4fa46acd=""
                               class="d-flex justify-content-between align-items-center d-flex justify-content-between">
-                              <!---->
-                              <!---->
-                              <!---->
                               <svg data-v-4fa46acd="" aria-hidden="true" focusable="false" data-prefix="fas"
                                 data-icon="arrow-right" role="img" xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 448 512" class="svg-inline--fa fa-arrow-right fa-w-14">
@@ -126,16 +123,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                               </svg>
                             </div>
                           </div>
-                          <div data-v-4fa46acd="" id="WizardVehicleMakeSelect" data-parent="#WizardAccordion"
+                          <div data-v-4fa46acd="" id="VehicleSelectCollapse" data-parent="#WizardAccordion"
                             class="collapse show">
                             <div data-v-4fa46acd="" hidden="hidden" class="card-body p-0 pb-3">
+                              
                             </div>
                           </div>
                         </div>
-                        <div data-v-4fa46acd="" class="card" data-v-43dfaa2c="" onclick="irVista('VehicleModelSelect')">
+                        <div data-v-4fa46acd="" class="card" data-v-43dfaa2c="" >
                           <div data-v-4fa46acd="" id="WizardVehicleModelSelectToggle" data-toggle=""
                             data-target="#WizardVehicleModelSelect"
-                            class="card-header d-flex justify-content-between align-items-center" style="opacity: 0.5;">
+                            class="card-header d-flex justify-content-between align-items-center" style="opacity: 0.5;" onclick="irVista('VehicleModelSelect')">
                             <div data-v-4fa46acd="" class="d-flex align-items-center">
                               <span data-v-4fa46acd="" class="position" id="number2">
                                 02
@@ -160,10 +158,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             </div>
                           </div>
                         </div>
-                        <div data-v-4fa46acd="" class="card" data-v-43dfaa2c="" onclick="irVista('TransmisionVehiculo')">
+                        <div data-v-4fa46acd="" class="card" data-v-43dfaa2c="" >
                           <div data-v-4fa46acd="" id="WizardVehicleTransmissionSelectToggle" data-toggle=""
                             data-target="#WizardVehicleTransmissionSelect"
-                            class="card-header d-flex justify-content-between align-items-center" style="opacity: 0.5;">
+                            class="card-header d-flex justify-content-between align-items-center" style="opacity: 0.5;" onclick="irVista('TransmisionVehiculo')">
                             <div data-v-4fa46acd="" class="d-flex align-items-center">
                               <span data-v-4fa46acd="" class="position" id="number3">
                                 03
@@ -182,12 +180,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                               <!---->
                             </div>
                           </div>
+                          <div data-v-4fa46acd="" id="WizardVehicleTransmissionSelect" data-parent="#WizardAccordion" class="collapse">
+                            <div data-v-4fa46acd="" class="card-body p-0 pb-3" >
+
+                            </div>
+                          </div>
                         </div>
                        
-                        <div data-v-4fa46acd="" class="card" data-v-43dfaa2c="" onclick="irVista('VehicleColorSelect')">
+                        <div data-v-4fa46acd="" class="card" data-v-43dfaa2c="" >
                           <div data-v-4fa46acd="" id="WizardVehicleColorSelectToggle" data-toggle=""
                             data-target="#WizardVehicleColorSelect"
-                            class="card-header d-flex justify-content-between align-items-center" style="opacity: 0.5;">
+                            class="card-header d-flex justify-content-between align-items-center" style="opacity: 0.5;" onclick="irVista('VehicleColorSelect')">
                             <div data-v-4fa46acd="" class="d-flex align-items-center">
                               <span data-v-4fa46acd="" class="position" id="number4">
                                 04
