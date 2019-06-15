@@ -27,7 +27,9 @@ var datos = {
 }; 
 var datosAnteriores = JSON.parse(localStorage.getItem('DATOS'));
 localStorage.removeItem('DATOS');
-console.log("-> " + datosAnteriores);
+
+//VERSION MOVIL?
+this.CambiarHtmlCiudad();
 
 function escogerMarca(marcaVehiculo){
     if(this.ventanaMarca == false){
@@ -124,6 +126,7 @@ function irVista(VistaDestino_STR, btnActual_STR, btnSiguiente_STR, lblNumeroAct
     switch (nombreValor) {
         case 'ciudad':
             this.datosAnteriores.ciudad = document.getElementById('InputCiudad').value;
+            this.CambiarHtmlInfoAdicional();
             break;
         case 'registro':
             break;
@@ -134,15 +137,17 @@ function irVista(VistaDestino_STR, btnActual_STR, btnSiguiente_STR, lblNumeroAct
                 this.datosAnteriores.financiamiento = _financiamiento.options[_financiamiento.selectedIndex].value;
                 var _pagoCarro = document.getElementById('PagoCarro');
                 this.datosAnteriores.entregaCarro = _pagoCarro.options[_pagoCarro.selectedIndex].value;
+                this.CambiarHtmlConfirmacion();
             break;
         default:
             break;
     }
 
     if(this.pantallaActual == "VistaConfirmacion"){
-        document.getElementById("fotoConfirmacion").src = this.datosAnteriores.foto;
+       document.getElementById("fotoConfirmacion").src = this.datosAnteriores.foto;
         document.getElementById("ModeloConfirmacion").innerHTML = this.datosAnteriores.marca + " " + this.datosAnteriores.modelo;
         document.getElementById("PrecioConfirmacion").innerHTML = 'Precio inicial ' + this.datosAnteriores.precio;
+        this.CambiarHtmlDatos();
     }
 
 }
@@ -195,4 +200,65 @@ function saveInfo(data,tipo){
          });
     }
     
+}
+
+function CambiarHtmlCiudad(){
+    if(this.is_mobile){
+        if(document.getElementById("WizardRebatesLocationToggle")){
+            document.getElementById("appVersion").classList.remove('position-fixed');
+            document.getElementById("WizardRebatesLocation_").removeAttribute("hidden");
+            var HTMLciudad = document.getElementById('VistaLocacion');
+            document.getElementById("VistaLocacion").style.display='none';
+            document.getElementById("WizardRebatesLocation_").innerHTML = '<div id="VistaLocacion" incentives="" selected="selected" value="" class="col" style="display: block;">' 
+            + HTMLciudad.innerHTML;
+        }
+    }
+}
+
+function CambiarHtmlInfoAdicional(){
+    if(this.is_mobile){
+        if(document.getElementById("WizardInfo")){
+            document.getElementById("WizardInfoSelect_").removeAttribute("hidden");
+            document.getElementById("colInfo").removeAttribute("class");
+            document.getElementById("colInfo").classList.add("col");
+            document.getElementById("WizardInfoSelect").classList.add("show");
+
+            var HTMLinfo = document.getElementById('VistaInfo');
+            document.getElementById("VistaInfo").style.display='none';
+            document.getElementById("WizardInfoSelect_").innerHTML = '<div id="VistaInfo" incentives="" selected="selected" value="" class="col" style="display: block;">' 
+            + HTMLinfo.innerHTML;
+        }
+    }
+}
+
+function CambiarHtmlConfirmacion(){
+    if(this.is_mobile){
+        if(document.getElementById("WizardRebatesPurchaseType")){
+            document.getElementById("WizardRebatesPurchaseType_").removeAttribute("hidden");
+            document.getElementById("colConf").removeAttribute("class");
+            document.getElementById("colConf").classList.add("col");
+            document.getElementById("WizardRebatesPurchaseType").classList.add("show");
+
+            var HTMLconf = document.getElementById('VistaConfirmacion');
+            document.getElementById("VistaConfirmacion").style.display='none';
+            document.getElementById("WizardRebatesPurchaseType_").innerHTML = '<div id="VistaConfirmacion" incentives="" selected="selected" value="" class="col" style="display: block;">' 
+            + HTMLconf.innerHTML;
+        }
+    }
+}
+
+function CambiarHtmlDatos(){
+    if(this.is_mobile){
+        if(document.getElementById("WizardRebatesSelect")){
+            document.getElementById("WizardRebatesSelect_").removeAttribute("hidden");
+            document.getElementById("colRegistro").removeAttribute("class");
+            document.getElementById("colRegistro").classList.add("col");
+            document.getElementById("WizardRebatesSelect").classList.add("show");
+
+            var HTMLRegistro = document.getElementById('VistaRegistro');
+            document.getElementById("VistaRegistro").style.display='none';
+            document.getElementById("WizardRebatesSelect_").innerHTML = '<div id="VistaRegistro" incentives="" selected="selected" value="" class="col" style="display: block;">' 
+            + HTMLRegistro.innerHTML;
+        }
+    }
 }

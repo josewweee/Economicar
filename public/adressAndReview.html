@@ -74,7 +74,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div id="app">
                 <div class="wizard-container" style="min-height: 100vh;">
                     <div class="row no-gutters" wide="true" style="overflow: hidden scroll;">
-                        <div data-v-43dfaa2c=""
+                        <div data-v-43dfaa2c="" id="appVersion"
                             class="wizard-sidebar col-12 col-sm-6 col-md-6 col-lg-5 col-xl-4 position-fixed">
                             <div data-v-43dfaa2c="" class="row">
                                 <div data-v-43dfaa2c="" class="col">
@@ -127,7 +127,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                                                 <path data-v-4fa46acd="" fill="currentColor"
                                                                     d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z" class=""></path>
                                                             </svg></div>
-                                                    </div>                                                    
+                                                    </div>
+                                                    <div data-v-4fa46acd="" id="WizardRebatesLocation"
+                                                        data-parent="#WizardAccordion" class="collapse show">
+                                                        <div  id="WizardRebatesLocation_" data-v-4fa46acd="" hidden="hidden" class="card-body p-0 pb-3">
+                                                        </div>
+                                                    </div>                                                   
                                                 </div>
                                                 <div data-v-4fa46acd="" class="card" data-v-43dfaa2c="">
                                                         <div data-v-4fa46acd="" id="WizardInfo"
@@ -150,6 +155,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                                                 </strong>
                                                             </div>
                                                         </div>
+                                                        <div data-v-4fa46acd="" id="WizardInfoSelect"
+                                                        data-parent="#WizardAccordion" class="collapse">
+                                                        <div data-v-4fa46acd="" hidden="hidden" id="WizardInfoSelect_"
+                                                            class="card-body p-0 pb-3"></div>
+                                                    </div>
                                                     </div>
                                                 <div data-v-4fa46acd="" class="card" data-v-43dfaa2c="">
                                                     <div data-v-4fa46acd="" id="WizardRebatesPurchaseTypeToggle"
@@ -171,6 +181,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                                             <strong data-v-4fa46acd="" class="value">
                                                             </strong>
                                                         </div>
+                                                    </div>
+                                                    <div data-v-4fa46acd="" id="WizardRebatesPurchaseType"
+                                                        data-parent="#WizardAccordion" class="collapse">
+                                                        <div data-v-4fa46acd="" hidden="hidden" id="WizardRebatesPurchaseType_"
+                                                            class="card-body p-0 pb-3"></div>
                                                     </div>
                                                 </div>
                                                 <div data-v-4fa46acd="" class="card" data-v-43dfaa2c="">
@@ -197,7 +212,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                                     </div>
                                                     <div data-v-4fa46acd="" id="WizardRebatesSelect"
                                                         data-parent="#WizardAccordion" class="collapse">
-                                                        <div data-v-4fa46acd="" hidden="hidden"
+                                                        <div data-v-4fa46acd="" hidden="hidden" id="WizardRebatesSelect_"
                                                             class="card-body p-0 pb-3"></div>
                                                     </div>
                                                 </div>
@@ -307,7 +322,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- INFO ADICIONAL-->
 <div data-v-1ba29c07="" style="display: none;" id="VistaInfo" class="col mt-4 mb-5 p-5 p-md-0 pt-lg-5 offset-md-6 offset-lg-5 offset-xl-4">
         <div data-v-1ba29c07="" class="row">
-            <div data-v-1ba29c07="" class="col-6 col-md col-lg col-xl-7 mx-auto">
+            <div data-v-1ba29c07="" id="colInfo" class="col-6 col-md col-lg col-xl-7 mx-auto">
                 <div data-v-24358ebe="" data-v-1ba29c07="" id="AccountSignUpStripe" class="col align-items-center" wide="true">
                     <h3 data-v-24358ebe="">Datos Utiles</h3> 
                     <div data-v-24358ebe="" class="card bg-white card-shadow">
@@ -382,7 +397,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- CONFIRMACION -->
     <div style="display:none;" id="VistaConfirmacion" class="col mt-4 mb-5 p-5 p-md-0 pt-lg-5 offset-md-6 offset-lg-5 offset-xl-4">
     <div class="row">
-        <div class="col-6 col-md col-lg col-xl-7 mx-auto">
+        <div class="col-6 col-md col-lg col-xl-7 mx-auto" id="colConf">
             <div data-v-7cff97f7="" data-v-1ba29c07="" id="AccountReview" class="col-lg align-items-center p-2">
                 <div data-v-7cff97f7="" class="card">
                     <div data-v-7cff97f7="" class="card-body">
@@ -475,7 +490,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <!--REGISTRO-->
     <div data-v-1ba29c07="" style="display: none;" id="VistaRegistro" class="col mt-4 mb-5 p-5 p-md-0 pt-lg-5 offset-md-6 offset-lg-5 offset-xl-4">
     <div data-v-1ba29c07="" class="row">
-        <div data-v-1ba29c07="" class="col-6 col-md col-lg col-xl-7 mx-auto">
+        <div data-v-1ba29c07="" class="col-6 col-md col-lg col-xl-7 mx-auto" id="colRegistro">
             <div data-v-24358ebe="" data-v-1ba29c07="" id="AccountSignUpStripe" class="col align-items-center" wide="true">
                 <h3 data-v-24358ebe="">Registro</h3> 
                 <div data-v-24358ebe="" class="card bg-white card-shadow">
