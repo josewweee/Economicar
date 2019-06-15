@@ -8,4 +8,16 @@
       margin-left: 0px;
       width: 100%;
     }
+}
+
+@media only screen and (max-width: 800px) {
+    .slider-area {
+      padding-top: 40px !important;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+  .customImage {
+    padding-top: 40px !important;
   }
+}

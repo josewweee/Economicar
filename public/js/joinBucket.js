@@ -11,8 +11,8 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
  }
 
  if(is_mobile){
-  document.getElementById("appVersion").classList.remove('position-fixed');
   document.getElementById("VehicleMakeSelect").style.display='none';
+  document.getElementById("appVersion").classList.remove('position-fixed');
   this.HTMLmarcas_movil = '<div data-v-4fa46acd="" class="card-body p-0 pb-3"><div data-v-2479578e="" id="VehicleMakeSelect2" class="col align-items-center" data-v-4fa46acd=""><div data-v-2479578e="" class="mini-card-deck"></div>';
   var fotoMarcas = ["mages/brands/chevrolet.png"];
   var nombreMarcas = ["chevrolet"]
