@@ -1,5 +1,5 @@
 
-
+var firebaseAuth = firebase.auth();
 var is_mobile = false;
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
     is_mobile = true;
@@ -183,6 +183,7 @@ function iluminarSiguienteBoton(idbotonActual_STR, idbotonSiguiente_STR){
 
 //FUNCTION TO SAVE INFO IN DB
 function saveInfo(data,tipo){
+    var password;
     if(tipo == 'leads'){
         var refLeads = firebase.database().ref("LEADS");
         refLeads.push({
@@ -192,12 +193,31 @@ function saveInfo(data,tipo){
         var refUsers = firebase.database().ref("USUARIOS");
         console.log(refUsers);
         refUsers.push({
+            correo: data.correo,
             data
         }).then((snap) => {
             var key = snap.key 
             localStorage.setItem('KEY', key);
-            window.location.href= "perfil.html";
-         });
+            password =  (Math.floor(Math.random() * (999999 - 100000)) + 100000).toString();
+            firebaseAuth.createUserWithEmailAndPassword(this.datosAnteriores.correo, password).catch(function(error) {
+				var errorCode = error.code;
+				var errorMessage = error.message;
+
+				if (errorCode === 'auth/wrong-password') {
+			        alert('Contraseña equivocada.');
+			        errores = true;
+			        return;
+			    } else {
+			    	errores = true;
+			        alert(errorMessage);
+			        return;
+			    }
+			});
+            //window.location.href= "perfil.html";
+        }).then((snap) => {
+            console.log("TU CONTRASEÑA ES" +  password);
+        
+        });
     }
     
 }
@@ -261,4 +281,12 @@ function CambiarHtmlDatos(){
             + HTMLRegistro.innerHTML;
         }
     }
+}
+
+function LogOut(){
+    firebase.auth().signOut().then(function() {
+        window.location.href="perfil.html";
+  }, function(error) {
+    
+  });
 }

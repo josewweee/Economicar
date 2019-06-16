@@ -120,6 +120,7 @@
             <div class="row">
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="service-single">
+                        <h2 class="NumeroImagenesEntradaHome">1.</h2>
                         <img src="images/home/ElijeMarca.png" alt="service image" style="max-width: 220px;">
                         <h2>Eliges tu marca y modelo.</h2>
                         <p>Decenas de estilos distintos</p>
@@ -127,6 +128,7 @@
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12 col-6">
                     <div class="service-single">
+                        <h2 class="NumeroImagenesEntradaHome">2.</h2>
                         <img src="images/home/TeAgrupamos.png" alt="service image">
                         <h2>Eres agrupado con otros compradores.</h2>
                         <p>¡En grupo es mas facil!</p>
@@ -134,6 +136,7 @@
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12 col-6">
                     <div class="service-single">
+                        <h2 class="NumeroImagenesEntradaHome">3.</h2>
                         <img src="images/home/Descuentos.png" alt="service image">
                         <h2>Los concesionarios compiten por tu grupo.</h2>
                         <p>¡Que comienzen los descuentos!</p>
@@ -166,7 +169,7 @@
                 
             </div>
             <div class="download-btns btn-area text-center" style="padding-top: 20px;">
-                <a onclick="AbrirModal()" class="botonMedio" id="myBtn"></i>Calculadora de ahorro</a>
+                <a class="botonMedio" id="myBtn"></i>Calculadora de ahorro</a>
             </div>
 
             <!-- The Modal -->
@@ -175,18 +178,21 @@
             <!-- Modal content -->
             <div class="modal-content">
             <div class="modal-header">
-                <span class="close">&times;</span>
+                <span class="close" style="margin-top: 10px;">&times;</span>
                 <h2 class="HeaderModalIndex">Calcula tu descuento</h2>
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <label for="precioVehiculo" class="text-center">Precio de tu Vehiuclo</label>
-                    <input type="text" id="inputPrecioVehiculo" class="form-control"> 
+                    <label for="precioVehiculo" class="textCalcularDescuento">Precio de tu Vehiuclo</label>
+                    <input type="text" id="inputPrecioVehiculo" class="form-control inputModal"> 
                     <br>
-                    <label for="descuentoObtenido" class="text-center">Descuento Obtenido</label>
-                    <input type="text" id="inputDescuentoObtenido" readonly class="form-control"> 
+                    <label for="descuentoObtenido" class="textCalcularDescuento">Descuento Obtenido</label>
+                    <input type="text" id="inputDescuentoObtenido" readonly class="form-control inputModal"> 
                 </div>
                 <div class="row">
+                    <label id="lblDescuento" for="descuentoObtenido" class="textCalcularDescuento">Descuento Obtenido</label>
+                </div>
+                <div class="row" style="margin-bottom: 30px;">
                     <div class="download-btns btn-area text-center" >
                         <a onclick="CalcularDescuento()" class="BotonModal"></i>Calcular Descuento</a>
                     </div>
@@ -758,12 +764,11 @@
     <!-- footer area start -->
     <footer>
         <div class="footer-area">
-            <div class="container">
-                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+           <!--  <div class="container">
+                <p>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
             </div>
-        </div>
+        </div> -->
     </footer>
     <!-- footer area end -->
 

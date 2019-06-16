@@ -13,7 +13,7 @@ btn.onclick = function() {
 }
 
 // When the user clicks on <span> (x), close the modal
-function abrirModal(){
+span.onclick = function() {
   modal.style.display = "none";
 }
 
@@ -22,4 +22,13 @@ window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
+}
+
+function CalcularDescuento(){
+  var ValorBase = document.getElementById('inputPrecioVehiculo').value;
+  var PorcentajeDescuento = 0.06;
+  var Resultado = document.getElementById('inputDescuentoObtenido');
+  var ResultadoProcentual = document.getElementById('lblDescuento');
+  Resultado.value = (ValorBase * PorcentajeDescuento);
+  ResultadoProcentual.innerHTML = '6%';
 }
