@@ -101,12 +101,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <a class="nav-link text-capitalize pr-md-3 " href="settings.html">Configuración</a>
           </li>
 
-          <div class="dropdown-divider"></div>
-          <form class="form-inline my-2 my-lg-0" action="https://www.carbuckets.com/logout" method="POST">
-            <input type="hidden" name="_token" value="BgXynjSQGQO5viNRSPDMnsWPVrcmSgmULekPsnkF">
-            <button class="btn btn-outline-dark btn-sm text-capitalize rounded-pill" type="submit">Cerrar
-              Sesión</button>
-          </form>
+            <button class="btn btn-outline-dark btn-sm text-capitalize rounded-pill" type="submit" onclick="LogOut()">Cerrar
+              Sesión
+            </button>
         </ul>
       </div>
     </nav>
@@ -121,7 +118,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <div class="card status-bar depth mb-4">
             <ul class="list-inline mx-auto pt-3">
               <li class="list-inline-item">
-                <span class="circle-with-text">1</span>
+                <span class="circle-with-text" style="background: #4abdac;
+                border: 1px solid #4abdac;">1</span>
               </li>
               <span class="d-none d-lg-inline">
                 <li class="list-inline-item">Preparando Grupo</li>
@@ -185,7 +183,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <div class="card-body">
                 <div class="card-title">
                   <h1 class="text-center text-sm-left">
-                    1. Información importante.
+                    1. Informacion importante.
                   </h1>
                 </div>
 
@@ -243,7 +241,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <div class="col-6">
                       <div class="test-drive-scheduled">
                         <dl class="">
-                          <dt class="key">Transmisión:</dt>
+                          <dt class="key">Transmision:</dt>
                           <dd class="value" id="transmisionCarro"> </dd>
                         </dl>
                       </div>
@@ -258,7 +256,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                           <figcaption class="color-name text-center" id="colorCarro">
                             
                             <p class="option-number">
-                              Opción 1
+                              Opcion 1
                             </p>
                           </figcaption>
                         </figure>
@@ -269,7 +267,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                           <figcaption class="color-name text-center" id="colorCarro_op2">
                             
                             <p class="option-number">
-                              Opción 2
+                              Opcion 2
                             </p>
                           </figcaption>
                         </figure>
@@ -345,7 +343,7 @@ Your CarBucket is filling up with other buyers. In the meantime, click below to 
                 <form action="" method="POST">
                   <input type="hidden" name="_token" value="BgXynjSQGQO5viNRSPDMnsWPVrcmSgmULekPsnkF">
                   <button id="FooterLogout" class="btn btn-link m-0 p-0 font-weight-bold text-capitalize"
-                    type="submit">Cerrar Sesión
+                    type="submit">Cerrar Sesion
                   </button>
                 </form>
                 <a class="nav-link" href="join-a-carbucket.html">Unirse a un grupo</a>

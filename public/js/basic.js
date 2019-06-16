@@ -1,5 +1,6 @@
 
 var firebaseAuth = firebase.auth();
+var password;
 var is_mobile = false;
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
     is_mobile = true;
@@ -183,7 +184,6 @@ function iluminarSiguienteBoton(idbotonActual_STR, idbotonSiguiente_STR){
 
 //FUNCTION TO SAVE INFO IN DB
 function saveInfo(data,tipo){
-    var password;
     if(tipo == 'leads'){
         var refLeads = firebase.database().ref("LEADS");
         refLeads.push({
@@ -198,8 +198,8 @@ function saveInfo(data,tipo){
         }).then((snap) => {
             var key = snap.key 
             localStorage.setItem('KEY', key);
-            password =  (Math.floor(Math.random() * (999999 - 100000)) + 100000).toString();
-            firebaseAuth.createUserWithEmailAndPassword(this.datosAnteriores.correo, password).catch(function(error) {
+            this.password =  (Math.floor(Math.random() * (999999 - 100000)) + 100000).toString();
+            firebaseAuth.createUserWithEmailAndPassword(this.datosAnteriores.correo, this.password).catch(function(error) {
 				var errorCode = error.code;
 				var errorMessage = error.message;
 
@@ -213,9 +213,10 @@ function saveInfo(data,tipo){
 			        return;
 			    }
 			});
-            //window.location.href= "perfil.html";
         }).then((snap) => {
-            console.log("TU CONTRASEÑA ES" +  password);
+            this.alert("Tu contraseña es: " + this.password + "Te enviaremos a tu correo la contraseña");
+            this.EnviarEmail('registro');
+            window.location.href= "perfil.html";
         
         });
     }
@@ -285,8 +286,40 @@ function CambiarHtmlDatos(){
 
 function LogOut(){
     firebase.auth().signOut().then(function() {
-        window.location.href="perfil.html";
+        var key = "";
+        localStorage.setItem("KEY", key);
+        window.location.href="index.html";
   }, function(error) {
     
   });
+}
+
+function EnviarEmail(tipo){
+    var correo = (this.datosAnteriores.correo).toString();
+    if(tipo == 'registro'){
+        Email.send({
+            Host : "smtp.elasticemail.com",
+            Username : "economicar024@gmail.com",
+            Password : "6efa2bba-38e7-452c-908c-bd8e8216e0ab",
+            To : correo,
+            From : "economicar024@gmail.com",
+            Subject : "Contraseña ECONOMICAR",
+            Body : "Tu datos de www.economicar.com, son, USUARIO: "+ correo + " contraseña: " + this.password + " ¡Felicidades!"
+        }).then(
+          message => alert(message)
+        );
+    }else if(tipo == 'contactanos'){
+        Email.send({
+            Host : "smtp.elasticemail.com",
+            Username : "economicar024@gmail.com",
+            Password : "6efa2bba-38e7-452c-908c-bd8e8216e0ab",
+            To : correo,
+            From : "economicar024@gmail.com",
+            Subject : "Contraseña ECONOMICAR",
+            Body : "Tu datos de www.economicar.com, son, USUARIO: "+ correo + " contraseña: " + this.password + " ¡Felicidades!"
+        }).then(
+          message => alert(message)
+        );
+    }
+    
 }
