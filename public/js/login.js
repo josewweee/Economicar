@@ -36,20 +36,7 @@ function IniciarSeccion(){
       	  	//alert(errorMessage);
       	  	/* return; */
             }
-          /*   firebaseRef.orderByChild('correo').equalTo(email).on("child_added", function(snapshot) {
-                var key = snapshot.key;
-                localStorage.setItem("KEY", key);
-                window.location.href="perfil.html";
-            }); */
-	})/* .then(function(value) {
-        alert("sesion iniciada");
-        firebaseRef.orderByChild('correo').equalTo(email).on("child_added", function(snapshot) {
-            key = snapshot.key;
-            localStorage.setItem("KEY", key);
-            //window.location.href="perfil.html";
-        });
-       
-    }); */
+	})
 
     setTimeout(function() {
         console.log("hora de buscar");

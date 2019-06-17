@@ -309,6 +309,9 @@ function EnviarEmail(tipo){
           message => alert(message)
         );
     }else if(tipo == 'contactanos'){
+        var correo;
+        var telefono;
+        var mensaje;
         Email.send({
             Host : "smtp.elasticemail.com",
             Username : "economicar024@gmail.com",
