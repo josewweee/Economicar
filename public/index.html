@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="css/custom.css">
+
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="assets/img/icon/favicon.ico">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -52,7 +53,7 @@
                                 <nav class="nav-menu">
                                     <ul>
                                         <li><a href="login.html">Iniciar Sesión</a></li>
-                                        <li><a href="contact.html">Contacto</a></li>
+                                        <li><a href="#contact">Contacto</a></li>
                                         <li><a href="join-a-carbucket.html">Carros</a></li>
                                         <li><a href="faq.html">FAQ</a></li>
                                     </ul>
@@ -684,11 +685,21 @@
             <div class="row">
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <div class="contact-form">
-                        <form action="#">
-                            <input type="text" name="name" placeholder="¿Cual es tu Nombre?">
-                            <input type="text" name="email" placeholder="¿Y tu correo?">
-                            <textarea name="msg" id="msg" placeholder="¿Cual seria tu mensaje? "></textarea>
-                            <input type="submit" value="Enviar" id="send">
+                        <form action="#" >
+                            <input type="text" id="email" placeholder="Correo">
+                            <input type="text" id="phone" placeholder="Celular">
+                            <div class="form-group">
+                                <select class="custom-select from-control form-control-sm seleccionContactanos" style="line-height:initial;">
+                                    <option  selected >Seleccionar categoria.</option>
+                                    <option value="info" >Soy un comprador teniendo problemas.</option>
+                                    <option value="dealer" >Soy un vendedor teniendo problemas.</option>
+                                    <option value="support" >Tengo un problema tecnico.</option>
+                                    <option value="other" >Otro</option>
+                                 </select>
+                            </div>
+                            
+                            <textarea name="msg" id="msg" placeholder="Comienza con tu nombre y cuentanos como te podemos ayudar =) "></textarea>
+                            <input type="submit" value="Enviar" id="send" onclick="EnviarEmail('contactanos')">
                         </form>
                     </div>
                 </div>
