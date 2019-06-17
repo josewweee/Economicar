@@ -295,8 +295,9 @@ function LogOut(){
 }
 
 function EnviarEmail(tipo){
-    var correo = (this.datosAnteriores.correo).toString();
+    
     if(tipo == 'registro'){
+        var correo = (this.datosAnteriores.correo).toString();
         Email.send({
             Host : "smtp.elasticemail.com",
             Username : "economicar024@gmail.com",
@@ -309,17 +310,23 @@ function EnviarEmail(tipo){
           message => alert(message)
         );
     }else if(tipo == 'contactanos'){
-        var correo;
-        var telefono;
-        var mensaje;
+        var correo = document.getElementById("correoContacto").value;
+        console.log(correo);
+        var telefono = document.getElementById("telefonoContacto").value;
+        console.log(telefono);
+        var mensaje = document.getElementById("msg").value;
+        console.log(mensaje);
+        var subjectHTML = document.getElementById("subject");
+        var subject = subjectHTML.options[subjectHTML.selectedIndex].value;
+        console.log(subject);
         Email.send({
             Host : "smtp.elasticemail.com",
             Username : "economicar024@gmail.com",
             Password : "6efa2bba-38e7-452c-908c-bd8e8216e0ab",
-            To : correo,
+            To : "economicar024@gmail.com",
             From : "economicar024@gmail.com",
-            Subject : "Contraseña ECONOMICAR",
-            Body : "Tu datos de www.economicar.com, son, USUARIO: "+ correo + " contraseña: " + this.password + " ¡Felicidades!"
+            Subject : subject,
+            Body : mensaje + "; MI TELEFONO ES: " + telefono + "; MI CORREO ES:" + correo
         }).then(
           message => alert(message)
         );

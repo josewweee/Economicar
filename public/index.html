@@ -685,22 +685,22 @@
             <div class="row">
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <div class="contact-form">
-                        <form action="#" >
-                            <input type="text" id="email" placeholder="Correo">
-                            <input type="text" id="phone" placeholder="Celular">
+                        <!-- <form action="#" > -->
+                            <input type="text" id="correoContacto" placeholder="Correo">
+                            <input type="text" id="telefonoContacto" placeholder="Celular">
                             <div class="form-group">
-                                <select class="custom-select from-control form-control-sm seleccionContactanos" style="line-height:initial;">
-                                    <option  selected >Seleccionar categoria.</option>
-                                    <option value="info" >Soy un comprador teniendo problemas.</option>
-                                    <option value="dealer" >Soy un vendedor teniendo problemas.</option>
-                                    <option value="support" >Tengo un problema tecnico.</option>
-                                    <option value="other" >Otro</option>
+                                <select id="subject" class="custom-select from-control form-control-sm seleccionContactanos" style="line-height:initial;">
+                                    <option value="info" selected >Seleccionar categoria.</option>
+                                    <option value="comprador" >Soy un comprador.</option>
+                                    <option value="consecionario" >Soy un consecionario/vendedor.</option>
+                                    <option value="problema" >Tengo un problema.</option>
+                                    <option value="otro" >Otro</option>
                                  </select>
                             </div>
                             
                             <textarea name="msg" id="msg" placeholder="Comienza con tu nombre y cuentanos como te podemos ayudar =) "></textarea>
                             <input type="submit" value="Enviar" id="send" onclick="EnviarEmail('contactanos')">
-                        </form>
+                        <!-- </form> -->
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-12">
@@ -784,6 +784,19 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <!-- footer area end -->
 
     <!-- Scripts -->
+
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+      <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+
+      <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
+    <!--   <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-messaging.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-functions.js"></script> -->
+      <script src="https://smtpjs.com/v3/smtp.js"></script>
+      <script src="js/crudDB.js"></script>
+
+
     <script src="assets/js/jquery-3.2.0.min.js"></script>
     <script src="assets/js/jquery-ui.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
@@ -796,6 +809,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="assets/js/theme.js"></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/basic.js"></script>
 </body>
 
 </html>
