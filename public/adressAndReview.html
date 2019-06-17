@@ -15,6 +15,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <link href="css/vendor.css" rel="stylesheet">
     <link href="css/app.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
     <link rel="shortcut icon" href="https://cdn.carbuckets.com/images/favicon.png">
     <template id="headerTemplate" style="display:none">
         <header class="sticky-top">
@@ -573,7 +574,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                     </div>
                                 </div> -->
                                 <div class="text-center">
-                                    <button class="btn btn-blue rounded-pill mx-auto" onclick="irPerfil()">
+                                    <button class="btn btn-blue rounded-pill mx-auto" onclick="abrirModal()">
                                         Confirmar
                                     </button>
                                 </div> 
@@ -585,7 +586,37 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                                         </span>
                                     </div> -->
+    
+                                
                             </section>
+
+                            
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="HeaderModalIndex" style="display: -webkit-inline-box;">Contraseña</h2>
+                        <span class="close" style="margin-top: 0px;" onclick="cerrarModal()">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row" style="display: block;">
+                            <h2 for="precioVehiculo" class="textCalcularDescuento">5930295</h2>
+                            <br>
+                            
+                        </div>
+                        <div class="row" style="display: block;">
+                            <label for="descuentoObtenido" class="textCalcularDescuento">Te enviamos tu contraseña al correo, revisa en la carpeta de SPAM, aunque NO LA NECESITARAS AUN.</label> 
+                        </div>
+                        <div class="row" style="margin-bottom: 30px; display: block;">
+                            <div class="download-btns btn-area text-center" >
+                                <button class="BotonModalAddress" onclick="Terminado()"></i>Ok</button>
+                            </div>
                         </div>
                     </div>
                 </div>

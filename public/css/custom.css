@@ -130,6 +130,20 @@
   margin-right: 70%;
 }
 
+.BotonModalAddress {
+  width: 33%;
+  background-color: #4abdac;
+  border: 2px solid #fff;
+  display: inline-block;
+  text-align: center;
+  line-height: 46px;
+  border-radius: 33px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #fff;
+  letter-spacing: 0;
+}
+
 .seleccionContactanos {
 
   line-height: initial;

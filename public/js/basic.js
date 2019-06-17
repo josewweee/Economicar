@@ -214,7 +214,6 @@ function saveInfo(data,tipo){
 			    }
 			});
         }).then((snap) => {
-            this.alert("Tu contraseña es: " + this.password + "Te enviaremos a tu correo la contraseña");
             this.EnviarEmail('registro');
             window.location.href= "perfil.html";
         
@@ -332,4 +331,27 @@ function EnviarEmail(tipo){
         );
     }
     
+}
+
+/** MODAL CUANDO EL USUARIO SE REGISTRA **/
+
+var span = document.getElementsByClassName("close")[0];
+
+function abrirModal() {
+    document.getElementById("myModal").style.display = "block";
+}
+
+function cerrarModal() {
+    document.getElementById("myModal").style.display = "none";
+    this.irPerfil();
+}
+window.onclick = function(event) {
+  if (event.target ==  document.getElementById("myModal")) {
+    document.getElementById("myModal").style.display = "none";
+    this.irPerfil();
+  }
+}
+
+function Terminado(){
+    this.irPerfil();
 }
