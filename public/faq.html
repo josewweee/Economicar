@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="font-size: 100%;">
     <head>
                   <title>FAQs | Economicar&reg;</title>
         
@@ -7,7 +7,10 @@
 
 
 
-
+<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/css/slicknav.min.css" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/responsive.css">
+<link href="assets/css/style.css" rel="stylesheet">
 <link href="css/vendor.css" rel="stylesheet">
 <link href="css/app.css" rel="stylesheet">
 <link rel="shortcut icon" href="https://cdn.carbuckets.com/images/favicon.png">
@@ -28,7 +31,7 @@
     <body class="marketing">
       <div class="support has-omni-nav">
         
-                  <header>
+<!--                   <header>
    <div class="nav">
      <div class="container">
        <div class="nav-inner"><a class="logo" href="index.html"><img src="images/logo economicar 4.png" srcset="images/logo economicar 4.png" /></a>
@@ -43,9 +46,61 @@
        </div>
      </div>
    </div>
- </header>
+ </header> -->
+
+ <!-- header area start -->
+ <div>
+    <header id="header" style="position: fixed;width: 100%;z-index: 10;">
+            <div class="header-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="menu-area">
+                            <div class="col-md-3 col-sm-12 col-xs-12">
+                                <div class="logo">
+                                    <a href="index.html"><img src="images/logo economicar fondo oscuro.png"Economicar"></a>
+                                </div>
+                            </div>
+                            <div class="col-md-9 hidden-xs hidden-sm">
+                                <div class="main-menu">
+                                    <nav class="nav-menu">
+                                        <ul>
+                                            <li><a href="login.html">Iniciar Sesión</a></li>
+                                            <li><a href="index.html#contact">Contacto</a></li>
+                                            <li><a href="join-a-carbucket.html">Carros</a></li>
+                                            <li><a href="faq.html">FAQ</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-xs-12 visible-sm visible-xs">
+                                <div class="mobile_menu">
+                                    <div class="slicknav_menu">
+                                      <a href="#" aria-haspopup="true" role="button" tabindex="0" class="slicknav_btn slicknav_collapsed" id="MenuNavBar">
+                                        <span class="slicknav_menutxt">MENU</span>
+                                        <span class="slicknav_icon" onclick="DesplegarMenuNavBar()">
+                                          <span class="slicknav_icon-bar"></span>
+                                          <span class="slicknav_icon-bar"></span>
+                                          <span class="slicknav_icon-bar"></span>
+                                        </span>
+                                      </a>
+                                      <ul class="slicknav_nav slicknav_hidden" aria-hidden="true" role="menu" style="display: none;" id="listaNavBar">
+                                        <li><a href="login.html" role="menuitem" tabindex="-1">Iniciar Sesión</a></li>
+                                        <li><a href="#contact" role="menuitem" tabindex="-1">Contacto</a></li>
+                                        <li><a href="join-a-carbucket.html" role="menuitem" tabindex="-1">Carros</a></li>
+                                        <li><a href="faq.html" role="menuitem" tabindex="-1">FAQ</a></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+      </div>
+        <!-- header area end -->
         
-        <div class="content-wrapper">
+        <div class="content-wrapper tamaño_mobil" id="PantallaPrincipal">
             <main>
       <div class="container">
           <div class="row">
@@ -59,34 +114,34 @@
               <div class="row">
                 <div class="col-12 col-md-5 offset-md-1">
                     <div class="h2-block">
-                        <h2>Group Buying For Cars</h2>
+                        <h2>Comprar carros en grupos.</h2>
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="faq-item expandable">
                         <div class="carrot"></div>
-                        <h4>What is CarBuckets?</h4>
+                        <h4>Que es economicar?</h4>
                         <div class="faq-content">
-                            <p>CarBuckets is an online platform where car buyers get bigger discounts for their new cars. Our platform is unique in that we group car buyers by city and brand to then have local dealers compete against each other to win that group of buyers. Dealers win the group by giving each car buyer their best price. CarBuckets is rooted in the concept of Economies of Scale, which means dealers can give CarBuckets users lower prices since they are part of a group, with more sales at stake. Manufacturers give dealers large cash bonuses at the end of the month if the dealer surpasses its sales objective.  When dealers are bidding on a CarBucket, they are trying to not only win your business, but they’re also trying to qualify for their own manufacturer bonuses.<br><br>We are not a co-buying site, meaning you do not have to share the car with a group of people. Each person in the group gets to pick their car, just the way they want it.</p>
+                            <p>Economicar is an online platform where car buyers get bigger discounts for their new cars. Our platform is unique in that we group car buyers by city and brand to then have local dealers compete against each other to win that group of buyers. Dealers win the group by giving each car buyer their best price. CarBuckets is rooted in the concept of Economies of Scale, which means dealers can give CarBuckets users lower prices since they are part of a group, with more sales at stake. Manufacturers give dealers large cash bonuses at the end of the month if the dealer surpasses its sales objective.  When dealers are bidding on a CarBucket, they are trying to not only win your business, but they’re also trying to qualify for their own manufacturer bonuses.<br><br>We are not a co-buying site, meaning you do not have to share the car with a group of people. Each person in the group gets to pick their car, just the way they want it.</p>
                         </div>
                     </div>
                     <div class="faq-item expandable">
                         <div class="carrot"></div>
-                        <h4>What if everyone in my Bucket doesn’t buy their car?</h4>
+                        <h4>¿Que sucede si todos en mi grupo no compran el carro?</h4>
                         <div class="faq-content">
                           <p>That’s OK.  You still get the discount you were given, regardless of who in the group decided to purchase their own car.  There is no obligation to buy your car when using CarBuckets.  Your only obligation is to take a test drive at the dealership that gave you the best price.</p>
                         </div>
                     </div>
                     <div class="faq-item expandable">
                         <div class="carrot"></div>
-                        <h4>How are Buckets grouped?</h4>
+                        <h4>¿Como se arman los grupos?</h4>
                         <div class="faq-content">
                             <p>Buckets are grouped by the city and by vehicle brand.  A bucket consists of a group of automotive buyers who live in the same city and who want the same brand of car. For example, if you live in Atlanta, GA and want a new Toyota Corolla, you will be placed in the Atlanta Toyota bucket.  If you live in Miami, FL and want a new Honda Civic, you will be placed in the Miami Honda Bucket with other Honda buyers in Miami. A bucket can have a variety of different models and trims from the same brand.</p>
                         </div>
                     </div>
                     <div class="faq-item expandable">
                         <div class="carrot"></div>
-                        <h4>How long does it take for a Bucket to get filled?</h4>
+                        <h4>¿Cuanto se demora un grupo en armarse?</h4>
                         <div class="faq-content">
                           <p>We close our Buckets every Tuesday at 11:59p. Dealers bid on Buckets on Wednesdays and Thursdays. Final pricing details are sent to our users by Friday morning. The winning dealership is determined by who gave the lowest volume price for that Bucket. Users have five (5) days (Friday-Tuesday) to make an appointment to test drive their new car at the winning dealership. Users who have not scheduled their test drive appointment within 24 hours of receiving their final bid are contacted by the winning dealership.</p>
                           <p>Ten (10) days is the longest amount of time a CarBuckets users will ever have to wait for their final CarBuckets price. If you join a Bucket on Wednesday at 12:00a, you will have to wait until the following Tuesday for that Bucket to close.  In contrast, it could take only a few minutes for your Bucket to close if you join a Bucket at 11:58p on Tuesday. Your car will be in that week’s Bucket. In the fastest scenario, you will wait 2 days for your final price.</p>
@@ -94,14 +149,14 @@
                     </div>
                     <div class="faq-item expandable">
                         <div class="carrot"></div>
-                        <h4>What happens if I join after a Bucket has closed?</h4>
+                        <h4>¿Que pasa si me uno a un grupo que ya va a cerrar?</h4>
                         <div class="faq-content">
                           <p>Not a problem.  When one Bucket closes, another one automatically opens! Our Buckets close every Tuesdays. Dealers bid on Wednesdays and Thursdays.  If you join a Bucket at 12a on Wednesday (1 minute after the deadline), you will be placed in the following week’s Bucket, closing on Tuesday at 11:59p.</p>
                         </div>
                     </div>
                     <div class="faq-item expandable">
                         <div class="carrot"></div>
-                        <h4>Why do I have to take the test drive within five (5) days of receiving my CarBuckets price?</h4>
+                        <h4>¿Es necesario tomar el test drive?</h4>
                         <div class="faq-content">
                             <p>Participating dealers are bound by the CarBuckets Code of Conduct, which means they must have the car they quoted you in stock during your test drive appointment. Therefore, since dealers are constantly moving inventory, they can only hold your car for up to five (5) days. Otherwise, they would require CarBuckets users to put down a deposit.</p>
                             <p>Of course, if there are extenuating circumstances that make you unable to take your test drive within five (5) days, reach out to us and we will try to work with you.  We are people too and understand that things pop up.</p>
@@ -109,7 +164,7 @@
                     </div>
                     <div class="faq-item expandable">
                         <div class="carrot"></div>
-                        <h4>Can I join multiple Buckets?</h4>
+                        <h4>¿Me puedo unir a multiples grupos?</h4>
                         <div class="faq-content">
                             <p>Yes, you can join as many Buckets as you would like.  If you cannot narrow it down to one brand of car, and would like to price out a few competitive models, join multiple buckets. </p>
                         </div>
@@ -121,27 +176,20 @@
               <div class="row">
                 <div class="col-12 col-md-5 offset-md-1">
                     <div class="h2-block">
-                        <h2>Choosing Your Car</h2>
+                        <h2>Escogiendo tu carro</h2>
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
                   <div class="faq-item expandable">
                       <div class="carrot"></div>
-                      <h4>Why do I have to choose two (2) color options?</h4>
+                      <h4>¿Por que debo de escoger 2 colores?</h4>
                       <div class="faq-content">
                           <p>By selecting two (2) color options, you give all dealers the opportunity to bid for your car.  The more dealers bid, the greater the discounts to CarBuckets users.  Everything we do is meant to maximize dealer competition.</p>
                       </div>
                   </div>
                   <div class="faq-item expandable">
                       <div class="carrot"></div>
-                      <h4>I got my final price, and I didn’t get the car I wanted.  Why?</h4>
-                      <div class="faq-content">
-                          <p>Let us begin by saying, there is no obligation to buy the car. That said, just because a car is available online, doesn’t mean it’s actually available at nearby dealerships. Participating CarBuckets dealers are legally bound to do their best when it comes to matching your preferences – model, color and trim. However, dealer inventory fluctuates greatly, and your car might not be available. If you are unhappy with the car you’ve been quoted on, please contact CarBuckets at <a href="mailto:support@carbuckets.com">support@carbuckets.com</a>.  We will do our very best to get you into the car you want. If you are still unhappy with the car, simply walk away with no strings attached. At CarBuckets, we strive to make this the best car-buying experience possible. </p>
-                      </div>
-                  </div>
-                  <div class="faq-item expandable">
-                      <div class="carrot"></div>
-                      <h4>Can I reschedule my test drive?</h4>
+                      <h4>¿Puedo re-agendar mi cita de test drive?</h4>
                       <div class="faq-content">
                           <p>Yes, you can reschedule your test drive by logging into your CarBuckets account at <a href="https://www.carbuckets.com/login">carbuckets.com/login</a>. You can edit your appointment for any day/time available within the 5-day sales event.  If you cannot make it to your test drive during the 5-day sales event, please reach out to us at <a href="mailto:support@carbuckets.com">support@carbuckets.com</a>.  We will do our best to accommodate you.  We know life happens.</p>
                       </div>
@@ -153,23 +201,14 @@
               <div class="row">
                 <div class="col-12 col-md-5 offset-md-1">
                     <div class="h2-block">
-                        <h2>Financing & Pricing</h2>
+                        <h2>Precio y costos</h2>
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
+                
                   <div class="faq-item expandable">
                       <div class="carrot"></div>
-                      <h4>I got a cheaper price elsewhere. How do you get to my CarBuckets price?</h4>
-                      <div class="faq-content">
-                          <p>Be skeptical of pricing on other car-buying sites. Even though the say they include all fees in your quote, they usually do not. Most price quotes provided online usually reflect the Net Price of the car, and do not include the hidden fees and factory/dealer installed accessories.  Sometimes dealers even put cash rebates as the dealer discount, without knowing whether or not you qualify for them.  In summary, don’t let their marketing gimmicks hook you in! Please read the fine print which can be found as disclaimers located at the bottom of the page in fine print.</p>
-                          <p>At CarBuckets, we pride ourselves on full price transparency. Your CarBuckets price includes every single line item (i.e., dealer fees, destination fee, cash rebates, etc…) before tax, tag, and title (which vary from county to county).  When you get your CarBuckets price, you will understand exactly what you are getting into. You will know the real out-the-door price for that car.</p>
-                          <p>It’s worth noting, we do not make any money off the sale of your car. Our mission is simple: to bridge the gap between car buyers and car dealers—that’s why we prohibit CarBuckets dealers from any form of price bumping. They must honor the final price they gave you, for the car they quoted you on.</p>
-                          <p>If you have any questions regarding your CarBuckets final price, please reach out to us at <a href="mailto:support@carbuckets.com">support@carbuckets.com</a>.</p>
-                      </div>
-                  </div>
-                  <div class="faq-item expandable">
-                      <div class="carrot"></div>
-                      <h4>What if I want to lease a car? I wasn’t given a monthly payment.</h4>
+                      <h4>¿Que sucede si quiero alquilar un carro?</h4>
                       <div class="faq-content">
                           <p>CarBuckets is still the place for you!  Your monthly lease payments—wherever you buy—are actually based off of the purchase price of that car. So… the lower the purchase price, the lower your monthly payments will be.  We would need to ask you a lot of personal financial information in order to calculate your monthly payments.  We think it’s best practice to negotiate the best price for your car, and then you can share your credit score, down payment amount, etc with the Finance Director at the winning dealership.</p>
                           <p>We explain exactly how leasing works –whether you’re leasing through CarBuckets or not—here: <a href="https://blog.carbuckets.com/car-leasing-guide-and-faq/">How Leasing A Car Works: A Guide and Glossary</a>. Take a look at it.  We guarantee, you’ll learn a ton.  If you still have questions, feel free to reach out to us as <a href="mailto:support@carbuckets.com">support@carbuckets.com</a>.</p>
@@ -177,7 +216,7 @@
                   </div>
                   <div class="faq-item expandable">
                       <div class="carrot"></div>
-                      <h4>How do I know I am getting the lowest group price for my new car?</h4>
+                      <h4>¿Como se que estoy recibiendo el precio mas barato?</h4>
                       <div class="faq-content">
                           <p>The CarBuckets magic lies at the intersection of simple economics.  Our platform leverages Purchasing Economies of Scale to get our users the lowest possible price on their new car.</p>
                           <p>Other car buying sites tell you that they’re leveraging their size to get their users the best price.  This is deceiving.  The reality is that all these vendors are still selling these leads to dealerships on an individual basis.  None of them are grouping car buyers together and having dealers price these cars as a group.</p>
@@ -186,7 +225,7 @@
                   </div>
                   <div class="faq-item expandable">
                       <div class="carrot"></div>
-                      <h4>OK, I got the email with my price. What happens next?</h4>
+                      <h4>Recibi un email con el precio, ¿que pasa ahora?</h4>
                       <div class="faq-content">
                         <p>You have five (5) days from the time you receive your CarBuckets Final Price email to test drive your car at the winning dealership. Users who have not scheduled their test drive appointment within 24 hours of receiving their final bid are contacted by the winning dealership to schedule their test drive and answer any questions they might have regarding their final price or new car.  </p>
                         <p>All participating dealers are required to sign our Dealer Code of Conduct, which requires all test drive appointments to be under 60 minutes.  </p>
@@ -195,7 +234,7 @@
                   </div>
                   <div class="faq-item expandable">
                       <div class="carrot"></div>
-                      <h4>What can I expect when I visit the dealership for my test drive appointment?</h4>
+                      <h4>¿Que puedo esperar cuando voy a la agencia de vehiculos?</h4>
                       <div class="faq-content">
                           <p>You can expect to have one of the smoothest dealer experiences possible! The heavy lifting has already been done for you. On the day of your test drive, your salesperson will be waiting for you, with your car, ready-to-go for a test drive.  Upon arrival at the dealership, let someone know you are there to take your CarBuckets test drive appointment. They will connect you with your certified CarBuckets representative who knows exactly how to treat our VIP CarBuckets customers. They will ask you for your name and proof a valid driver’s license before taking your test drive.  They are not supposed to ask you for any other personal details (i.e., financial information, social security number, etc…) before the test drive.  If you decide you want to buy the car, then you’ll be asked for your financial information by a certified Finance Manager at the dealership.</p>
                           <p>If you have any doubts about the process, please email us at <a href="mailto:support@carbuckets.com">support@carbuckets.com</a>. We are here to help make your car buying experience as smooth as possible.</p>
@@ -203,7 +242,7 @@
                   </div>
                   <div class="faq-item expandable">
                       <div class="carrot"></div>
-                      <h4>Does CarBuckets approve me for financing?</h4>
+                      <h4>¿Economicar tambien me ayuda para prestamos con el banco?</h4>
                       <div class="faq-content">
                           <p>We do not do any financing approval. Our job is to get you the best deal for your new car. Once we deliver on that, you can discuss your finance options with the dealership. </p>
                       </div>
@@ -220,7 +259,7 @@
                   </div>
                   <div class="faq-item expandable">
                       <div class="carrot"></div>
-                      <h4>Is CarBuckets an automotive broker?</h4>
+                      <h4>¿Es Economicar un concesionario?</h4>
                       <div class="faq-content">
                           <p>CarBuckets is not a broker. We do not negotiate on behalf of our users, nor do we make any money off the sale of your car. Instead we let our platform, which is rooted in the Economies of Scale, do the negotiating for you. Since dealers bidding to win a bucket are competing to win a group of car buyers as opposed to just one buyer, they are able to offer lower prices as a way to not lose out on multiple sales. Our way of doing things is much more effective at getting you a solid deal than negotiating per car.</p>
                       </div>
@@ -322,9 +361,14 @@
 <script src="js/app.js"></script>
 
       </div>
-      <!-- The core Firebase JS SDK is always required and must be listed first -->
+
+      <script src="assets/js/jquery-3.2.0.min.js"></script>
+      <script src="assets/js/jquery-ui.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.slicknav.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
-<script src="js/crudDB.js"></script>
+<script src="js/basic.js"></script>
+<!-- <script src="js/crudDB.js"></script> -->
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#config-web-app -->
      

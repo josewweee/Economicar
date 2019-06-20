@@ -1,0 +1,8 @@
+.header-area {
+    /* position: fixed; */
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 998;
+    background-color: #2f435e;
+}

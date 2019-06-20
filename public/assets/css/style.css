@@ -49,6 +49,24 @@
     clear: both
 }
 
+.tamaño_mobil{
+    margin-top: 100px;
+}
+
+@media only screen and (max-width: 480px) and (min-width: 240px){
+    .menu-area {
+        display: block !important;
+    }
+}
+
+@media only screen and (max-width: 991px){
+    .tamaño_mobil {
+        margin-top: 150px;
+    }
+}
+
+
+
 ::-moz-selection {
     background: #00b0ff;
     color: #fff;
@@ -180,6 +198,7 @@ textarea {
     padding: 27px 36px;
     position: relative;
     padding-left: 0;
+    text-decoration: none;
 }
 
 .main-menu nav ul li a:before {
@@ -1792,6 +1811,8 @@ END Blog Standard
 .widget-tag-list a:hover {
     background-color: #e8313b;
 }
+
+
 
 /*===========================
 END Blog Details

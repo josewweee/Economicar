@@ -11,6 +11,13 @@
   font-size: larger !important;
 }
 
+
+@media only screen and (max-width: 328px) {
+  .botonMedio {
+    line-height: 24px !important;
+  }
+}
+
 @media only screen and (max-width: 1025px) {
     .resizeSliderImg {
       margin-left: 0px;

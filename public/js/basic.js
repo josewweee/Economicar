@@ -355,3 +355,25 @@ window.onclick = function(event) {
 function Terminado(){
     this.irPerfil();
 }
+
+function DesplegarMenuNavBar(){
+    var attr = document.getElementById('listaNavBar').attributes;
+    if(attr['aria-hidden'].value == "true"){
+        document.getElementById("MenuNavBar").classList.remove('slicknav_collapsed');
+        document.getElementById("MenuNavBar").classList.add("slicknav_open");
+    
+        document.getElementById("listaNavBar").setAttribute("aria-hidden", "false");
+        document.getElementById("listaNavBar").style.display = 'block';
+
+        document.getElementById("PantallaPrincipal").style.marginTop = '340px';
+        console.log(document.getElementById("PantallaPrincipal"));
+    }else{
+        document.getElementById("MenuNavBar").classList.remove("slicknav_open");
+        document.getElementById("MenuNavBar").classList.add('slicknav_collapsed');
+    
+        document.getElementById("listaNavBar").setAttribute("aria-hidden", "true");
+        document.getElementById("listaNavBar").style.display = 'none';
+
+        document.getElementById("PantallaPrincipal").style.marginTop= '150px';
+    }
+}

@@ -242,3 +242,6 @@ function CambiarHtmlColor(){
             this.yaEntramosColor = true;
     }
 }
+
+
+
