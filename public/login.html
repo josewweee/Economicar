@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  style="font-size: 100%;">
     <head>
                   <title>Iniciar sesión | Economicar&reg;</title>
         
@@ -7,7 +7,10 @@
 
 
 
-
+<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/css/slicknav.min.css" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/responsive.css">
+<link href="assets/css/style.css" rel="stylesheet">
 <link href="css/vendor.css" rel="stylesheet">
 <link href="css/app.css" rel="stylesheet">
 <link rel="shortcut icon" href="https://cdn.carbuckets.com/images/favicon.png">
@@ -26,22 +29,59 @@
             </head>
     <body>
       
-              <header class="sticky-top">
-  <nav class="navbar navbar-white bg-white">
-    <a class="navbar-brand w-25" href="index.html" style="max-width: 200px">
-      <img class="img-fluid" src="images/logo economicar 4.png">
-    </a>
-          <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="btn btn-sm btn-outline-dark rounded-pill" href="login.html">
-            Log In
-          </a>
-        </li>
-      </ul>
-      </nav>
-</header>
+<!-- header area start -->
+<div>
+    <header id="header" style="position: fixed;width: 100%;z-index: 10;">
+            <div class="header-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="menu-area">
+                            <div class="col-md-3 col-sm-12 col-xs-12">
+                                <div class="logo">
+                                    <a href="index.html"><img src="images/logo economicar fondo oscuro.png"Economicar"></a>
+                                </div>
+                            </div>
+                            <div class="col-md-9 hidden-xs hidden-sm">
+                                <div class="main-menu">
+                                    <nav class="nav-menu">
+                                        <ul  class="listaNavBar">
+                                            <li><a href="login.html">Iniciar Sesión</a></li>
+                                            <li><a href="index.html#contact">Contacto</a></li>
+                                            <li><a href="join-a-carbucket.html">Carros</a></li>
+                                            <li><a href="faq.html">FAQ</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-xs-12 visible-sm visible-xs">
+                                <div class="mobile_menu">
+                                    <div class="slicknav_menu">
+                                      <a href="#" aria-haspopup="true" role="button" tabindex="0" class="slicknav_btn slicknav_collapsed" id="MenuNavBar">
+                                        <span class="slicknav_menutxt">MENU</span>
+                                        <span class="slicknav_icon" onclick="DesplegarMenuNavBar()">
+                                          <span class="slicknav_icon-bar"></span>
+                                          <span class="slicknav_icon-bar"></span>
+                                          <span class="slicknav_icon-bar"></span>
+                                        </span>
+                                      </a>
+                                      <ul class="slicknav_nav slicknav_hidden" aria-hidden="true" role="menu" style="display: none;" id="listaNavBar">
+                                        <li><a href="login.html" role="menuitem" tabindex="-1">Iniciar Sesión</a></li>
+                                        <li><a href="#contact" role="menuitem" tabindex="-1">Contacto</a></li>
+                                        <li><a href="join-a-carbucket.html" role="menuitem" tabindex="-1">Carros</a></li>
+                                        <li><a href="faq.html" role="menuitem" tabindex="-1">FAQ</a></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+      </div>
+        <!-- header area end -->
       
-      <div class="content-wrapper">
+      <div class="content-wrapper tamaño_mobil" id="PantallaPrincipal">
           <section class="mrp-bg-cards">
     <div class="container text-center login-container">
       <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
@@ -58,9 +98,9 @@
                     <div class="form-group">
                                             <label class="small float-left" for="email">Correo Electronico</label>
                       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                        <div class="input-group-addon"></div>
+                      <!--   <div class="input-group-addon"></div> -->
                         <input type="text" name="email" class="form-control form-control-sm" id="inputEmail"
-                        placeholder="you@example.com" value="" required autofocus>
+                        placeholder="you@example.com" value="" required autofocus style="margin-left: 10px;margin-right: 10px;">
                       </div>
                     </div>
                   </div>
@@ -70,9 +110,9 @@
                     <div class="form-group">
                       <label class="small float-left" for="password">Contraseña</label>
                       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                        <div class="input-group-addon"></div>
+                       <!--  <div class="input-group-addon"></div> -->
                         <input type="password" name="password" class="form-control form-control-sm" id="inputPassword"
-                        placeholder="Password" required>
+                        placeholder="Password" required style="margin-left: 10px;margin-right: 10px;">
                       </div>
                                           </div>
                   </div>
@@ -82,7 +122,7 @@
                     <div class="form-check mb-2 mr-sm-2 mb-sm-0">
                       <label class="form-check-label">
                         <input class="form-check-input" name="remember"
-                        type="checkbox" >
+                        type="checkbox" style="margin-left: -15px;">
                         <span class="small" style="padding-bottom: .15rem">Recordar</span>
                       </label>
                     </div>
@@ -204,8 +244,12 @@
  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
-<!--   <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-messaging.js"></script>
- <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-functions.js"></script> -->
+
+
+ <script src="assets/js/jquery-3.2.0.min.js"></script>
+ <script src="assets/js/jquery-ui.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery.slicknav.min.js"></script>
  <script src="js/crudDB.js"></script>
 
  <!-- TODO: Add SDKs for Firebase products that you want to use

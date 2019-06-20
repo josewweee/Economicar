@@ -365,8 +365,12 @@ function DesplegarMenuNavBar(){
         document.getElementById("listaNavBar").setAttribute("aria-hidden", "false");
         document.getElementById("listaNavBar").style.display = 'block';
 
-        document.getElementById("PantallaPrincipal").style.marginTop = '340px';
-        console.log(document.getElementById("PantallaPrincipal"));
+        if(document.getElementById("PantallaPrincipal")){
+            document.getElementById("PantallaPrincipal").style.marginTop = '340px';
+        }else{
+            document.getElementById("PantallaPrincipalPerfil").style.marginTop = '430px';
+        }
+
     }else{
         document.getElementById("MenuNavBar").classList.remove("slicknav_open");
         document.getElementById("MenuNavBar").classList.add('slicknav_collapsed');
@@ -374,6 +378,10 @@ function DesplegarMenuNavBar(){
         document.getElementById("listaNavBar").setAttribute("aria-hidden", "true");
         document.getElementById("listaNavBar").style.display = 'none';
 
-        document.getElementById("PantallaPrincipal").style.marginTop= '150px';
+        if(document.getElementById("PantallaPrincipal")){
+            document.getElementById("PantallaPrincipal").style.marginTop= '150px';
+        }else{
+            document.getElementById("PantallaPrincipalPerfil").style.marginTop = '200px';
+        }
     }
 }

@@ -49,8 +49,18 @@
     clear: both
 }
 
+.listaNavBar{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
 .tamaño_mobil{
     margin-top: 100px;
+}
+
+.tamaño_mobil_perfil{
+    margin-top: 150px;
 }
 
 @media only screen and (max-width: 480px) and (min-width: 240px){
@@ -62,6 +72,10 @@
 @media only screen and (max-width: 991px){
     .tamaño_mobil {
         margin-top: 150px;
+    }
+
+    .tamaño_mobil_perfil{
+        margin-top: 200px;
     }
 }
 
