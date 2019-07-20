@@ -4,7 +4,7 @@ var firebaseRef = firebase.database().ref("USUARIOS");
 function IniciarSeccion(){
 	var email = document.getElementById('inputEmail').value;   
 	var password = document.getElementById("inputPassword").value;
-    var errores = false;
+  var errores = false;
 
 
 	firebaseAuth.signInWithEmailAndPassword(email, password).catch(function(error) {
@@ -38,15 +38,18 @@ function IniciarSeccion(){
             }
 	})
 
+  if(errores == false){
     setTimeout(function() {
-        console.log("hora de buscar");
-        firebaseRef.orderByChild('correo').equalTo(email).on("child_added", function(snapshot) {
-            var key = snapshot.key;
-            localStorage.setItem("KEY", key);
-            console.log("entramos");
-            window.location.href="perfil.html";
-        });
-      }, 1000);
+      console.log("hora de buscar");
+      firebaseRef.orderByChild('correo').equalTo(email).on("child_added", function(snapshot) {
+          var key = snapshot.key;
+          localStorage.setItem("KEY", key);
+          console.log("entramos");
+          window.location.href="perfil.html";
+      });
+    }, 1000);
+  }
+   
 }
 
 /* 843512 */

@@ -475,7 +475,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                     <div data-v-7cff97f7="" class="media-body">
                                         <p data-v-7cff97f7="">
                                             <span data-v-7cff97f7="">
-                                                Los vendedores de Medellín
+                                                Los vendedores de tu ciudad
                                             </span>
                                            Pujaran por tu grupo, desde:
                   <span data-v-7cff97f7="" class="date-text"> Jueves, Mayo 4</span> hasta el
@@ -577,7 +577,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                         <div class="form-group">
                                             <div >
                                                 <label for="phone">Telefono</label> 
-                                                <input type="tel" id="InputTelefono" required="required" class="form-control"> 
+                                                <input type="number" id="InputTelefono" required="required" class="form-control"> 
                                                 <ul class="invalid-feedback">
                                                     <li >Este campo es requerido.</li>
                                                 </ul>
@@ -674,7 +674,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                             </svg><!-- <i class="fas fa-times"></i> --></button>
                                     </div>
                                     <div class="modal-body pt-0">
-                                        <article>
+                                       <!--  <article>
                                             <h4>MSRP Disclaimer</h4>
                                             <p>
                                                 MSRP for this Vehicle is provided for informational purposes only based
@@ -705,7 +705,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                                 information.<a href="/legal/consumers/terms-of-use"
                                                     target="_blank">[Consumer Terms of Use]</a>.
                                             </p>
-                                        </article>
+                                        </article> -->
                                     </div>
                                     <div class="modal-footer "><button type="button" data-dismiss="modal"
                                             class="btn btn-outline-secondary btn-block">Close</button></div>
@@ -721,16 +721,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script src="https://js.stripe.com/v3/"></script>
 
 
-    <script>
-            (function (d) {
-                var config = {
-                    kitId: 'pnx5lhk',
-                    scriptTimeout: 3000,
-                    async: true
-                },
-                    h = d.documentElement, t = setTimeout(function () { h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive"; }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a; h.className += " wf-loading"; tk.src = 'https://use.typekit.net/' + config.kitId + '.js'; tk.async = true; tk.onload = tk.onreadystatechange = function () { a = this.readyState; if (f || a && a != "complete" && a != "loaded") return; f = true; clearTimeout(t); try { Typekit.load(config) } catch (e) { } }; s.parentNode.insertBefore(tk, s)
-            })(document);
-    </script>
+
 
      <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>

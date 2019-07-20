@@ -199,6 +199,7 @@
                         <div class="row" style="margin-bottom: 30px;">
                             <div class="download-btns btn-area text-center" >
                                 <a onclick="CalcularDescuento()" class="BotonModal"></i>Calcular Descuento</a>
+                                <p for="descuentoObtenido" >*Sujeto al numero de compradores</p>
                             </div>
                         </div>
                     </div>
@@ -257,7 +258,7 @@
                 </div>
                 <div class="testimonial-slider owl-carousel">
                     <div class="single-tst">
-                        <img src="assets/img/author/tst-author1.jpg" alt="author">
+                        <img src="assets/img/author/tst-author1.jpg" alt="author" id="Opiniones">
                         <h4>Andres</h4>
                         <span>Comerciante</span>
                         <p>“Fue magnifico ver que en verdad recibí un descuento 20% mayor que en cualquier otro sitio en Internet. ¡Muy bueno saber que en verdad funciona!”</p>
@@ -270,7 +271,7 @@
                         </ul>
                     </div>
                     <div class="single-tst">
-                        <img src="assets/img/author/tst-author2.jpg" alt="author">
+                        <img src="assets/img/author/tst-author2.jpg" alt="author" id="Opiniones">
                         <h4>Cristina</h4>
                         <span>Estudiante</span>
                         <p>“los concesionarios por Economicar fueron tan distintos. Tan amables y colaborativos. Me sentia en confianza, en verdad no me tenia que preocupar por si había un mejor precio.”</p>
@@ -283,7 +284,7 @@
                         </ul>
                     </div>
                     <div class="single-tst">
-                        <img src="images/home/cliente2.jpeg" alt="author">
+                        <img src="images/home/cliente2.png" alt="author" id="Opiniones">
                         <h4>Santiago</h4>
                         <span>Medico</span>
                         <p>“En vez de tener que pelear por los descuentos con los concesionarios, son los concesionarios los que se pelean los descuentos entre ellos. Economicar pone mas poder en los clientes.”</p>
@@ -296,7 +297,7 @@
                         </ul>
                     </div>
                     <div class="single-tst">
-                        <img src="images/home/cliente1.jpg" alt="author">
+                        <img src="images/home/cliente1.jpg" alt="author" id="Opiniones">
                         <h4>Camilo</h4>
                         <span>Profesor</span>
                         <p>"Simplemente es una buena idea, quien no quisiera esperar un poco mas para ahorrarse una platica extra."</p>
@@ -724,7 +725,7 @@
                                  </select>
                             </div>
                             
-                            <textarea name="msg" id="msg" placeholder="Comienza con tu nombre y cuentanos como te podemos ayudar =) "></textarea>
+                            <textarea name="msg" id="msg" placeholder="Comienza con tu nombre y, ¡cuentanos como te podemos ayudar! "></textarea>
                             <input type="submit" value="Enviar" id="send" onclick="EnviarEmail('contactanos')">
                         <!-- </form> -->
                     </div>

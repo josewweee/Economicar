@@ -338,7 +338,13 @@ function EnviarEmail(tipo){
 var span = document.getElementsByClassName("close")[0];
 
 function abrirModal() {
-    document.getElementById("myModal").style.display = "block";
+    var correo = document.getElementById("InputCorreo").value;
+    var telefono = document.getElementById("InputTelefono").value;
+
+    if(telefono.length > 4 || correo.length > 4){
+        document.getElementById("myModal").style.display = "block";
+    }
+    
 }
 
 function cerrarModal() {

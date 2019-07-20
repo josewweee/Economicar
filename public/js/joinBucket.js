@@ -96,14 +96,12 @@ function cambiarHtml(numAutomoviles, numSuv, modelos_marca_auto, precios_marca_a
     }
     //BOTON DE NO ENCUENTRO MI MARCA
     this.nuevo_html += '<div data-v-2d184876="" class="vehicle mini-card d-flex justify-content-center">'
-    +'<a data-v-2d184876="" href="/join-a-carbucket/model-not-available" class="">'
-      +'<label data-v-2d184876="" class="m-0" style="position: relative;" onclick="escogerModelo('+"'null'"+');">'
+      +'<label data-v-2d184876="" class="m-0" style="position: relative;">'
        + '<img data-v-2d184876="" src="images/wizard/transparent.svg"> '
        + '<div data-v-2d184876="" class="make-not-available text-dark">'
        + '¿No Ves <br data-v-2d184876=""> Tu Modelo?.'
        + '</div>'
        + '</label>'
-       + '</a>'
        + '</div>' 
         +'</div>'
        + '</div>';

@@ -30,7 +30,7 @@ function CalcularDescuento(){
   var Resultado = document.getElementById('inputDescuentoObtenido');
   var ResultadoProcentual = document.getElementById('lblDescuento');
   Resultado.value = (ValorBase * PorcentajeDescuento);
-  ResultadoProcentual.innerHTML = '6%';
+  ResultadoProcentual.innerHTML = '6%*';
 }
 
 //MODAL DEL VIDEO
