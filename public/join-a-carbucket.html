@@ -399,7 +399,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               class="col align-items-center mb-5 p-5 p-md-4 offset-md-6 offset-lg-5 offset-xl-4"
               style="padding-top: 6rem !important;">
               <div class="mini-card-deck">
-                <label class="mini-card" onclick="irVista('seleccionVehiculo', 'VehicleMakeSelect', 'botonVehiculo' ,'botonMarca', 'number0', 'number1', 'seleccionVehiculo', ['motos']);">
+                <label class="mini-card" onclick="irVista('seleccionVehiculo', 'VehicleMakeSelect', 'botonVehiculo' ,'botonMarca', 'number0', 'number1', 'seleccionVehiculo', ['motos']);CambiarHtmlMarcas('motos');">
                   <picture>
                     <source media="(min-width: 768px)" srcset="images/seleccionMotos.png">
                     <img srcset="images/seleccionMotos.png, images/seleccionMotos.png"
@@ -409,7 +409,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   <input id="make9" type="radio" name="make" class="radio-ninja" value="9">
                 </label>
 
-                <label class="mini-card" onclick="irVista('seleccionVehiculo', 'VehicleMakeSelect', 'botonVehiculo' ,'botonMarca', 'number0', 'number1', 'seleccionVehiculo', ['carros']);">
+                <label class="mini-card" onclick="irVista('seleccionVehiculo', 'VehicleMakeSelect', 'botonVehiculo' ,'botonMarca', 'number0', 'number1', 'seleccionVehiculo', ['carros']);CambiarHtmlMarcas('carros');">
                     <picture>
                       <source media="(min-width: 768px)" srcset="images/seleccionCarros.png">
                       <img srcset="images/seleccionCarros.png, images/seleccionCarros.png"
@@ -425,10 +425,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
             <!-- ESCOGE TU MARCA -->
-            <div data-v-2479578e="" id="VehicleMakeSelect"
+            <div id="VehicleMakeSelect"
               class="col align-items-center mb-5 p-5 p-md-4 offset-md-6 offset-lg-5 offset-xl-4"
               style="padding-top: 6rem !important; display: none;">
-              <div data-v-2479578e="" class="mini-card-deck">
+              <div class="mini-card-deck">
                 <!-- <label data-v-2479578e="" for="make4" class="mini-card" onclick="escogerMarca('audi')">
                   <picture data-v-d007eb68="" data-v-2479578e="">
                     <source data-v-d007eb68="" media="(min-width: 768px)" srcset="images/brands/audi@2x.png">

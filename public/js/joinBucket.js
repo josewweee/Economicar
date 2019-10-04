@@ -26,11 +26,11 @@ function modelosHTML(marca, tipo){
     if(marca == 'bmw'){
         numAutomoviles = 5;
         numSuv = 5;
-        this.nuevo_html = '<div data-v-2d184876="" id="DeckForCars" class="mini-card-deck">';
+        this.nuevo_html = '<div id="DeckForCars" class="mini-card-deck">';
         if(this.is_mobile){
-          this.nuevo_html = '<div data-v-4fa46acd="" class="card-body p-0 pb-3">';
-          +'<div data-v-2d184876="" id="DeckForCars" class="mini-card-deck">'
-          +'<div data-v-2479578e="" id="VehicleMakeSelect" class="col align-items-center" data-v-4fa46acd="">';
+          this.nuevo_html = '<div class="card-body p-0 pb-3">';
+          +'<div id="DeckForCars" class="mini-card-deck">'
+          +'<div id="VehicleMakeSelect" class="col align-items-center" data-v-4fa46acd="">';
         }
         this.nuevo_html_SUV = "";
         this.cambiarHtml(numAutomoviles, numSuv);
@@ -40,7 +40,7 @@ function modelosHTML(marca, tipo){
         if ( tipo == 'carros' ) {
           var modelos_marca_auto = ["Sail", "Spark GT", "Beat", "Onix sedan", "Onix", "Cruze", "Camaro six SS"];
           var precios_marca_auto = ["31.990.000", "33.990.000", "35.990.000", "45.290.000", "45.990.000", "65.990.000", "165.000.000"];
-          var foto_auto = ["images/motos/sail.webp", "images/cars/sparkGt.webp", "images/cars/beat.webp", "images/cars/onixSedan.webp", "images/cars/onix.webp", "images/cars/cruze.webp", "images/cars/camaroSS.webp"];
+          var foto_auto = ["images/cars/sail.webp", "images/cars/sparkGt.webp", "images/cars/beat.webp", "images/cars/onixSedan.webp", "images/cars/onix.webp", "images/cars/cruze.webp", "images/cars/camaroSS.webp"];
           numAutomoviles = modelos_marca_auto.length;
           numSuv = 3;
         } else {
@@ -53,15 +53,15 @@ function modelosHTML(marca, tipo){
         if(this.is_mobile){
           document.getElementById("WizardVehicleModelSelect").classList.add('show');
           document.getElementById("appVersion").classList.remove('position-fixed');
-          this.nuevo_html = '<div data-v-4fa46acd="" class="card-body p-0 pb-3">'
-          +'<div data-v-2479578e="" id="VehicleModelSelect" class="col" data-v-4fa46acd="">'
-          +' <div data-v-2d184876="" class="row">'
-            +'<div data-v-2d184876="" class="col">'
-             + '<div data-v-2d184876="" class="ml-md-3 py-2">'
-               + '<h3 data-v-2d184876="">Carros</h3>'
+          this.nuevo_html = '<div class="card-body p-0 pb-3">'
+          +'<div id="VehicleModelSelect" class="col" data-v-4fa46acd="">'
+          +' <div class="row">'
+            +'<div class="col">'
+             + '<div class="ml-md-3 py-2">'
+               + '<h3>Carros</h3>'
              + '</div>'
-             +'<div data-v-2d184876="" class="d-flex">'
-             +'<div data-v-2d184876="" id="DeckForCars" class="mini-card-deck">';
+             +'<div class="d-flex">'
+             +'<div id="DeckForCars" class="mini-card-deck">';
         }else{
           this.nuevo_html = '<div data-v-2d184876="" id="DeckForCars" class="mini-card-deck">';
         }
@@ -175,11 +175,14 @@ function CambiarHtmlVehiculos(){
 }
 
 function CambiarHtmlMarcas(vehiculo){
-  if(is_mobile){
+  if( is_mobile ){
       document.getElementById("VehicleMakeSelect").style.display='none';
       document.getElementById("VehicleSelectCollapse").classList.add('show');
       this.HTMLmarcas_movil = '<div class="card-body p-0 pb-3"><div id="VehicleMakeSelect" class="col align-items-center"><div class="mini-card-deck">';
-      
+  }else{
+    this.HTMLmarcas_movil = '<div class="mini-card-deck">';
+  }
+
       if ( vehiculo == 'carros' ) 
       {
         var fotoMarcas = ["mages/brands/chevrolet.png"];
@@ -210,7 +213,7 @@ function CambiarHtmlMarcas(vehiculo){
         var nombreMarcas = ["honda"]
         var numeroMarcas = nombreMarcas.length;  
         for(var i=0; i < numeroMarcas; i++){
-          HTMLmarcas_movil += '<label class="mini-card" onclick="irVista( '+"'"+'VehicleMakeSelect'+"'" +', '+"'"+'VehicleModelSelect'+"'" +', '+"'"+'botonMarca'+"'" +', '+"'"+'botonModelo'+"'" +', '+"'"+'number1'+"'" +', '+"'"+'number2'+"'" +', '+'null'+', [ '+"'"+nombreMarcas[i]+"'"+' ]);modelosHTML('+"'"+nombreMarcas[i]+"'"+', '+"'"+nombreMarcas[i]+"'"+', '+"'"+'motos'+"'" +');">'
+          HTMLmarcas_movil += '<label class="mini-card" onclick="irVista( '+"'"+'VehicleMakeSelect'+"'" +', '+"'"+'VehicleModelSelect'+"'" +', '+"'"+'botonMarca'+"'" +', '+"'"+'botonModelo'+"'" +', '+"'"+'number1'+"'" +', '+"'"+'number2'+"'" +', '+'null'+', [ '+"'"+nombreMarcas[i]+"'"+' ]);modelosHTML('+"'"+nombreMarcas[i]+"'"+', '+"'"+'motos'+"'" +');">'
             + '<picture data-v-d007eb68="" data-v-2479578e="">'
             +' <source data-v-d007eb68="" media="(min-width: 768px)" srcset="images/brands/hondaMoto.png">'
             + '<img data-v-d007eb68="" srcset="'+"'"+fotoMarcas[i]+"'"+', images/brands/hondaMoto.png 2x" alt="HOnda" class="px-3">'
@@ -231,10 +234,13 @@ function CambiarHtmlMarcas(vehiculo){
         + '</div>';
       }
       this.HTMLmarcas_movil += '</div>' + '</div>' + '</div>';
-      document.getElementById("VehicleSelectCollapse").innerHTML = this.HTMLmarcas_movil;
+      if( is_mobile ){
+        document.getElementById("VehicleSelectCollapse").innerHTML = this.HTMLmarcas_movil;
+      }else{
+        document.getElementById("VehicleMakeSelect").innerHTML = this.HTMLmarcas_movil;
+      }
   }
    
-}
 
 function CambiarHtmlTransmision(){
   if(this.is_mobile && !this.yaEntramosTransm){
