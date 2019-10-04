@@ -10,6 +10,7 @@ var contP
 var ventanaMarca = false, ventanaModelo = false, ventanaTransmision = false, ventanaColor = false;
 console.log( window.location.href);
 var datos = {
+    vehiculo: '',
     marca: '',
     modelo: '',
     transmision: '',
@@ -96,26 +97,67 @@ function escogerTransmision(transimision){
         botonFinalizarProceso.classList.toggle('btn-primary');
         this.datos.transmision = transimision;
         this.ventanaTransmision = true;
+        console.log(this.datos);
     }
 
 }
 
-function irVista(VistaDestino_STR, btnActual_STR, btnSiguiente_STR, lblNumeroActual, lblNumeroSiguiente, nombreValor){
-    var VistaActual = document.getElementById(this.pantallaActual);
-    var VistaDestino = document.getElementById(VistaDestino_STR);
-    var Label_index_actual = document.getElementById(lblNumeroActual);
-    var Label_index_siguiente = document.getElementById(lblNumeroSiguiente);
-
-
-    VistaActual.style.display = 'none';
-    VistaDestino.style.display = 'block';
-    this.pantallaActual = VistaDestino_STR;
+function irVista(VistaActual_STR, VistaDestino_STR, btnActual_STR, btnSiguiente_STR, lblNumeroActual, lblNumeroSiguiente, nombreValor, datos){
     
-    //cambio de botones
-    Label_index_actual.classList.remove('active');
-    Label_index_siguiente.classList.add('active');
-    this.iluminarSiguienteBoton(btnActual_STR, btnSiguiente_STR);
+    if( VistaActual_STR != 'VehicleColorSelect' ) {
+        var VistaActual = document.getElementById(VistaActual_STR);
+        var VistaDestino = document.getElementById(VistaDestino_STR);
+        var Label_index_actual = document.getElementById(lblNumeroActual);
+        var Label_index_siguiente = document.getElementById(lblNumeroSiguiente);
 
+
+        VistaActual.style.display = 'none';
+        VistaDestino.style.display = 'block';
+        this.pantallaActual = VistaDestino_STR;
+    
+        //cambio de botones
+        Label_index_actual.classList.remove('active');
+        Label_index_siguiente.classList.add('active');
+        this.iluminarSiguienteBoton(btnActual_STR, btnSiguiente_STR);
+    }
+    
+
+    switch (VistaActual_STR) {
+        case 'seleccionVehiculo':
+            this.datos.vehiculo = datos[0];
+            break;
+        case 'VehicleModelSelect':
+            this.datos.marca = datos[0];
+            break;
+        case 'VehicleMakeSelect':
+            this.datos.modelo = datos[0];
+            this.datos.foto = datos[1];
+            this.datos.precio = datos[2];
+            break;
+        case 'TransmisionVehiculo':
+            this.datos.transmision = datos[0];
+
+            var botonFinalizarProceso = document.getElementById('CompleteStep');
+            botonFinalizarProceso.disabled = false;
+            botonFinalizarProceso.classList.remove('btn-secondary');
+            botonFinalizarProceso.classList.toggle('btn-primary');
+            break;
+        case 'VehicleColorSelect':
+            var color = document.getElementById('Color1');
+            this.datos.color1 = color.options[color.selectedIndex].value;
+            color = document.getElementById('Color2');
+            this.datos.color2 = color.options[color.selectedIndex].value;
+
+            localStorage.setItem('DATOS', JSON.stringify(this.datos));
+
+            window.location.href= "adressAndReview.html";
+            this.pantallaActual = "RebatesLocation";
+            break;
+        default:
+            break;
+    }
+
+    
    
     if(this.pantallaActual == "VistaRegistro"){
         var botonFinalizarProceso = document.getElementById('CompleteStep');
