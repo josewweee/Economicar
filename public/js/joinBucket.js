@@ -45,7 +45,7 @@ function modelosHTML(marca, tipo){
           numSuv = 3;
         } else {
           var modelos_marca_auto = ["Dream Neo 110", "CB 110 SDT", "CD 110 DLX", "CB 125F", "CB 160F", "CB 160F TD", "CB 160F DLX"];
-          var precios_marca_auto = ["3.899.000", "4.190.000", "4.390.0004.590.000", "4.590.000", "6.690.000", "7.350.000", "8.999.000"];
+          var precios_marca_auto = ["3.899.000", "4.190.000", "4.390.000", "4.590.000", "6.690.000", "7.350.000", "8.999.000"];
           var foto_auto = ["images/motos/dreamNeo110Honda.png", "images/motos/cb110Sdt.png", "images/motos/cb110dlx.png", "images/motos/cb125f.png", "images/motos/cb160fstd.png", "images/motos/cb160fdlx.png", "images/motos/cb190r.png"];
           numAutomoviles = modelos_marca_auto.length;
           numSuv = 0;
@@ -194,7 +194,7 @@ function CambiarHtmlMarcas(vehiculo){
             +' <source data-v-d007eb68="" media="(min-width: 768px)" srcset="images/brands/chevrolet@2x.png">'
             + '<img data-v-d007eb68="" srcset="'+"'"+fotoMarcas[i]+"'"+', images/brands/chevrolet@2x.png 2x" alt="Chevrolet" class="px-3">'
             + ' </picture>'
-            +'<span data-v-2479578e="" class="make-name text-center font-weight-normal">'+"'"+nombreMarcas[i]+"'"+'</span>'
+            +'<span data-v-2479578e="" class="make-name text-center font-weight-normal">'+nombreMarcas[i]+'</span>'
             + '<input data-v-2479578e="" id="make9" type="radio" name="make" class="radio-ninja" value="9">'
             +'</label>';
         }
@@ -218,7 +218,7 @@ function CambiarHtmlMarcas(vehiculo){
             +' <source data-v-d007eb68="" media="(min-width: 768px)" srcset="images/brands/hondaMoto.png">'
             + '<img data-v-d007eb68="" srcset="'+"'"+fotoMarcas[i]+"'"+', images/brands/hondaMoto.png 2x" alt="HOnda" class="px-3">'
             + ' </picture>'
-            +'<span data-v-2479578e="" class="make-name text-center font-weight-normal">'+"'"+nombreMarcas[i]+"'"+'</span>'
+            +'<span data-v-2479578e="" class="make-name text-center font-weight-normal">'+nombreMarcas[i]+'</span>'
             + '<input data-v-2479578e="" id="make9" type="radio" name="make" class="radio-ninja" value="9">'
             +'</label>';
         }

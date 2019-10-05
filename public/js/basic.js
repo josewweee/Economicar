@@ -33,7 +33,7 @@ localStorage.removeItem('DATOS');
 //VERSION MOVIL?
 this.CambiarHtmlCiudad();
 
-function escogerMarca(marcaVehiculo){
+/* function escogerMarca(marcaVehiculo){
     if(this.ventanaMarca == false){
         var VistaModelo = document.getElementById('VehicleModelSelect');
         var VistaMarca = document.getElementById('VehicleMakeSelect');
@@ -100,7 +100,7 @@ function escogerTransmision(transimision){
         console.log(this.datos);
     }
 
-}
+} */
 
 function irVista(VistaActual_STR, VistaDestino_STR, btnActual_STR, btnSiguiente_STR, lblNumeroActual, lblNumeroSiguiente, nombreValor, datos){
     
@@ -126,12 +126,12 @@ function irVista(VistaActual_STR, VistaDestino_STR, btnActual_STR, btnSiguiente_
         case 'seleccionVehiculo':
             this.datos.vehiculo = datos[0];
             break;
-        case 'VehicleModelSelect':
+        case 'VehicleMakeSelect':
             this.datos.marca = datos[0];
             break;
-        case 'VehicleMakeSelect':
+        case 'VehicleModelSelect':
             this.datos.modelo = datos[0];
-            this.datos.foto = datos[1];
+            this.datos.foto = datos[1];;
             this.datos.precio = datos[2];
             break;
         case 'TransmisionVehiculo':
@@ -187,6 +187,7 @@ function irVista(VistaActual_STR, VistaDestino_STR, btnActual_STR, btnSiguiente_
     }
 
     if(this.pantallaActual == "VistaConfirmacion"){
+        console.log(this.datosAnteriores);
        document.getElementById("fotoConfirmacion").src = this.datosAnteriores.foto;
         document.getElementById("ModeloConfirmacion").innerHTML = this.datosAnteriores.marca + " " + this.datosAnteriores.modelo;
         document.getElementById("PrecioConfirmacion").innerHTML = 'Precio inicial ' + this.datosAnteriores.precio;

@@ -26,11 +26,11 @@ window.onclick = function(event) {
 
 function CalcularDescuento(){
   var ValorBase = document.getElementById('inputPrecioVehiculo').value;
-  var PorcentajeDescuento = 0.06;
+  var PorcentajeDescuento = 0.03;
   var Resultado = document.getElementById('inputDescuentoObtenido');
   var ResultadoProcentual = document.getElementById('lblDescuento');
   Resultado.value = (ValorBase * PorcentajeDescuento);
-  ResultadoProcentual.innerHTML = '6%*';
+  ResultadoProcentual.innerHTML = '3%*';
 }
 
 //MODAL DEL VIDEO
