@@ -16,19 +16,14 @@ SearchRef.orderByChild("id").on("child_added", function(snapshot) {
     transmision = snapshot.val().transmision;
     foto = snapshot.val().foto;
     precio = snapshot.val().precio;
+ 
 
-    if(document.getElementById("perfil") != null){
-        document.getElementById("nombreCarro").innerHTML = marca + " " +  modelo;
-        document.getElementById("transmisionCarro").innerHTML = transmision;
-        document.getElementById("colorCarro").innerHTML = color1 + '<p class="option-number"> Opción 1 </p>';
-        document.getElementById("colorCarro_op2").innerHTML = color2 + '<p class="option-number"> Opción 2 </p>';
-        document.getElementById("fotoOpcion1").src = foto;
-        document.getElementById("fotoOpcion2").src = foto;
-    }else if(document.getElementById("configuracion") != null){
-        document.getElementById("nombreCompleto").value = nombre + " " +  apellido;
-        document.getElementById("telefonoCelular").value = telefono;
-        document.getElementById("Correo").value = correo;
-    }
+    document.getElementById("nombreCarro").innerHTML = marca + " " +  modelo;
+    document.getElementById("transmisionCarro").innerHTML = transmision;
+    document.getElementById("colorCarro").innerHTML = color1 + '<p class="option-number"> Opción 1 </p>';
+    document.getElementById("colorCarro_op2").innerHTML = color2 + '<p class="option-number"> Opción 2 </p>';
+    document.getElementById("fotoOpcion1").src = foto;
+    document.getElementById("fotoOpcion2").src = foto;
     
    });
 
