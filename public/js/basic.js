@@ -25,7 +25,8 @@ var datos = {
     precio: '',
     tipoCliente: '',
     financiamiento: '',
-    entregaCarro: ''
+    entregaCarro: '',
+    idVehiculo: ''
 }; 
 var datosAnteriores = JSON.parse(localStorage.getItem('DATOS'));
 localStorage.removeItem('DATOS');
@@ -131,8 +132,9 @@ function irVista(VistaActual_STR, VistaDestino_STR, btnActual_STR, btnSiguiente_
             break;
         case 'VehicleModelSelect':
             this.datos.modelo = datos[0];
-            this.datos.foto = datos[1];;
+            this.datos.foto = datos[1];
             this.datos.precio = datos[2];
+            this.datos.id = datos[3];
             break;
         case 'TransmisionVehiculo':
             this.datos.transmision = datos[0];
@@ -234,9 +236,7 @@ function saveInfo(data,tipo){
         });
     }else if(tipo == 'usuario'){
         var refUsers = firebase.database().ref("USUARIOS");
-        console.log(refUsers);
         refUsers.push({
-            correo: data.correo,
             data
         }).then((snap) => {
             var key = snap.key 
@@ -245,19 +245,25 @@ function saveInfo(data,tipo){
             firebaseAuth.createUserWithEmailAndPassword(this.datosAnteriores.correo, this.password).catch(function(error) {
 				var errorCode = error.code;
 				var errorMessage = error.message;
-
+                
 				if (errorCode === 'auth/wrong-password') {
 			        alert('Contraseña equivocada.');
 			        errores = true;
 			        return;
-			    } else {
+                } else if (errorCode === 'auth/email-already-exists') {
+			        alert('Ya tienes una cuenta, revisa tu correo en SPAM, busca por EconomiCar');
+			        errores = true;
+			        return;
+			    }
+                
+                else {
 			    	errores = true;
 			        alert(errorMessage);
 			        return;
 			    }
 			});
         }).then((snap) => {
-            this.EnviarEmail('registro');
+            
             window.location.href= "perfil.html";
         
         });
@@ -339,7 +345,8 @@ function LogOut(){
 function EnviarEmail(tipo){
     
     if(tipo == 'registro'){
-        var correo = (this.datosAnteriores.correo).toString();
+        var correo = (document.getElementById("InputCorreo").value).toString();
+        console.log("correo a enviar: " + correo);
         Email.send({
             Host : "smtp.elasticemail.com",
             Username : "economicar024@gmail.com",
@@ -349,7 +356,8 @@ function EnviarEmail(tipo){
             Subject : "Contraseña ECONOMICAR",
             Body : "Tu datos de www.economicar.com, son, USUARIO: "+ correo + " contraseña: " + this.password + " ¡Felicidades!"
         }).then(
-          message => alert(message)
+         /*  message => alert(message) */
+         /* message => this.irPerfil() */
         );
     }else if(tipo == 'contactanos'){
         var correo = document.getElementById("correoContacto").value;
@@ -386,6 +394,7 @@ function abrirModal() {
 
     if(telefono.length > 4 || correo.length > 4){
         document.getElementById("myModal").style.display = "block";
+        this.EnviarEmail('registro');
     }
     
 }

@@ -1,4 +1,4 @@
-var nuevo_html = '<div data-v-2d184876="" id="DeckForCars" class="mini-card-deck">';
+var nuevo_html ="";
 var nuevo_html_SUV = "";
 var HTMLvehiculos_movil = "";
 var HTMLmarcas_movil = "";
@@ -7,6 +7,10 @@ var HTMLcolor_movil = "";
 var is_mobile = false;
 var yaEntramosTransm = false;
 var yaEntramosColor = false;
+var arregloCarros = [];
+var arregloMotos = [];
+var arregloMarcas = [];
+var SearchRef;
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
   is_mobile = true;
  }
@@ -22,33 +26,39 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
  }
 
 
+//TOMAMOS LA INFORMACION DE LA BASE DE DATOS
+SearchRef = firebase.database().ref("VEHICULOS/carros");
+SearchRef.orderByChild("id").on("child_added", function(snapshot) {
+  this.arregloCarros.push( snapshot.val() );
+});
+
+SearchRef = firebase.database().ref("VEHICULOS/motos");
+SearchRef.orderByChild("id").on("child_added", function(snapshot) {
+  this.arregloMotos.push( snapshot.val() );
+});
+
+SearchRef = firebase.database().ref("VEHICULOS/marcas");
+SearchRef.orderByChild("id").on("child_added", function(snapshot) {
+  this.arregloMarcas.push( snapshot.val() );
+});
+
+
 function modelosHTML(marca, tipo){
-    if(marca == 'bmw'){
-        numAutomoviles = 5;
-        numSuv = 5;
-        this.nuevo_html = '<div id="DeckForCars" class="mini-card-deck">';
-        if(this.is_mobile){
-          this.nuevo_html = '<div class="card-body p-0 pb-3">';
-          +'<div id="DeckForCars" class="mini-card-deck">'
-          +'<div id="VehicleMakeSelect" class="col align-items-center" data-v-4fa46acd="">';
-        }
-        this.nuevo_html_SUV = "";
-        this.cambiarHtml(numAutomoviles, numSuv);
-        document.getElementById("htmlAutomoviles").innerHTML = this.nuevo_html;
-        document.getElementById("htmlCamionetas").innerHTML = this.nuevo_html_SUV;
-    }else if(marca = 'chevrolet'){
         if ( tipo == 'carros' ) {
-          var modelos_marca_auto = ["Sail", "Spark GT", "Beat", "Onix sedan", "Onix", "Cruze", "Camaro six SS"];
-          var precios_marca_auto = ["31.990.000", "33.990.000", "35.990.000", "45.290.000", "45.990.000", "65.990.000", "165.000.000"];
+        var arregloMarcas = this.arregloCarros.filter( x => x.marca == marca );
+        var tipos = [];
+        for(var i=0; i < arregloMarcas.length; i++) { tipos.push(arregloMarcas[i].tipoVehiculo); }
+
+         /*  var modelos_marca_auto = ["Sail", "Spark GT", "Beat", "Onix sedan", "Onix", "Cruze", "Camaro six SS"];
+          var precios_marca_auto = ["31.990.000", "33.990.000", "35.990.000", "45.290.000", "45.990.000", "65.990.000", "165.000.000"]; */
           var foto_auto = ["images/cars/sail.webp", "images/cars/sparkGt.webp", "images/cars/beat.webp", "images/cars/onixSedan.webp", "images/cars/onix.webp", "images/cars/cruze.webp", "images/cars/camaroSS.webp"];
-          numAutomoviles = modelos_marca_auto.length;
-          numSuv = 3;
         } else {
-          var modelos_marca_auto = ["Dream Neo 110", "CB 110 SDT", "CD 110 DLX", "CB 125F", "CB 160F", "CB 160F TD", "CB 160F DLX"];
-          var precios_marca_auto = ["3.899.000", "4.190.000", "4.390.000", "4.590.000", "6.690.000", "7.350.000", "8.999.000"];
+          var arregloMarcas = this.arregloMotos.filter( x => x.marca == marca );
+          var tipos = [];
+          for(var i=0; i < arregloMarcas.length; i++) { tipos.push(arregloMarcas[i].tipoVehiculo); }
+          /* var modelos_marca_auto = ["Dream Neo 110", "CB 110 SDT", "CD 110 DLX", "CB 125F", "CB 160F", "CB 160F TD", "CB 160F DLX"];
+          var precios_marca_auto = ["3.899.000", "4.190.000", "4.390.000", "4.590.000", "6.690.000", "7.350.000", "8.999.000"]; */
           var foto_auto = ["images/motos/dreamNeo110Honda.png", "images/motos/cb110Sdt.png", "images/motos/cb110dlx.png", "images/motos/cb125f.png", "images/motos/cb160fstd.png", "images/motos/cb160fdlx.png", "images/motos/cb190r.png"];
-          numAutomoviles = modelos_marca_auto.length;
-          numSuv = 0;
         }
         if(this.is_mobile){
           document.getElementById("WizardVehicleModelSelect").classList.add('show');
@@ -66,16 +76,15 @@ function modelosHTML(marca, tipo){
           this.nuevo_html = '<div data-v-2d184876="" id="DeckForCars" class="mini-card-deck">';
         }
         
-        this.nuevo_html_SUV = "";
-        this.cambiarHtml(numAutomoviles, numSuv, modelos_marca_auto, precios_marca_auto, foto_auto);
+       /*  fotos temporales en argumento */
+        this.cambiarHtml(tipos, arregloMarcas, foto_auto);
         if(this.is_mobile == false){
           document.getElementById("htmlAutomoviles").innerHTML = this.nuevo_html;
         }else{
           document.getElementById("VehicleModelSelect").style.display='none';
           document.getElementById("WizardVehicleModelSelect").innerHTML = this.nuevo_html;
         }
-        document.getElementById("htmlCamionetas").innerHTML = this.nuevo_html_SUV;
-    }   
+       /*  document.getElementById("htmlCamionetas").innerHTML = this.nuevo_html_SUV;  */
 }
 
 
@@ -83,67 +92,49 @@ function modelosHTML(marca, tipo){
 
 
 //HTML DE MODELO CARROS
-function cambiarHtml(numAutomoviles, numSuv, modelos_marca_auto, precios_marca_auto, foto_auto){
+function cambiarHtml(tipos, vehiculos, foto_auto){
+  for (var k = 0; k< tipos.length; k++) {
+    //mayuscula inicial
+    var textoTipos = tipos[k].charAt(0).toUpperCase() + tipos[k].slice(1)
+    this.nuevo_html += '<div class="ml-md-3 py-2"><h3>'+textoTipos+'</h3></div>';
+    this.nuevo_html += '<div data-v-2d184876="" id="DeckForCars" class="mini-card-deck">';
+
+    var filtroVehiculos = vehiculos.filter(x => x.tipoVehiculo == tipos[k]);
+    var modelos_marca_auto = [];
+    for(var j=0; j < filtroVehiculos.length; j++) { modelos_marca_auto.push(filtroVehiculos[j].modelo); }
+    var precios_marca_auto = [];
+    for(var p=0; p < filtroVehiculos.length; p++) { precios_marca_auto.push( filtroVehiculos[p].precio ); }
+    var id_autos = [];
+    for(var l=0; l < filtroVehiculos.length; l++) { id_autos.push( filtroVehiculos[l].id ); }
+    /* var foto_auto = [];
+    for(var i=0; i < filtroVehiculos.length; i++) { foto_auto.push( filtroVehiculos[i].foto ); } */
+    /*var foto_auto = ["images/cars/sail.webp", "images/cars/sparkGt.webp", "images/cars/beat.webp", "images/cars/onixSedan.webp", "images/cars/onix.webp", "images/cars/cruze.webp", "images/cars/camaroSS.webp"]; */
 
     //MODELOS DE CARROS
-    for(var i = 0; i < numAutomoviles; i++){
-        this.nuevo_html +=  '<label data-v-2d184876="" for="model417" class="vehicle mini-card" onclick="irVista( '+"'"+'VehicleModelSelect'+"'" +', '+"'"+'TransmisionVehiculo'+"'" +', '+"'"+'botonModelo'+"'" +', '+"'"+'botonTransmision'+"'" +', '+"'"+'number2'+"'" +', '+"'"+'number3'+"'" +', '+'null'+', [ '+"'"+modelos_marca_auto[i]+"'" +','+ "'"+foto_auto[i]+"'"+','+ "'"+precios_marca_auto[i]+"'"+' ]);CambiarHtmlTransmision();">'
-        +'<div data-v-2d184876="" class="model-name text-center">'+modelos_marca_auto[i]+'</div> '
-      +'<picture data-v-3d61cc42="" data-v-2d184876="">'
-          +'<img data-v-3d61cc42="" src="'+foto_auto[i]+'" class="opacity-100"> </picture> '
-          +'<div data-v-2d184876="" class="d-flex justify-content-between align-items-center">'
-           +' <small data-v-2d184876="">'+'MSRP'+'</small> '
-           + '<div data-v-2d184876="" class="price">'+'$'+precios_marca_auto[i]+'*'+'</div>'
-         + '</div> '
-         + '<input data-v-2d184876="" id="model417" type="radio" name="model" class="radio-ninja" value="417">'
-      + ' </label>';
-    }
-    //BOTON DE NO ENCUENTRO MI MARCA
-    this.nuevo_html += '<div data-v-2d184876="" class="vehicle mini-card d-flex justify-content-center">'
-      +'<label data-v-2d184876="" class="m-0" style="position: relative;">'
-       + '<img data-v-2d184876="" src="images/wizard/transparent.svg"> '
-       + '<div data-v-2d184876="" class="make-not-available text-dark">'
-       + '¿No Ves <br data-v-2d184876=""> Tu Modelo?.'
-       + '</div>'
-       + '</label>'
-       + '</div>' 
-        +'</div>'
-       + '</div>';
-    
-
-
-
-    //MODELOS SUV
-    if(numSuv >= 1){
-        this.nuevo_html_SUV += '<div data-v-2d184876="" id="DeckForSUV/Vans" class="mini-card-deck">';
-    }
-    for(var j = 1; j < numSuv; j++){
-        this.nuevo_html_SUV += '<label data-v-2d184876="" for="model588" class="vehicle mini-card" onclick="irVista( '+"'"+'VehicleModelSelect'+"'" +', '+"'"+'TransmisionVehiculo'+"'" +', '+"'"+'botonModelo'+"'" +', '+"'"+'botonTransmision'+"'" +', '+"'"+'number2'+"'" +', '+"'"+'number3'+"'" +', '+'null'+', [ '+"'"+modelos_marca_auto[i]+"'" +','+ "'"+foto_auto[i]+"'"+','+ "'"+precios_marca_auto[i]+"'"+' ]);CambiarHtmlTransmision();">'
-        +'<div data-v-2d184876="" class="model-name text-center">2019 X1</div> '
-       +' <picture data-v-3d61cc42="" data-v-2d184876="">'
-          +'<img data-v-3d61cc42="" src="https://media.chromedata.com/MediaGallery/media/MjkzODk3Xk1lZGlhIEdhbGxlcnk/on5zQhPIJp7PK9lw_eD-p-GL8sFFSGLht7Rqj3bS2kPPDvX4X14CUVoC0X222lvX59FyjkARJF4/cc_2019BMS250005_01_640_A83.png" class="opacity-100"> </picture> '
-          +'<div data-v-2d184876="" class="d-flex justify-content-between align-items-center">'
-           + '<small data-v-2d184876="">MSRP</small> '
-           + '<div data-v-2d184876="" class="price">$134.950.000*</div>'
-          +'</div> '
-         + '<input data-v-2d184876="" id="model588" type="radio" name="model" class="radio-ninja" value="588">'
-       + '</label>';
-    }
-    //BOTON NO ENCUENTRO MI MODELO SUV
-    if(numSuv >= 1){
-        this.nuevo_html_SUV += '<div data-v-2d184876="" class="vehicle mini-card d-flex justify-content-center">'      
-         +'<label data-v-2d184876="" class="m-0" style="position: relative;">'
-           +'<img data-v-2d184876="" src="images/wizard/transparent.svg"> '
-          +' <div data-v-2d184876="" class="make-not-available text-dark">'
-      +' ¿No Ves <br data-v-2d184876=""> Tu Modelo.'
-                   + '</div>'
-               + '</label>'
-           + '</div> '
-           + '</div>'
-           + '</div>';
-    }
-
-
+    for(var i = 0; i < 1; i++){
+      this.nuevo_html +=  '<label data-v-2d184876="" for="model417" class="vehicle mini-card" onclick="irVista( '+"'"+'VehicleModelSelect'+"'" +', '+"'"+'TransmisionVehiculo'+"'" +', '+"'"+'botonModelo'+"'" +', '+"'"+'botonTransmision'+"'" +', '+"'"+'number2'+"'" +', '+"'"+'number3'+"'" +', '+'null'+', [ '+"'"+modelos_marca_auto[i]+"'" +','+ "'"+foto_auto[i]+"'"+','+ "'"+precios_marca_auto[i]+"'"+','+ "'"+id_autos[i]+"'"+'  ]);CambiarHtmlTransmision('+"'"+id_autos[i]+"'"+');">'
+      +'<div data-v-2d184876="" class="model-name text-center">'+modelos_marca_auto[i]+'</div> '
+    +'<picture data-v-3d61cc42="" data-v-2d184876="">'
+        +'<img data-v-3d61cc42="" src="'+foto_auto[i]+'" class="opacity-100"> </picture> '
+        +'<div data-v-2d184876="" class="d-flex justify-content-between align-items-center">'
+         +' <small data-v-2d184876="">'+'MSRP'+'</small> '
+         + '<div data-v-2d184876="" class="price">'+'$'+precios_marca_auto[i]+'*'+'</div>'
+       + '</div> '
+       + '<input data-v-2d184876="" id="model417" type="radio" name="model" class="radio-ninja" value="417">'
+    + ' </label>';
+  }
+  //BOTON DE NO ENCUENTRO MI MARCA
+  this.nuevo_html += '<div data-v-2d184876="" class="vehicle mini-card d-flex justify-content-center">'
+    +'<label data-v-2d184876="" class="m-0" style="position: relative;">'
+     + '<img data-v-2d184876="" src="images/wizard/transparent.svg"> '
+     + '<div data-v-2d184876="" class="make-not-available text-dark">'
+     + '¿No Ves <br data-v-2d184876=""> Tu Modelo?.'
+     + '</div>'
+     + '</label>'
+     + '</div>' 
+      +'</div>'
+     + '</div>';
+  }
 
     //SOLO MOVIL
     if(is_mobile){
@@ -185,10 +176,14 @@ function CambiarHtmlMarcas(vehiculo){
 
       if ( vehiculo == 'carros' ) 
       {
-        var fotoMarcas = ["mages/brands/chevrolet.png"];
-        var nombreMarcas = ["chevrolet"]
-        var numeroMarcas = nombreMarcas.length;  
-        for(var i=0; i < numeroMarcas; i++){
+        //FILTRAMOS SOLO LAS MARCAS DE CARROS
+        var arregloMarcas = this.arregloMarcas.filter( x => x.vehiculo == "carros" );
+        var fotoMarcas = [];
+        for(var i=0; i < arregloMarcas.length; i++) { fotoMarcas.push(arregloMarcas[i].foto); }
+        var nombreMarcas = [];
+        for(var i=0; i < arregloMarcas.length; i++) { nombreMarcas.push( arregloMarcas[i].nombre ); }
+    
+        for(var i=0; i < fotoMarcas.length; i++){
           HTMLmarcas_movil += '<label class="mini-card" onclick="irVista( '+"'"+'VehicleMakeSelect'+"'" +', '+"'"+'VehicleModelSelect'+"'" +', '+"'"+'botonMarca'+"'" +', '+"'"+'botonModelo'+"'" +', '+"'"+'number1'+"'" +', '+"'"+'number2'+"'" +', '+'null'+', [ '+"'"+nombreMarcas[i]+"'"+' ]);modelosHTML('+"'"+nombreMarcas[i]+"'"+', '+"'"+'carros'+"'" +');">'
             + '<picture data-v-d007eb68="" data-v-2479578e="">'
             +' <source data-v-d007eb68="" media="(min-width: 768px)" srcset="images/brands/chevrolet@2x.png">'
@@ -209,10 +204,14 @@ function CambiarHtmlMarcas(vehiculo){
           + '</a>'
         + '</div>';
       }else {
-        var fotoMarcas = ["mages/brands/hondaMoto.png"];
-        var nombreMarcas = ["honda"]
-        var numeroMarcas = nombreMarcas.length;  
-        for(var i=0; i < numeroMarcas; i++){
+        //FILTRAMOS SOLO LAS MARCAS DE CARROS
+        var arregloMarcas = this.arregloMarcas.filter( x => x.vehiculo == "motos" );
+        var fotoMarcas = [];
+        for(var i=0; i < arregloMarcas.length; i++) { fotoMarcas.push(arregloMarcas[i].foto); }
+        var nombreMarcas = [];
+        for(var i=0; i < arregloMarcas.length; i++) { nombreMarcas.push( arregloMarcas[i].nombre ); }
+
+        for(var i=0; i < fotoMarcas.length; i++){
           HTMLmarcas_movil += '<label class="mini-card" onclick="irVista( '+"'"+'VehicleMakeSelect'+"'" +', '+"'"+'VehicleModelSelect'+"'" +', '+"'"+'botonMarca'+"'" +', '+"'"+'botonModelo'+"'" +', '+"'"+'number1'+"'" +', '+"'"+'number2'+"'" +', '+'null'+', [ '+"'"+nombreMarcas[i]+"'"+' ]);modelosHTML('+"'"+nombreMarcas[i]+"'"+', '+"'"+'motos'+"'" +');">'
             + '<picture data-v-d007eb68="" data-v-2479578e="">'
             +' <source data-v-d007eb68="" media="(min-width: 768px)" srcset="images/brands/hondaMoto.png">'
@@ -242,11 +241,11 @@ function CambiarHtmlMarcas(vehiculo){
   }
    
 
-function CambiarHtmlTransmision(){
+function CambiarHtmlTransmision(id){
   if(this.is_mobile && !this.yaEntramosTransm){
     document.getElementById("TransmisionVehiculo").style.display='none';
     document.getElementById("WizardVehicleTransmissionSelect").classList.add('show');
-
+    
     this.HTMLtransmisicion_movil += '<div class="card-body p-0 pb-3" >'
     + '<div id="TransmisionVehiculo" class="col" >'
       + '<div class="row">'
@@ -257,13 +256,13 @@ function CambiarHtmlTransmision(){
              + '<img src="images/automatic.png" alt="">'
            + '</picture>'
            +   'Automatico'
-         + '</label> '
-          +'<label data-value="manual" class="mini-card" onclick="irVista( '+"'"+'TransmisionVehiculo'+"'" +', '+"'"+'VehicleColorSelect'+"'" +', '+"'"+'botonTransmision'+"'" +', '+"'"+'botonColor'+"'" +', '+"'"+'number3'+"'" +', '+"'"+'number4'+"'" +', '+'null'+', [ '+"'"+'manual'+"'" +' ]);CambiarHtmlColor()">'
+      +'</label>'
+      +'<label data-value="manual" class="mini-card" onclick="irVista( '+"'"+'TransmisionVehiculo'+"'" +', '+"'"+'VehicleColorSelect'+"'" +', '+"'"+'botonTransmision'+"'" +', '+"'"+'botonColor'+"'" +', '+"'"+'number3'+"'" +', '+"'"+'number4'+"'" +', '+'null'+', [ '+"'"+'manual'+"'" +' ]);CambiarHtmlColor()">'
            + '<picture class="mb-3 p-1">'
             + ' <img src="images/manual.png" alt="" style="height: 100%;">'
             +'</picture>'
             + ' Manual'
-        + ' </label>'
+      +'</label>'
         +'</div>' +'</div>'+'</div>'+'</div>'+'</div>';
         document.getElementById("WizardVehicleTransmissionSelect").innerHTML = this.HTMLtransmisicion_movil;
         this.yaEntramos = true;
