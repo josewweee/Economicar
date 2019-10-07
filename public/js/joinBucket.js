@@ -10,6 +10,7 @@ var yaEntramosColor = false;
 var arregloCarros = [];
 var arregloMotos = [];
 var arregloMarcas = [];
+var vehiculoActual;
 var SearchRef;
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
   is_mobile = true;
@@ -112,6 +113,8 @@ function cambiarHtml(tipos, vehiculos, foto_auto){
 
     //MODELOS DE CARROS
     for(var i = 0; i < 1; i++){
+      this.vehiculoActual = filtroVehiculos[i];
+
       this.nuevo_html +=  '<label data-v-2d184876="" for="model417" class="vehicle mini-card" onclick="irVista( '+"'"+'VehicleModelSelect'+"'" +', '+"'"+'TransmisionVehiculo'+"'" +', '+"'"+'botonModelo'+"'" +', '+"'"+'botonTransmision'+"'" +', '+"'"+'number2'+"'" +', '+"'"+'number3'+"'" +', '+'null'+', [ '+"'"+modelos_marca_auto[i]+"'" +','+ "'"+foto_auto[i]+"'"+','+ "'"+precios_marca_auto[i]+"'"+','+ "'"+id_autos[i]+"'"+'  ]);CambiarHtmlTransmision('+"'"+id_autos[i]+"'"+');">'
       +'<div data-v-2d184876="" class="model-name text-center">'+modelos_marca_auto[i]+'</div> '
     +'<picture data-v-3d61cc42="" data-v-2d184876="">'
@@ -242,31 +245,69 @@ function CambiarHtmlMarcas(vehiculo){
    
 
 function CambiarHtmlTransmision(id){
+
+  var automatico = false;
+  var mecanico = false;
+  var vehiculoActual = (this.vehiculoActual.transmision).toString();
+  console.log(vehiculoActual);
+ /*  var index = vehiculos.map(function (img) { return img.id; }).indexOf(id); */
+  if ( vehiculoActual.includes("automatic") ) { automatico = true;}
+  if ( vehiculoActual.includes("manual") ) { mecanico = true;}
+
   if(this.is_mobile && !this.yaEntramosTransm){
     document.getElementById("TransmisionVehiculo").style.display='none';
     document.getElementById("WizardVehicleTransmissionSelect").classList.add('show');
-    
+
     this.HTMLtransmisicion_movil += '<div class="card-body p-0 pb-3" >'
     + '<div id="TransmisionVehiculo" class="col" >'
       + '<div class="row">'
       +'<div class="col col-lg-6">'
-      +'<div class="mini-card-pair text-center">'
-      +'<label data-value="automatic" class="mini-card" onclick="irVista( '+"'"+'TransmisionVehiculo'+"'" +', '+"'"+'VehicleColorSelect'+"'" +', '+"'"+'botonTransmision'+"'" +', '+"'"+'botonColor'+"'" +', '+"'"+'number3'+"'" +', '+"'"+'number4'+"'" +', '+'null'+', [ '+"'"+'automatico'+"'" +' ]);CambiarHtmlColor()">'
+      +'<div class="mini-card-pair text-center">';
+      if( automatico ){
+        this.HTMLtransmisicion_movil +='<label data-value="automatic" class="mini-card" onclick="irVista( '+"'"+'TransmisionVehiculo'+"'" +', '+"'"+'VehicleColorSelect'+"'" +', '+"'"+'botonTransmision'+"'" +', '+"'"+'botonColor'+"'" +', '+"'"+'number3'+"'" +', '+"'"+'number4'+"'" +', '+'null'+', [ '+"'"+'automatico'+"'" +' ]);CambiarHtmlColor()">'
            + '<picture class="mb-3 p-1">'
              + '<img src="images/automatic.png" alt="">'
            + '</picture>'
            +   'Automatico'
-      +'</label>'
-      +'<label data-value="manual" class="mini-card" onclick="irVista( '+"'"+'TransmisionVehiculo'+"'" +', '+"'"+'VehicleColorSelect'+"'" +', '+"'"+'botonTransmision'+"'" +', '+"'"+'botonColor'+"'" +', '+"'"+'number3'+"'" +', '+"'"+'number4'+"'" +', '+'null'+', [ '+"'"+'manual'+"'" +' ]);CambiarHtmlColor()">'
+      +'</label>';
+      }
+      
+      if ( mecanico ) {
+        this.HTMLtransmisicion_movil +='<label data-value="manual" class="mini-card" onclick="irVista( '+"'"+'TransmisionVehiculo'+"'" +', '+"'"+'VehicleColorSelect'+"'" +', '+"'"+'botonTransmision'+"'" +', '+"'"+'botonColor'+"'" +', '+"'"+'number3'+"'" +', '+"'"+'number4'+"'" +', '+'null'+', [ '+"'"+'manual'+"'" +' ]);CambiarHtmlColor()">'
            + '<picture class="mb-3 p-1">'
             + ' <img src="images/manual.png" alt="" style="height: 100%;">'
             +'</picture>'
             + ' Manual'
-      +'</label>'
+      +'</label>';
+      }
+      
         +'</div>' +'</div>'+'</div>'+'</div>'+'</div>';
         document.getElementById("WizardVehicleTransmissionSelect").innerHTML = this.HTMLtransmisicion_movil;
-        this.yaEntramos = true;
+        this.yaEntramosTransm = true;
         this.HTMLtransmisicion_movil = "";
+  }else if ( !this.yaEntramosTransm ) {
+    var htmlTransmision = "";
+    if( automatico ){
+      htmlTransmision +='<label data-value="automatic" class="mini-card" onclick="irVista( '+"'"+'TransmisionVehiculo'+"'" +', '+"'"+'VehicleColorSelect'+"'" +', '+"'"+'botonTransmision'+"'" +', '+"'"+'botonColor'+"'" +', '+"'"+'number3'+"'" +', '+"'"+'number4'+"'" +', '+'null'+', [ '+"'"+'automatico'+"'" +' ]);CambiarHtmlColor()">'
+         + '<picture class="mb-3 p-1">'
+           + '<img src="images/automatic.png" alt="">'
+         + '</picture>'
+         +   'Automatico'
+          +'</label>';
+    }
+    
+    if ( mecanico ) {
+      htmlTransmision +='<label data-value="manual" class="mini-card" onclick="irVista( '+"'"+'TransmisionVehiculo'+"'" +', '+"'"+'VehicleColorSelect'+"'" +', '+"'"+'botonTransmision'+"'" +', '+"'"+'botonColor'+"'" +', '+"'"+'number3'+"'" +', '+"'"+'number4'+"'" +', '+'null'+', [ '+"'"+'manual'+"'" +' ]);CambiarHtmlColor()">'
+         + '<picture class="mb-3 p-1">'
+          + ' <img src="images/manual.png" alt="" style="height: 100%;">'
+          +'</picture>'
+          + ' Manual'
+    +'</label>';
+    }
+
+    document.getElementById("htmlTransmision").innerHTML = htmlTransmision;
+    this.yaEntramosTransm = true;
+    htmlTransmision = "";
   }
 }
 
