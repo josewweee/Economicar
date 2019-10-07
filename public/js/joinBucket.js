@@ -10,6 +10,7 @@ var yaEntramosColor = false;
 var arregloCarros = [];
 var arregloMotos = [];
 var arregloMarcas = [];
+var arregloVehiculos = [];
 var vehiculoActual;
 var SearchRef;
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
@@ -44,57 +45,44 @@ SearchRef.orderByChild("id").on("child_added", function(snapshot) {
 });
 
 
-function modelosHTML(marca, tipo){
-        if ( tipo == 'carros' ) {
-        var arregloMarcas = this.arregloCarros.filter( x => x.marca == marca );
-        var tipos = [];
-        for(var i=0; i < arregloMarcas.length; i++) { tipos.push(arregloMarcas[i].tipoVehiculo); }
-
-         /*  var modelos_marca_auto = ["Sail", "Spark GT", "Beat", "Onix sedan", "Onix", "Cruze", "Camaro six SS"];
-          var precios_marca_auto = ["31.990.000", "33.990.000", "35.990.000", "45.290.000", "45.990.000", "65.990.000", "165.000.000"]; */
-          var foto_auto = ["images/cars/sail.webp", "images/cars/sparkGt.webp", "images/cars/beat.webp", "images/cars/onixSedan.webp", "images/cars/onix.webp", "images/cars/cruze.webp", "images/cars/camaroSS.webp"];
-        } else {
-          var arregloMarcas = this.arregloMotos.filter( x => x.marca == marca );
-          var tipos = [];
-          for(var i=0; i < arregloMarcas.length; i++) { tipos.push(arregloMarcas[i].tipoVehiculo); }
-          /* var modelos_marca_auto = ["Dream Neo 110", "CB 110 SDT", "CD 110 DLX", "CB 125F", "CB 160F", "CB 160F TD", "CB 160F DLX"];
-          var precios_marca_auto = ["3.899.000", "4.190.000", "4.390.000", "4.590.000", "6.690.000", "7.350.000", "8.999.000"]; */
-          var foto_auto = ["images/motos/dreamNeo110Honda.png", "images/motos/cb110Sdt.png", "images/motos/cb110dlx.png", "images/motos/cb125f.png", "images/motos/cb160fstd.png", "images/motos/cb160fdlx.png", "images/motos/cb190r.png"];
-        }
-        if(this.is_mobile){
-          document.getElementById("WizardVehicleModelSelect").classList.add('show');
-          document.getElementById("appVersion").classList.remove('position-fixed');
-          this.nuevo_html = '<div class="card-body p-0 pb-3">'
-          +'<div id="VehicleModelSelect" class="col" data-v-4fa46acd="">'
-          +' <div class="row">'
-            +'<div class="col">'
-             + '<div class="ml-md-3 py-2">'
-               + '<h3>Carros</h3>'
-             + '</div>'
-             +'<div class="d-flex">'
-             +'<div id="DeckForCars" class="mini-card-deck">';
-        }else{
-          this.nuevo_html = '<div data-v-2d184876="" id="DeckForCars" class="mini-card-deck">';
-        }
-        
-       /*  fotos temporales en argumento */
-        this.cambiarHtml(tipos, arregloMarcas, foto_auto);
-        if(this.is_mobile == false){
-          document.getElementById("htmlAutomoviles").innerHTML = this.nuevo_html;
-        }else{
-          document.getElementById("VehicleModelSelect").style.display='none';
-          document.getElementById("WizardVehicleModelSelect").innerHTML = this.nuevo_html;
-        }
-       /*  document.getElementById("htmlCamionetas").innerHTML = this.nuevo_html_SUV;  */
-}
-
-
-
-
 
 //HTML DE MODELO CARROS
-function cambiarHtml(tipos, vehiculos, foto_auto){
+function ModelosHTML(marca, tipo){
+  var arregloMarcas, tipos, foto_auto;
+  if ( tipo == 'carros' ) {
+    arregloMarcas = this.arregloCarros.filter( x => x.marca == marca );
+    this.arregloVehiculos = arregloMarcas;
+    tipos = [];
+    for(var m=0; m < arregloMarcas.length; m++) { tipos.push(arregloMarcas[m].tipoVehiculo); }
+
+     /*  var modelos_marca_auto = ["Sail", "Spark GT", "Beat", "Onix sedan", "Onix", "Cruze", "Camaro six SS"];
+      var precios_marca_auto = ["31.990.000", "33.990.000", "35.990.000", "45.290.000", "45.990.000", "65.990.000", "165.000.000"]; */
+      foto_auto = ["images/cars/sail.webp", "images/cars/sparkGt.webp", "images/cars/beat.webp", "images/cars/onixSedan.webp", "images/cars/onix.webp", "images/cars/cruze.webp", "images/cars/camaroSS.webp"];
+    } else {
+      arregloMarcas = this.arregloMotos.filter( x => x.marca == marca );
+      this.arregloVehiculos = arregloMarcas;
+      tipos = [];
+      for(var u=0; u < arregloMarcas.length; u++) { tipos.push(arregloMarcas[u].tipoVehiculo); }
+      /* var modelos_marca_auto = ["Dream Neo 110", "CB 110 SDT", "CD 110 DLX", "CB 125F", "CB 160F", "CB 160F TD", "CB 160F DLX"];
+      var precios_marca_auto = ["3.899.000", "4.190.000", "4.390.000", "4.590.000", "6.690.000", "7.350.000", "8.999.000"]; */
+      foto_auto = ["images/motos/dreamNeo110Honda.png", "images/motos/cb110Sdt.png", "images/motos/cb110dlx.png", "images/motos/cb125f.png", "images/motos/cb160fstd.png", "images/motos/cb160fdlx.png", "images/motos/cb190r.png"];
+    }
+    if(this.is_mobile){
+      document.getElementById("WizardVehicleModelSelect").classList.add('show');
+      document.getElementById("appVersion").classList.remove('position-fixed');
+      this.nuevo_html = '<div class="card-body p-0 pb-3">'
+      +'<div id="VehicleModelSelect" class="col" data-v-4fa46acd="">'
+      +' <div class="row">'
+        +'<div class="col">'
+         +'<div>'
+         +'<div id="DeckForCars" class="mini-card-deck">';
+    }else{
+      this.nuevo_html = '<div data-v-2d184876="" id="DeckForCars" class="mini-card-deck">';
+  }
+
+
   for (var k = 0; k< tipos.length; k++) {
+    var vehiculos = arregloMarcas;
     //mayuscula inicial
     var textoTipos = tipos[k].charAt(0).toUpperCase() + tipos[k].slice(1)
     this.nuevo_html += '<div class="ml-md-3 py-2"><h3>'+textoTipos+'</h3></div>';
@@ -112,19 +100,17 @@ function cambiarHtml(tipos, vehiculos, foto_auto){
     /*var foto_auto = ["images/cars/sail.webp", "images/cars/sparkGt.webp", "images/cars/beat.webp", "images/cars/onixSedan.webp", "images/cars/onix.webp", "images/cars/cruze.webp", "images/cars/camaroSS.webp"]; */
 
     //MODELOS DE CARROS
-    for(var i = 0; i < 1; i++){
-      this.vehiculoActual = filtroVehiculos[i];
-
-      this.nuevo_html +=  '<label data-v-2d184876="" for="model417" class="vehicle mini-card" onclick="irVista( '+"'"+'VehicleModelSelect'+"'" +', '+"'"+'TransmisionVehiculo'+"'" +', '+"'"+'botonModelo'+"'" +', '+"'"+'botonTransmision'+"'" +', '+"'"+'number2'+"'" +', '+"'"+'number3'+"'" +', '+'null'+', [ '+"'"+modelos_marca_auto[i]+"'" +','+ "'"+foto_auto[i]+"'"+','+ "'"+precios_marca_auto[i]+"'"+','+ "'"+id_autos[i]+"'"+'  ]);CambiarHtmlTransmision('+"'"+id_autos[i]+"'"+');">'
-      +'<div data-v-2d184876="" class="model-name text-center">'+modelos_marca_auto[i]+'</div> '
+    for(var i = 0; i < modelos_marca_auto.length; i++){
+      var id = filtroVehiculos[i].id;
+      this.nuevo_html +=  '<label class="vehicle mini-card" onclick="irVista( '+"'"+'VehicleModelSelect'+"'" +', '+"'"+'TransmisionVehiculo'+"'" +', '+"'"+'botonModelo'+"'" +', '+"'"+'botonTransmision'+"'" +', '+"'"+'number2'+"'" +', '+"'"+'number3'+"'" +', '+'null'+', [ '+"'"+modelos_marca_auto[i]+"'" +','+ "'"+foto_auto[i]+"'"+','+ "'"+precios_marca_auto[i]+"'"+','+ "'"+id_autos[i]+"'"+']);CambiarHtmlTransmision('+"'"+id+"'"+');">'
+      +'<div class="model-name text-center">'+modelos_marca_auto[i]+'</div> '
     +'<picture data-v-3d61cc42="" data-v-2d184876="">'
         +'<img data-v-3d61cc42="" src="'+foto_auto[i]+'" class="opacity-100"> </picture> '
         +'<div data-v-2d184876="" class="d-flex justify-content-between align-items-center">'
          +' <small data-v-2d184876="">'+'MSRP'+'</small> '
          + '<div data-v-2d184876="" class="price">'+'$'+precios_marca_auto[i]+'*'+'</div>'
-       + '</div> '
-       + '<input data-v-2d184876="" id="model417" type="radio" name="model" class="radio-ninja" value="417">'
-    + ' </label>';
+       + '</div>'
+    + '</label>';
   }
   //BOTON DE NO ENCUENTRO MI MARCA
   this.nuevo_html += '<div data-v-2d184876="" class="vehicle mini-card d-flex justify-content-center">'
@@ -142,6 +128,13 @@ function cambiarHtml(tipos, vehiculos, foto_auto){
     //SOLO MOVIL
     if(is_mobile){
       this.nuevo_html += '</div>' + '</div>' + '</div>' + '</div>' + '</div>' + '</div>';
+    }
+
+    if(this.is_mobile == false){
+      document.getElementById("htmlAutomoviles").innerHTML = this.nuevo_html;
+    }else{
+      document.getElementById("VehicleModelSelect").style.display='none';
+      document.getElementById("WizardVehicleModelSelect").innerHTML = this.nuevo_html;
     }
 }
 
@@ -187,13 +180,12 @@ function CambiarHtmlMarcas(vehiculo){
         for(var i=0; i < arregloMarcas.length; i++) { nombreMarcas.push( arregloMarcas[i].nombre ); }
     
         for(var i=0; i < fotoMarcas.length; i++){
-          HTMLmarcas_movil += '<label class="mini-card" onclick="irVista( '+"'"+'VehicleMakeSelect'+"'" +', '+"'"+'VehicleModelSelect'+"'" +', '+"'"+'botonMarca'+"'" +', '+"'"+'botonModelo'+"'" +', '+"'"+'number1'+"'" +', '+"'"+'number2'+"'" +', '+'null'+', [ '+"'"+nombreMarcas[i]+"'"+' ]);modelosHTML('+"'"+nombreMarcas[i]+"'"+', '+"'"+'carros'+"'" +');">'
+          HTMLmarcas_movil += '<label class="mini-card" onclick="irVista( '+"'"+'VehicleMakeSelect'+"'" +', '+"'"+'VehicleModelSelect'+"'" +', '+"'"+'botonMarca'+"'" +', '+"'"+'botonModelo'+"'" +', '+"'"+'number1'+"'" +', '+"'"+'number2'+"'" +', '+'null'+', [ '+"'"+nombreMarcas[i]+"'"+' ]);ModelosHTML('+"'"+nombreMarcas[i]+"'"+', '+"'"+'carros'+"'" +');">'
             + '<picture data-v-d007eb68="" data-v-2479578e="">'
             +' <source data-v-d007eb68="" media="(min-width: 768px)" srcset="images/brands/chevrolet@2x.png">'
             + '<img data-v-d007eb68="" srcset="'+"'"+fotoMarcas[i]+"'"+', images/brands/chevrolet@2x.png 2x" alt="Chevrolet" class="px-3">'
             + ' </picture>'
             +'<span data-v-2479578e="" class="make-name text-center font-weight-normal">'+nombreMarcas[i]+'</span>'
-            + '<input data-v-2479578e="" id="make9" type="radio" name="make" class="radio-ninja" value="9">'
             +'</label>';
         }
         HTMLmarcas_movil += '<div data-v-2479578e="" class="mini-card">'
@@ -207,7 +199,7 @@ function CambiarHtmlMarcas(vehiculo){
           + '</a>'
         + '</div>';
       }else {
-        //FILTRAMOS SOLO LAS MARCAS DE CARROS
+        //FILTRAMOS SOLO LAS MARCAS DE MOTOS
         var arregloMarcas = this.arregloMarcas.filter( x => x.vehiculo == "motos" );
         var fotoMarcas = [];
         for(var i=0; i < arregloMarcas.length; i++) { fotoMarcas.push(arregloMarcas[i].foto); }
@@ -215,13 +207,12 @@ function CambiarHtmlMarcas(vehiculo){
         for(var i=0; i < arregloMarcas.length; i++) { nombreMarcas.push( arregloMarcas[i].nombre ); }
 
         for(var i=0; i < fotoMarcas.length; i++){
-          HTMLmarcas_movil += '<label class="mini-card" onclick="irVista( '+"'"+'VehicleMakeSelect'+"'" +', '+"'"+'VehicleModelSelect'+"'" +', '+"'"+'botonMarca'+"'" +', '+"'"+'botonModelo'+"'" +', '+"'"+'number1'+"'" +', '+"'"+'number2'+"'" +', '+'null'+', [ '+"'"+nombreMarcas[i]+"'"+' ]);modelosHTML('+"'"+nombreMarcas[i]+"'"+', '+"'"+'motos'+"'" +');">'
+          HTMLmarcas_movil += '<label class="mini-card" onclick="irVista( '+"'"+'VehicleMakeSelect'+"'" +', '+"'"+'VehicleModelSelect'+"'" +', '+"'"+'botonMarca'+"'" +', '+"'"+'botonModelo'+"'" +', '+"'"+'number1'+"'" +', '+"'"+'number2'+"'" +', '+'null'+', [ '+"'"+nombreMarcas[i]+"'"+' ]);ModelosHTML('+"'"+nombreMarcas[i]+"'"+', '+"'"+'motos'+"'" +');">'
             + '<picture data-v-d007eb68="" data-v-2479578e="">'
             +' <source data-v-d007eb68="" media="(min-width: 768px)" srcset="images/brands/hondaMoto.png">'
             + '<img data-v-d007eb68="" srcset="'+"'"+fotoMarcas[i]+"'"+', images/brands/hondaMoto.png 2x" alt="HOnda" class="px-3">'
             + ' </picture>'
             +'<span data-v-2479578e="" class="make-name text-center font-weight-normal">'+nombreMarcas[i]+'</span>'
-            + '<input data-v-2479578e="" id="make9" type="radio" name="make" class="radio-ninja" value="9">'
             +'</label>';
         }
         HTMLmarcas_movil += '<div data-v-2479578e="" class="mini-card">'
@@ -248,8 +239,10 @@ function CambiarHtmlTransmision(id){
 
   var automatico = false;
   var mecanico = false;
-  var vehiculoActual = (this.vehiculoActual.transmision).toString();
-  console.log(vehiculoActual);
+  this.vehiculoActual = this.arregloVehiculos.filter(x => x.id == id);
+  console.log(this.vehiculoActual);
+  var vehiculoActual = (this.vehiculoActual[0].transmision).toString();
+  
  /*  var index = vehiculos.map(function (img) { return img.id; }).indexOf(id); */
   if ( vehiculoActual.includes("automatic") ) { automatico = true;}
   if ( vehiculoActual.includes("manual") ) { mecanico = true;}
@@ -312,41 +305,43 @@ function CambiarHtmlTransmision(id){
 }
 
 function CambiarHtmlColor(){
+  var vehiculoActual = this.vehiculoActual[0].color;
+  console.log(vehiculoActual);
   if(this.is_mobile && !this.yaEntramosColor){
     document.getElementById("VehicleColorSelect").style.display='none';
     document.getElementById("WizardVehicleColorSelect").classList.add('show');
 
     this.HTMLcolor_movil += '<div data-v-4fa46acd="" class="card-body p-0 pb-3">'
-      +'<div data-v-78b4db95="" class="col" data-v-4fa46acd="">'
-       + '<div data-v-78b4db95="" class="row">'
-        +'<div data-v-78b4db95="" class="col-12 col-xl-6">'
-        +'<div data-v-78b4db95="" class="row justify-content-center align-items-center">'
-         + '<div data-v-78b4db95="" class="col m-auto">'
-          +  '<h4 data-v-78b4db95="">Color Primario</h4>'
-           + '<select class="custom-select from-control form-control-sm" style="line-height:initial;" name="Color1" id="Color1">'
-            +    '<option value="Gris Daytona Perla">Gris Daytona Perla</option>'
-             +   '<option selected value=">Negro Metalico Mythos" >Negro Metalico Mythos</option>'
-              +  '<option value="Metalico Plateado" >Metalico Plateado</option>'
-               + '<option value="Blanco Glaciar Metalico" >Blanco Glaciar Metalico</option>'
-           +' </select>'
-           + '</div>' + '</div>' + '</div>';
+    + '<div data-v-78b4db95="" class="col" data-v-4fa46acd="">'
+    + '<div data-v-78b4db95="" class="row">'
+    + '<div data-v-78b4db95="" class="col-12 col-xl-6">'
+    + '<div data-v-78b4db95="" class="row justify-content-center align-items-center">'
+    + '<div data-v-78b4db95="" class="col m-auto">'
+    + '<h4 data-v-78b4db95="">Color Primario</h4>'
+    + '<select class="custom-select from-control form-control-sm" style="line-height:initial;" name="Color1" id="Color1">'
+    + '<option selected value="'+vehiculoActual[0].nombre+'">'+vehiculoActual[0].nombre+'</option>';
+    for(var i=1; i < vehiculoActual.length; i++){
+      this.HTMLcolor_movil += '<option value="'+vehiculoActual[i].nombre+'">'+vehiculoActual[i].nombre+'</option>';
+    }
+    this.HTMLcolor_movil +=' </select>'
+    + '</div>' + '</div>' + '</div>';
 
     this.HTMLcolor_movil += '<div data-v-78b4db95="" class="col-12 col-xl-6">'
     +'<div data-v-78b4db95="" class="row justify-content-center align-items-center">'
-      +'<div data-v-78b4db95="" class="col m-auto">'
-           + '<h4 data-v-78b4db95="">Color Alternativo</h4>'
-           + '<select class="custom-select from-control form-control-sm" style="line-height:initial;" name="Color2" id="Color2">'
-            +    '<option value="Rojo Misano Perla">Rojo Misano Perla</option>'
-             +   '<option selected value=">Metalico Plateado" >Metalico Plateado</option>'
-              +  '<option value="Gris Daytona Perla" >Gris Daytona Perla</option>'
-              + ' <option value="Blanco Glaciar Metalico" >Blanco Glaciar Metalico</option>'
-            +'</select>'
-            + '</div>' + '</div>' + '</div>'
-            +'</div>' + '</div>' + '</div>';
-            document.getElementById("WizardVehicleColorSelect").innerHTML = this.HTMLcolor_movil;
-            this.HTMLcolor_movil = "";
-            this.yaEntramosColor = true;
+    +'<div data-v-78b4db95="" class="col m-auto">'
+    + '<h4 data-v-78b4db95="">Color Alternativo</h4>'
+    + '<select class="custom-select from-control form-control-sm" style="line-height:initial;" name="Color2" id="Color2">'
+    + '<option selected value="'+vehiculoActual[0].nombre+'">'+vehiculoActual[0].nombre+'</option>';
+    for(var i=1; i < vehiculoActual.length; i++){
+      this.HTMLcolor_movil += '<option value="'+vehiculoActual[i].nombre+'">'+vehiculoActual[i].nombre+'</option>';
     }
+    this.HTMLcolor_movil +='</select>'
+    + '</div>' + '</div>' + '</div>'
+    +'</div>' + '</div>' + '</div>';
+    document.getElementById("WizardVehicleColorSelect").innerHTML = this.HTMLcolor_movil;
+    this.HTMLcolor_movil = "";
+    this.yaEntramosColor = true;
+  }
 }
 
 
