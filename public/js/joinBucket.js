@@ -29,10 +29,7 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
 
 //TOMAMOS LA INFORMACION DE LA BASE DE DATOS
-SearchRef = firebase.database().ref("VEHICULOS/carros");
-SearchRef.orderByChild("id").on("child_added", function(snapshot) {
-  this.arregloCarros.push( snapshot.val() );
-});
+$('body').append('<div id="over" style="position: absolute;top:0;left:0;width: 100%;height:100%;z-index:2;opacity:0.4;filter: alpha(opacity = 50)"></div>');
 
 SearchRef = firebase.database().ref("VEHICULOS/motos");
 SearchRef.orderByChild("id").on("child_added", function(snapshot) {
@@ -42,6 +39,14 @@ SearchRef.orderByChild("id").on("child_added", function(snapshot) {
 SearchRef = firebase.database().ref("VEHICULOS/marcas");
 SearchRef.orderByChild("id").on("child_added", function(snapshot) {
   this.arregloMarcas.push( snapshot.val() );
+});
+
+SearchRef = firebase.database().ref("VEHICULOS/carros");
+SearchRef.orderByChild("id").on("child_added", function(snapshot) {
+  this.arregloCarros.push( snapshot.val() );
+  //eliminamos el loader
+  document.getElementById("loader").style.display = "none";
+  $("#over").remove();
 });
 
 
@@ -140,24 +145,23 @@ function ModelosHTML(marca, tipo){
 
 
 function CambiarHtmlVehiculos(){
-  HTMLvehiculos_movil += '<label class="mini-card" onclick="irVista( '+"'"+'seleccionVehiculo'+"'" +', '+"'"+'VehicleMakeSelect'+"'" +', '+"'"+'botonVehiculo'+"'" +', '+"'"+'botonMarca'+"'" +', '+"'"+'number0'+"'" +', '+"'"+'number1'+"'" +', '+'seleccionVehiculo'+', [  '+"'"+'motos'+"'" +' ]);CambiarHtmlMarcas( '+"'"+'motos'+"'" +')">'
-                 + '<picture>'
-                  +  '<source media="(min-width: 768px)" srcset="images/seleccionMotos.png">'
-                  +  '<img srcset="images/seleccionMotos.png, images/seleccionMotos.png"'
-                  +    'alt="Motos" class="px-3" style="padding-top: 30px;">'
-                 + '</picture>'
-                 + '<span class="make-name text-center font-weight-normal">Motos</span>'
-                 + '<input id="make9" type="radio" name="make" class="radio-ninja" value="9">'
-               +' </label>'
-                +'<label class="mini-card" onclick="irVista( '+"'"+'seleccionVehiculo'+"'" +', '+"'"+'VehicleMakeSelect'+"'" +', '+"'"+'botonVehiculo'+"'" +', '+"'"+'botonMarca'+"'" +', '+"'"+'number0'+"'" +', '+"'"+'number1'+"'" +', '+'seleccionVehiculo'+', [  '+"'"+'carros'+"'" +' ]);CambiarHtmlMarcas( '+"'"+'carros'+"'" +')">'
-                 + '<picture>'
-                  +  '<source media="(min-width: 768px)" srcset="images/seleccionCarros.png">'
-                  +  '<img srcset="images/seleccionCarros.png, images/seleccionCarros.png"'
-                  +    'alt="Motos" class="px-3" style="padding-top: 30px;">'
-                 + '</picture>'
-                 + '<span class="make-name text-center font-weight-normal">Carros</span>'
-                 + '<input id="make9" type="radio" name="make" class="radio-ninja" value="9">'
-               +' </label>'
+  HTMLvehiculos_movil += '<div id="loader" style="display: block;"></div>'
+  + '<label class="mini-card" onclick="irVista( '+"'"+'seleccionVehiculo'+"'" +', '+"'"+'VehicleMakeSelect'+"'" +', '+"'"+'botonVehiculo'+"'" +', '+"'"+'botonMarca'+"'" +', '+"'"+'number0'+"'" +', '+"'"+'number1'+"'" +', '+'seleccionVehiculo'+', [  '+"'"+'motos'+"'" +' ]);CambiarHtmlMarcas( '+"'"+'motos'+"'" +')">'
+  + '<picture>'
+   +  '<source media="(min-width: 768px)" srcset="images/seleccionMotos.png">'
+   +  '<img srcset="images/seleccionMotos.png, images/seleccionMotos.png"'
+   +    'alt="Motos" class="px-3" style="padding-top: 30px;">'
+  + '</picture>'
+  + '<span class="make-name text-center font-weight-normal">Motos</span>'
++' </label>'
+ +'<label class="mini-card" onclick="irVista( '+"'"+'seleccionVehiculo'+"'" +', '+"'"+'VehicleMakeSelect'+"'" +', '+"'"+'botonVehiculo'+"'" +', '+"'"+'botonMarca'+"'" +', '+"'"+'number0'+"'" +', '+"'"+'number1'+"'" +', '+'seleccionVehiculo'+', [  '+"'"+'carros'+"'" +' ]);CambiarHtmlMarcas( '+"'"+'carros'+"'" +')">'
+  + '<picture>'
+   +  '<source media="(min-width: 768px)" srcset="images/seleccionCarros.png">'
+   +  '<img srcset="images/seleccionCarros.png, images/seleccionCarros.png"'
+   +    'alt="Motos" class="px-3" style="padding-top: 30px;">'
+  + '</picture>'
+  + '<span class="make-name text-center font-weight-normal">Carros</span>'
++' </label>';
    
 }
 
