@@ -66,11 +66,10 @@ function Registrar() {
     if(this.accion != 'marca'){
         var modelo = document.getElementById("modelo").value;
         var año = document.getElementById("año").value;
-        var precio = document.getElementById("precio").value;
-        var color = document.getElementById("color").value;
+        var precio = parseInt(document.getElementById("precio").value);
+        var color = this.getColores();
         var combustible = document.querySelector('input[name="gas"]:checked').value;
         var transmision = document.querySelector('input[name="transmision"]:checked').value;
-
 
         Database.push({
             marca: marca,
@@ -110,6 +109,43 @@ function Registrar() {
         });
     }
 
+}
+
+function getColores (){
+    var color = document.getElementById("color").value;
+    var arregloNombres = [];
+    var arregloCodigos = [];
+    var objetoFinal = [];
+    var string = '';
+    var agregando = false;
+    for(var i = 0; i < color.length; i++) {
+        switch (color[i]) {
+            case '{':
+                agregando = true;
+                break;
+            case ',':
+                if(agregando){
+                    arregloNombres.push(string);
+                    string = '';
+                }
+                break;
+            case '}':
+                arregloCodigos.push(string);
+                string = '';
+                objetoFinal.push({
+                    nombre: arregloNombres[arregloNombres.length-1],
+                    codigo: arregloCodigos[arregloNombres.length-1]
+                });
+                agregando = false;
+                break;
+            default:
+                if(agregando){
+                    string += color[i];
+                }
+                break;
+        }
+    }
+    return objetoFinal
 }
 
 
