@@ -10,29 +10,51 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 /* var storageRef = firebase.storage().ref(); */
 var Database;
-var accion = 'marca';
-switch (accion) {
-    case 'carro':
-        Database = firebase.database().ref("VEHICULOS/carros");
-        document.getElementById("titulo").innerHTML = "Registro Carros";
-        break;
-    case 'moto':
-        Database = firebase.database().ref("VEHICULOS/motos");
-        document.getElementById("gasDiesel").disabled = true;
-        document.getElementById("lblGasDiesel").style = 'opacity: 0.5';
-        document.getElementById("gasAmbas").disabled = true;
-        document.getElementById("lblGasAmbas").style = 'opacity: 0.5';
-        document.getElementById("titulo").innerHTML = "Registro Motos";
-        break;
-    case 'marca':
-        Database = firebase.database().ref("VEHICULOS/marcas");
-        document.getElementById("formularioRegistroVehiculos").style.display = 'none';
-        document.getElementById("datosMarca").style.display = 'flex';
-        document.getElementById("titulo").innerHTML = "Registro Marcas";
-        break;
-    default:
-        break;
+var accion = 'inicio';
+
+function CambiarPantallas(accion){
+    switch (accion) {
+        case 'carro':
+            Database = firebase.database().ref("VEHICULOS/carros");
+            document.getElementById("registroVehiculos").style.display = 'block';
+            document.getElementById("pantallaInicio").style.display = 'none';
+            document.getElementById("formularioRegistroVehiculos").style.display = 'block';
+            document.getElementById("titulo").innerHTML = "Registro Carros";
+            document.getElementById("gasDiesel").disabled = false;
+            document.getElementById("lblGasDiesel").style = 'opacity: 1';
+            document.getElementById("gasAmbas").disabled = false;
+            document.getElementById("lblGasAmbas").style = 'opacity: 1';
+            break;
+        case 'moto':
+            Database = firebase.database().ref("VEHICULOS/motos");
+            document.getElementById("registroVehiculos").style.display = 'block';
+            document.getElementById("pantallaInicio").style.display = 'none';
+            document.getElementById("formularioRegistroVehiculos").style.display = 'block';
+            document.getElementById("gasDiesel").disabled = true;
+            document.getElementById("lblGasDiesel").style = 'opacity: 0.5';
+            document.getElementById("gasAmbas").disabled = true;
+            document.getElementById("lblGasAmbas").style = 'opacity: 0.5';
+            document.getElementById("titulo").innerHTML = "Registro Motos";
+            break;
+        case 'marca':
+            Database = firebase.database().ref("VEHICULOS/marcas");
+            document.getElementById("registroVehiculos").style.display = 'block';
+            document.getElementById("pantallaInicio").style.display = 'none';
+            document.getElementById("formularioRegistroVehiculos").style.display = 'none';
+            document.getElementById("datosMarca").style.display = 'flex';
+            document.getElementById("titulo").innerHTML = "Registro Marcas";
+            break;
+        case 'inicio':
+            document.getElementById("registroVehiculos").style.display = 'none';
+            document.getElementById("pantallaInicio").style.display = 'block';
+            document.getElementById("datosMarca").style.display = 'flex';
+            document.getElementById("titulo").innerHTML = "Selecciona Una Opción";
+            break;
+        default:
+            break;
+    }
 }
+
 
 
 
