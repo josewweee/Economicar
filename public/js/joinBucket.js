@@ -62,7 +62,7 @@ function ModelosHTML(marca, tipo){
 
      /*  var modelos_marca_auto = ["Sail", "Spark GT", "Beat", "Onix sedan", "Onix", "Cruze", "Camaro six SS"];
       var precios_marca_auto = ["31.990.000", "33.990.000", "35.990.000", "45.290.000", "45.990.000", "65.990.000", "165.000.000"]; */
-      foto_auto = ["images/cars/sail.webp", "images/cars/sparkGt.webp", "images/cars/beat.webp", "images/cars/onixSedan.webp", "images/cars/onix.webp", "images/cars/cruze.webp", "images/cars/camaroSS.webp"];
+      
     } else {
       arregloMarcas = this.arregloMotos.filter( x => x.marca == marca );
       this.arregloVehiculos = arregloMarcas;
@@ -70,14 +70,13 @@ function ModelosHTML(marca, tipo){
       for(var u=0; u < arregloMarcas.length; u++) { tipos.push(arregloMarcas[u].tipoVehiculo); }
       /* var modelos_marca_auto = ["Dream Neo 110", "CB 110 SDT", "CD 110 DLX", "CB 125F", "CB 160F", "CB 160F TD", "CB 160F DLX"];
       var precios_marca_auto = ["3.899.000", "4.190.000", "4.390.000", "4.590.000", "6.690.000", "7.350.000", "8.999.000"]; */
-      foto_auto = ["images/motos/dreamNeo110Honda.png", "images/motos/cb110Sdt.png", "images/motos/cb110dlx.png", "images/motos/cb125f.png", "images/motos/cb160fstd.png", "images/motos/cb160fdlx.png", "images/motos/cb190r.png"];
+      /* foto_auto = ["images/motos/dreamNeo110Honda.png", "images/motos/cb110Sdt.png", "images/motos/cb110dlx.png", "images/motos/cb125f.png", "images/motos/cb160fstd.png", "images/motos/cb160fdlx.png", "images/motos/cb190r.png"]; */
     }
     if(this.is_mobile){
       document.getElementById("WizardVehicleModelSelect").classList.add('show');
       document.getElementById("appVersion").classList.remove('position-fixed');
       this.nuevo_html = '<div class="card-body p-0 pb-3">'
       +'<div id="VehicleModelSelect" class="col" data-v-4fa46acd="">'
-      +' <div class="row">'
         +'<div class="col">'
          +'<div>'
          +'<div id="DeckForCars" class="mini-card-deck">';
@@ -100,9 +99,8 @@ function ModelosHTML(marca, tipo){
     for(var p=0; p < filtroVehiculos.length; p++) { precios_marca_auto.push( filtroVehiculos[p].precio ); }
     var id_autos = [];
     for(var l=0; l < filtroVehiculos.length; l++) { id_autos.push( filtroVehiculos[l].id ); }
-    /* var foto_auto = [];
-    for(var i=0; i < filtroVehiculos.length; i++) { foto_auto.push( filtroVehiculos[i].foto ); } */
-    /*var foto_auto = ["images/cars/sail.webp", "images/cars/sparkGt.webp", "images/cars/beat.webp", "images/cars/onixSedan.webp", "images/cars/onix.webp", "images/cars/cruze.webp", "images/cars/camaroSS.webp"]; */
+    var foto_auto = [];
+    for(var i=0; i < filtroVehiculos.length; i++) { foto_auto.push( filtroVehiculos[i].foto ); } 
 
     //MODELOS DE CARROS
     for(var i = 0; i < modelos_marca_auto.length; i++){
@@ -245,11 +243,11 @@ function CambiarHtmlTransmision(id){
   var mecanico = false;
   this.vehiculoActual = this.arregloVehiculos.filter(x => x.id == id);
   console.log(this.vehiculoActual);
-  var vehiculoActual = (this.vehiculoActual[0].transmision).toString();
+  var vehiculoActual = (this.vehiculoActual[0].transmision).toString().toUpperCase();
   
  /*  var index = vehiculos.map(function (img) { return img.id; }).indexOf(id); */
-  if ( vehiculoActual.includes("automatic") ) { automatico = true;}
-  if ( vehiculoActual.includes("manual") ) { mecanico = true;}
+  if ( vehiculoActual.includes("AUTOMATIC") ) { automatico = true;}
+  if ( vehiculoActual.includes("MANUAL") ) { mecanico = true;}
 
   if(this.is_mobile && !this.yaEntramosTransm){
     document.getElementById("TransmisionVehiculo").style.display='none';
@@ -315,13 +313,14 @@ function CambiarHtmlColor(){
     document.getElementById("VehicleColorSelect").style.display='none';
     document.getElementById("WizardVehicleColorSelect").classList.add('show');
 
-    this.HTMLcolor_movil += '<div data-v-4fa46acd="" class="card-body p-0 pb-3">'
-    + '<div data-v-78b4db95="" class="col" data-v-4fa46acd="">'
-    + '<div data-v-78b4db95="" class="row">'
-    + '<div data-v-78b4db95="" class="col-12 col-xl-6">'
-    + '<div data-v-78b4db95="" class="row justify-content-center align-items-center">'
-    + '<div data-v-78b4db95="" class="col m-auto">'
-    + '<h4 data-v-78b4db95="">Color Primario</h4>'
+    this.HTMLcolor_movil += '<div class="card-body p-0 pb-3">'
+    + '<div class="col">';
+  }
+    this.HTMLcolor_movil += '<div class="row">'
+    + '<div class="col-12 col-xl-6">'
+    + '<div class="row justify-content-center align-items-center">'
+    + '<div class="col m-auto">'
+    + '<h4>Color Primario</h4>'
     + '<select class="custom-select from-control form-control-sm" style="line-height:initial;" name="Color1" id="Color1">'
     + '<option selected value="'+vehiculoActual[0].nombre+'">'+vehiculoActual[0].nombre+'</option>';
     for(var i=1; i < vehiculoActual.length; i++){
@@ -330,22 +329,26 @@ function CambiarHtmlColor(){
     this.HTMLcolor_movil +=' </select>'
     + '</div>' + '</div>' + '</div>';
 
-    this.HTMLcolor_movil += '<div data-v-78b4db95="" class="col-12 col-xl-6">'
-    +'<div data-v-78b4db95="" class="row justify-content-center align-items-center">'
-    +'<div data-v-78b4db95="" class="col m-auto">'
-    + '<h4 data-v-78b4db95="">Color Alternativo</h4>'
+    this.HTMLcolor_movil += '<div class="col-12 col-xl-6">'
+    +'<div class="row justify-content-center align-items-center">'
+    +'<div class="col m-auto">'
+    + '<h4>Color Alternativo</h4>'
     + '<select class="custom-select from-control form-control-sm" style="line-height:initial;" name="Color2" id="Color2">'
     + '<option selected value="'+vehiculoActual[0].nombre+'">'+vehiculoActual[0].nombre+'</option>';
     for(var i=1; i < vehiculoActual.length; i++){
       this.HTMLcolor_movil += '<option value="'+vehiculoActual[i].nombre+'">'+vehiculoActual[i].nombre+'</option>';
     }
     this.HTMLcolor_movil +='</select>'
-    + '</div>' + '</div>' + '</div>'
-    +'</div>' + '</div>' + '</div>';
-    document.getElementById("WizardVehicleColorSelect").innerHTML = this.HTMLcolor_movil;
+    + '</div>' + '</div>' + '</div>' + '</div>';
+    if(this.is_mobile){
+      this.HTMLcolor_movil += '</div>' + '</div>';
+      document.getElementById("WizardVehicleColorSelect").innerHTML = this.HTMLcolor_movil;
+    }else{
+      document.getElementById("VehicleColorSelect").innerHTML = this.HTMLcolor_movil;
+    }
+    
     this.HTMLcolor_movil = "";
     this.yaEntramosColor = true;
-  }
 }
 
 
