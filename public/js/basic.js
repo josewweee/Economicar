@@ -1,6 +1,7 @@
 
 var firebaseAuth = firebase.auth();
 var password;
+var loggeado = (localStorage.getItem('KEY') != undefined) && (localStorage.getItem("KEY").length > 2) ? true : false
 var is_mobile = false;
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
     is_mobile = true;
@@ -34,74 +35,6 @@ localStorage.removeItem('DATOS');
 //VERSION MOVIL?
 this.CambiarHtmlCiudad();
 
-/* function escogerMarca(marcaVehiculo){
-    if(this.ventanaMarca == false){
-        var VistaModelo = document.getElementById('VehicleModelSelect');
-        var VistaMarca = document.getElementById('VehicleMakeSelect');
-        var Label_index_actual = document.getElementById('number1');
-        var Label_index_siguiente = document.getElementById('number2');
-        VistaMarca.style.display = 'none';
-        if(is_mobile){document.getElementById('VehicleMakeSelect2').style.display = 'none';}
-        VistaModelo.style.display = 'block';
-        this.pantallaActual = 'VehicleModelSelect';
-        
-    //cambio de botones
-        Label_index_actual.classList.remove('active');
-        Label_index_siguiente.classList.add('active');
-        this.iluminarSiguienteBoton("WizardVehicleMakeSelectToggle","WizardVehicleModelSelectToggle");
-
-        this.datos.marca = marcaVehiculo;
-        this.ventanaMarca = true;
-    }
-}
-
-function escogerModelo(modeloVehiculo, fotoVehiculo, precioVehiculo){
-    if(this.ventanaModelo == false){
-        this.datos.modelo = modeloVehiculo;
-        this.datos.foto = fotoVehiculo;
-        this.datos.precio = precioVehiculo;
-
-        var VistaTransmision = document.getElementById('TransmisionVehiculo');
-        var VistaMarca = document.getElementById('VehicleModelSelect');
-        var Label_index_actual = document.getElementById('number2');
-        var Label_index_siguiente = document.getElementById('number3');
-        VistaMarca.style.display = 'none';
-        VistaTransmision.style.display = 'block';
-        this.pantallaActual = 'TransmisionVehiculo';
-
-        //cambio de botones
-        Label_index_actual.classList.remove('active');
-        Label_index_siguiente.classList.add('active');
-        this.iluminarSiguienteBoton("WizardVehicleModelSelectToggle","WizardVehicleTransmissionSelectToggle");
-        this.ventanaModelo = true;
-    }
-}
-
-function escogerTransmision(transimision){
-    if(this.ventanaTransmision == false){
-        var VistaColor = document.getElementById('VehicleColorSelect');
-        var VistaTransmision = document.getElementById('TransmisionVehiculo');
-        var botonFinalizarProceso = document.getElementById('CompleteStep');
-        var Label_index_actual = document.getElementById('number3');
-        var Label_index_siguiente = document.getElementById('number4');
-
-        //cambio de botones
-        Label_index_actual.classList.remove('active');
-        Label_index_siguiente.classList.add('active');
-        this.iluminarSiguienteBoton("WizardVehicleTransmissionSelectToggle","WizardVehicleColorSelectToggle");
-
-        VistaTransmision.style.display = 'none';
-        VistaColor.style.display = 'block';
-        this.pantallaActual = 'VehicleColorSelect';
-        botonFinalizarProceso.disabled = false;
-        botonFinalizarProceso.classList.remove('btn-secondary');
-        botonFinalizarProceso.classList.toggle('btn-primary');
-        this.datos.transmision = transimision;
-        this.ventanaTransmision = true;
-        console.log(this.datos);
-    }
-
-} */
 
 function irVista(VistaActual_STR, VistaDestino_STR, btnActual_STR, btnSiguiente_STR, lblNumeroActual, lblNumeroSiguiente, nombreValor, datos){
     
@@ -227,7 +160,8 @@ function iluminarSiguienteBoton(idbotonActual_STR, idbotonSiguiente_STR){
     botonSiguiente.style.opacity = '1';
 }
 
-//FUNCTION TO SAVE INFO IN DB
+
+//GUARDAMOS LA INFO EN LA DB, ESTO DEBE SER UNA FIREBASE FUNCTION PROXIMAMENTE.
 function saveInfo(data,tipo){
     if(tipo == 'leads'){
         var refLeads = firebase.database().ref("LEADS");
@@ -235,7 +169,83 @@ function saveInfo(data,tipo){
             data
         });
     }else if(tipo == 'usuario'){
-        var refUsers = firebase.database().ref("USUARIOS");
+        //bloqueamos toda la UI
+        document.getElementById("loader").style.display = "block";
+        $('body').append('<div id="over" style="position: absolute;top:0;left:0;width: 100%;height:100%;z-index:2;opacity:0.4;filter: alpha(opacity = 50)"></div>');
+        //AGREGAMOS EL PEDIDO AL GRUPO DE PEDIDOS.
+        var nuevoGrupo = true;
+        var precioGrupo = 0;
+        var marca = data.marca;
+        var tipoVehiculo = data.vehiculo;
+        var time = new Date();
+        var key;
+        var fecha =  String(time.getMonth() + 1).padStart(2, '0') + '/'+ time.getFullYear();
+        var DBgrupos = firebase.database().ref("GRUPOS");
+        DBgrupos.orderByChild("marca").equalTo(marca).on("child_added", function(snapshot) {
+            key = snapshot.key;
+            console.log(snapshot.val().fecha + " = " + fecha);
+            if(snapshot.val().fecha == fecha){
+                console.log("fecha completa");
+                if(snapshot.val().tipoVehiculo == tipoVehiculo){
+                    precioGrupo = snapshot.val().precio;
+                    DBgrupos.child(key+'/infoPedidos').push({
+                        data
+                    }).then(
+                        nuevoGrupo = false
+                    );
+                }
+            }
+          });
+
+          //REGISTRAMOS AL USUARIO O LE AGREGAMOS EL PEDIDO SI YA ESTA REGISTRADO
+        if(loggeado){
+            var ref = localStorage.getItem('KEY');
+            var refUsers = firebase.database().ref("USUARIOS/"+ref+"/pedidos");
+            refUsers.push({
+                data
+            });
+        }else{
+            var refUsers = firebase.database().ref("USUARIOS");
+            this.password = data.telefono;
+            refUsers.push({
+                clave: data.telefono,
+                data
+            }).then((snap) => {
+                var key = snap.key 
+                localStorage.setItem('KEY', key);
+                loggeado = true;
+            });
+        }
+
+          setTimeout(function() { 
+            if(nuevoGrupo){
+                DBgrupos.push({
+                    tipoGrupo: "nuevo",
+                    tipoVehiculo: tipoVehiculo,
+                    marca: marca,
+                    fecha: fecha,
+                    precio: data.precio,
+                }).then((snap) => {
+                    DBgrupos.child(snap.key).update({
+                        id: snap.key
+                    })
+                });
+                marca = "";
+                fecha = "";
+                tipoVehiculo = "";
+            }else{
+                var nuevoPrecio = parseInt(data.precio) + parseInt(precioGrupo);
+                DBgrupos.child(key).update({
+                    precio: nuevoPrecio
+                });
+            }
+            //desbloqueamos la UI
+            document.getElementById("loader").style.display = "none";
+            $("#over").remove();
+            window.location.href= "perfil.html";
+           }, 5000);
+       
+        /* var refUsers = firebase.database().ref("USUARIOS");
         refUsers.push({
             data
         }).then((snap) => {
@@ -266,7 +276,7 @@ function saveInfo(data,tipo){
             
             window.location.href= "perfil.html";
         
-        });
+        }); */
     }
     
 }
@@ -332,15 +342,6 @@ function CambiarHtmlDatos(){
     }
 }
 
-function LogOut(){
-    firebase.auth().signOut().then(function() {
-        var key = "";
-        localStorage.setItem("KEY", key);
-        window.location.href="index.html";
-  }, function(error) {
-    
-  });
-}
 
 function EnviarEmail(tipo){
     
@@ -391,7 +392,7 @@ var span = document.getElementsByClassName("close")[0];
 function abrirModal() {
     var correo = document.getElementById("InputCorreo").value;
     var telefono = document.getElementById("InputTelefono").value;
-
+    document.getElementById("clave").innerText = datosAnteriores.telefono;
     if(telefono.length > 4 || correo.length > 4){
         document.getElementById("myModal").style.display = "block";
         this.EnviarEmail('registro');
@@ -400,12 +401,12 @@ function abrirModal() {
 }
 
 function cerrarModal() {
-    document.getElementById("myModal").style.display = "none";
+/*     document.getElementById("myModal").style.display = "none"; */
     this.irPerfil();
 }
 window.onclick = function(event) {
   if (event.target ==  document.getElementById("myModal")) {
-    document.getElementById("myModal").style.display = "none";
+/*     document.getElementById("myModal").style.display = "none"; */
     this.irPerfil();
   }
 }

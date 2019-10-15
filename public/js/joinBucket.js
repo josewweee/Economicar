@@ -247,7 +247,7 @@ function CambiarHtmlTransmision(id){
   
  /*  var index = vehiculos.map(function (img) { return img.id; }).indexOf(id); */
   if ( vehiculoActual.includes("AUTOMATIC") ) { automatico = true;}
-  if ( vehiculoActual.includes("MANUAL") ) { mecanico = true;}
+  if ( vehiculoActual.includes("MANUAL") || vehiculoActual.includes("MECANI") ) { mecanico = true;}
 
   if(this.is_mobile && !this.yaEntramosTransm){
     document.getElementById("TransmisionVehiculo").style.display='none';

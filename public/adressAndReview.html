@@ -19,6 +19,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link href="css/vendor.css" rel="stylesheet">
     <link href="css/app.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
+    <link href="css/selvehiculo.css" rel="stylesheet">
 <!--     <link rel="stylesheet" href="assets/css/typography.css"> -->
 
         <!-- Favicon -->
@@ -93,7 +94,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                     <div class="main-menu">
                                         <nav class="nav-menu">
                                             <ul  class="listaNavBar">
-                                                <li><a href="login.html">Iniciar Sesión</a></li>
+                                                <li id="login"><a href="login.html">Iniciar Sesión</a></li>
                                                 <li><a href="join-a-carbucket.html">Vehículos</a></li>
                                                 <li><a href="index.html#contact">Contacto</a></li>
                                                 <li><a href="subastas.html">Concesionarios</a></li>
@@ -638,13 +639,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <span class="close" style="margin-top: 0px;" onclick="cerrarModal()">&times;</span>
                     </div>
                     <div class="modal-body">
+                            <div id="loader" style="display: none;"></div>
                         <div class="row" style="display: block;">
-                            <h2 for="precioVehiculo" class="textCalcularDescuento">5930295</h2>
+                            <h2 id="clave" for="precioVehiculo" class="textCalcularDescuento"></h2>
                             <br>
                             
                         </div>
                         <div class="row" style="display: block;">
-                            <label for="descuentoObtenido" class="textCalcularDescuento">Te enviamos tu contraseña al correo, revisa en la carpeta de SPAM, aunque NO LA NECESITARAS AUN.</label> 
+                            <label for="descuentoObtenido" class="textCalcularDescuento">Tu contraseña sera tu numero telefonico, te enviamos un correo recordandotelo.</label> 
                         </div>
                         <div class="row" style="margin-bottom: 30px; display: block;">
                             <div class="download-btns btn-area text-center" >
@@ -737,7 +739,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script src="assets/js/jquery.slicknav.min.js"></script>
   <script src="https://smtpjs.com/v3/smtp.js"></script>
   <script src="js/crudDB.js"></script>
-
+  <script src="js/login.js"></script>
     <script src="js/basic.js"></script>
     <script src="js/app.js"></script>
      

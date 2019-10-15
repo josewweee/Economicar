@@ -1,7 +1,7 @@
 //MODIFICAMOS EL HTML CON LA INFO DE LA BASE DE DATOS
 var datos, datos2;
 var htmlCarros = '';
-var baseDeDatos = firebase.database().ref('USUARIOS');
+var baseDeDatos = firebase.database().ref('GRUPOS');
 var DBmarcas = firebase.database().ref('VEHICULOS/marcas');
 var arregloMarcasDB = [];
 DBmarcas.on('value', function(snapshot) {
@@ -16,15 +16,15 @@ function VerCarros(){
     baseDeDatos.on('value', function(snapshot) {
         datos = snapshot.val();
         var arregloDatos = Object.values(datos);
-        arregloDatos = arregloDatos.filter(x => x.data.vehiculo.includes("carro"));
+        arregloDatos = arregloDatos.filter(x => x.tipoVehiculo.includes("carro"));
         htmlCarros = '';
         var arregloMarcasAgregadas = [];
         for(var i=0; i < arregloDatos.length; i++){
-            var marca = arregloDatos[i].data.marca;
+            var marca = arregloDatos[i].marca;
             arregloMarcasAgregadas.filter(x => x == marca);
             if ( arregloMarcasAgregadas.length < 1 ){
-                var pedidos = arregloDatos.filter(x => x.data.marca.includes( marca ) );
-                console.log(pedidos.length);
+                var grupo = arregloDatos.filter(x => x.marca.includes( marca ) );
+                var pedidos = Object.values( grupo[0].infoPedidos );
                 var contPedidos = pedidos.length;
                 var datosMarca = arregloMarcasDB.find(x => x.nombre.includes(marca) );
                 arregloMarcasAgregadas.push(marca);
@@ -73,9 +73,9 @@ function VerCarros(){
                             +    '<div class="form-group border border-warning">'
                             +        '<input type="text" id="valorPuja'+i+'" class="form-control" placeholder="Tu Valor De Venta">'
                             +   ' </div>'
-                            +    '<h3>'/* +Number(arregloDatos[i].datos.precio).toLocaleString('es', {useGrouping:true})+ */+'</h3>'
+                            +    '<h3>' +Number(arregloDatos[i].precio).toLocaleString('es', {useGrouping:true}) +'</h3>'
                             +    '<div class="sub-row">'
-                            /* +        '<button type="button" class="btn btn-success" onclick="RevisarPuja('+"'"+arregloDatos[i].id+"'"+','+i+')"><i class="fa fa-check"></i>Pujar</button>' */
+                             +        '<button type="button" class="btn btn-success" onclick="RevisarPuja('+"'"+arregloDatos[i].id+"'"+','+i+')"><i class="fa fa-check"></i>Pujar</button>'
                             +    '</div>'
                             + '</div>'
                             + '</div>'
@@ -95,15 +95,15 @@ function VerMotos(){
     baseDeDatos.on('value', function(snapshot) {
         datos = snapshot.val();
         var arregloDatos = Object.values(datos);
-        arregloDatos = arregloDatos.filter(x => x.data.vehiculo.includes("moto"));
+        arregloDatos = arregloDatos.filter(x => x.tipoVehiculo.includes("moto"));
         htmlCarros = '';
         var arregloMarcasAgregadas = [];
         for(var i=0; i < arregloDatos.length; i++){
-            var marca = arregloDatos[i].data.marca;
+            var marca = arregloDatos[i].marca;
             arregloMarcasAgregadas.filter(x => x == marca);
             if ( arregloMarcasAgregadas.length < 1 ){
-                var pedidos = arregloDatos.filter(x => x.data.marca.includes( marca ) );
-                console.log(pedidos.length);
+                var grupo = arregloDatos.filter(x => x.marca.includes( marca ) );
+                var pedidos = Object.values( grupo[0].infoPedidos );
                 var contPedidos = pedidos.length;
                 var datosMarca = arregloMarcasDB.find(x => x.nombre.includes(marca) );
                 arregloMarcasAgregadas.push(marca);
@@ -152,9 +152,9 @@ function VerMotos(){
                             +    '<div class="form-group border border-warning">'
                             +        '<input type="text" id="valorPuja'+i+'" class="form-control" placeholder="Tu Valor De Venta">'
                             +   ' </div>'
-                            +    '<h3>'/* +Number(arregloDatos[i].datos.precio).toLocaleString('es', {useGrouping:true})+ */+'</h3>'
+                            +    '<h3>' +parseInt(arregloDatos[i].precio).toLocaleString('es', {useGrouping:true}) +'</h3>'
                             +    '<div class="sub-row">'
-                            /* +        '<button type="button" class="btn btn-success" onclick="RevisarPuja('+"'"+arregloDatos[i].id+"'"+','+i+')"><i class="fa fa-check"></i>Pujar</button>' */
+                             +        '<button type="button" class="btn btn-success" onclick="RevisarPuja('+"'"+arregloDatos[i].id+"'"+','+i+')"><i class="fa fa-check"></i>Pujar</button>'
                             +    '</div>'
                             + '</div>'
                             + '</div>'
@@ -172,11 +172,11 @@ function VerMotos(){
 //ACA REVISAMOS QUE LA PUJA SEA MAYOR Y LA ENVIAMOS A LA BASE DE DATOS
 function RevisarPuja(key,i){
     var valorPuja = document.getElementById("valorPuja"+i).value;
-    valorPuja = Number(valorPuja);
-    var rutaDb = firebase.database().ref('CLIENTES').child(key);
+    valorPuja = parseInt(valorPuja);
+    var rutaDb = firebase.database().ref('GRUPOS').child(key);
     rutaDb.on('value', function(snapshot) {
         info = snapshot.val();
-        var MaximaPuja = Number(info.datos.precio);
+        var MaximaPuja = parseInt(info.precio);
         if(valorPuja < MaximaPuja){
             EnviarValorPuja(key, valorPuja);
         }
@@ -184,7 +184,7 @@ function RevisarPuja(key,i){
 }
 
 function EnviarValorPuja(key, valorPuja){
-    var rutaDb = firebase.database().ref('CLIENTES').child(key).child('datos');
+    var rutaDb = firebase.database().ref('GRUPOS').child(key);
     rutaDb.update({
         precio: valorPuja
     });
