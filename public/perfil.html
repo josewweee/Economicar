@@ -241,7 +241,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </div>
 
 
-            <div class="buyer-dash card  vehicle-card depth">
+<!--             <div class="buyer-dash card  vehicle-card depth">
               <div class="card-body">
                 <div class="card-title">
                   <h1 class="text-center text-sm-left">
@@ -298,18 +298,63 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   </div>
                 </div>
               </div>
+            </div>
 
-            <!--   <div class="card-footer">
-                <p class="text-muted mb-0" style="font-size:12px;">
-                  Disclaimer: All vehicle images are for display purposes only and do not reflect the final trim or
-                  accessories packages available to the consumer. Exact color may vary depending on dealer availability,
-                  please review our <a href="/legal/consumers/terms-of-use" target="_blank">Consumer Terms of Use
-                  </a>for more information.
-                </p>
+          </div> -->
+
+
+
+          <div class="buyer-dash card  vehicle-card depth">
+            <div class="card-body" id="cardVehiculos">
+              <div class="card-title">
+                <h1 class="text-center text-sm-left">
+                  Tus Vehículos
+                </h1>
+              </div>
+              <div id="listaVehiculos">
+
+              </div>
+              <!-- <div class="card-text" style="margin-bottom: 50px;">
+                <div class="row">
+                  <div class="col-12">
+                    <dl style="text-align: center;">
+                      <dt class="key">Comprando:</dt>
+                      <dd class="value" id="nombreCarro">
+                      </dd>
+                    </dl>
+                  </div>
+                </div>
+                <div class="vehicle-img mx-auto pt-3">
+                  <div class="row text-center">
+                    <div class="col-6 col-md-4 mx-auto">
+                      <figure>
+                        <img id="fotoOpcion1" src="" class="img-fluid">
+                        <figcaption class="color-name text-center" id="colorCarro">
+                          
+                          <p class="option-number">
+                            Opcion 1
+                          </p>
+                        </figcaption>
+                      </figure>
+                    </div>
+                  </div>
+                </div>
               </div> -->
             </div>
 
+          <!--   <div class="card-footer">
+              <p class="text-muted mb-0" style="font-size:12px;">
+                Disclaimer: All vehicle images are for display purposes only and do not reflect the final trim or
+                accessories packages available to the consumer. Exact color may vary depending on dealer availability,
+                please review our <a href="/legal/consumers/terms-of-use" target="_blank">Consumer Terms of Use
+                </a>for more information.
+              </p>
+            </div> -->
           </div>
+
+        </div>
+
+
 
           <div class="card-deck">
 
@@ -424,19 +469,6 @@ Your CarBucket is filling up with other buyers. In the meantime, click below to 
       </div>
     </div>
   </footer>
-
-  <script>
-      (function (d) {
-        var config = {
-          kitId: 'pnx5lhk',
-          scriptTimeout: 3000,
-          async: true
-        },
-          h = d.documentElement, t = setTimeout(function () { h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive"; }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a; h.className += " wf-loading"; tk.src = 'https://use.typekit.net/' + config.kitId + '.js'; tk.async = true; tk.onload = tk.onreadystatechange = function () { a = this.readyState; if (f || a && a != "complete" && a != "loaded") return; f = true; clearTimeout(t); try { Typekit.load(config) } catch (e) { } }; s.parentNode.insertBefore(tk, s)
-      })(document);
-  </script>
-
- 
 
 
  <!-- The core Firebase JS SDK is always required and must be listed first -->
