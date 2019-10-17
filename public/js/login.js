@@ -1,11 +1,15 @@
 var firebaseAuth = firebase.auth();
 var firebaseRef = firebase.database().ref("USUARIOS");
-var loggeado = (localStorage.getItem("KEY") != undefined && localStorage.getItem("KEY").length > 2) ? true : false;
+var loggeado = (localStorage.getItem("KEY") != 'null' && localStorage.getItem("KEY").length > 2) ? true : false;
+console.log(loggeado + " " +  localStorage.getItem("KEY"));
+
 if(loggeado){
+  console.log(document.getElementById('login'));
   if(document.getElementById('login') != null){
-    document.getElementById('login').innerHTML = '<button class="btn btn-outline-light btn-sm text-capitalize rounded-pill" type="submit" onclick="CerrarSesion()">CerrarSesión</button>'
+    document.getElementById('login').innerHTML = '<a href="perfil.html">Mi Cuenta</a>';
   }
 }else{
+  console.log(document.getElementById('login'));
   if(document.getElementById('login') != null){
     document.getElementById('login').innerHTML = '<a href="login.html">Iniciar Sesión</a>';
   }
@@ -15,56 +19,24 @@ if(loggeado){
 function IniciarSeccion(){
 	var email = document.getElementById('inputEmail').value;   
 	var password = document.getElementById("inputPassword").value;
-  var errores = false;
 
-
-	firebaseAuth.signInWithEmailAndPassword(email, password).catch(function(error) {
-	  var errorCode = error.code;
-	  var errorMessage = error.message;
-
-	  //MANEJO DE ERRORES="
-	  if (errorCode === 'auth/wrong-password'){
-            errores = true;
-            alert('Contraseña equivocada.');
-            return;
-          } else if (errorCode === 'auth/user-not-found'){
-            errores = true;
-            alert('Usuario no encontrado.');
-            return;
-
-      	  } else if(errorCode === 'auth/invalid-email'){
-            errores = true;
-      	  	alert('Email invalido.');
-      	  	return;
-
-      	  } else if(errorCode === 'auth/user-disabled'){
-            errores = true;
-      	  	alert('Usuario bloqueado.');
-      	  	return;
-
-      	  }else{
-            errores = true;
-      	  	//alert(errorMessage);
-      	  	/* return; */
-            }
-	})
-
-  if(errores == false){
-    setTimeout(function() {
-      console.log("hora de buscar");
-      firebaseRef.orderByChild('correo').equalTo(email).on("child_added", function(snapshot) {
-          var key = snapshot.key;
-          localStorage.setItem("KEY", key);
-          console.log("entramos");
-          window.location.href="perfil.html";
-      });
-    }, 1000);
-  }
+  firebaseRef.orderByChild('correo').equalTo(email).on("child_added", function(snapshot) {
+    console.log(password);
+    console.log(snapshot.val().clave);
+    if(snapshot.val().clave == password.toString()){
+      var key = snapshot.key;
+      localStorage.setItem("KEY", key);
+      window.location.href="perfil.html";
+    }else{
+      password.innerHTML = "";
+      alert("contraseña erronea");
+    }
+  });
    
 }
 
 function CerrarSesion(){
-  localStorage.setItem("KEY", undefined);
+  localStorage.setItem("KEY", null);
   window.location.href="index.html";
 }
 

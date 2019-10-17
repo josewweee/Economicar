@@ -1,5 +1,4 @@
 
-var firebaseAuth = firebase.auth();
 var password;
 var loggeado = (localStorage.getItem('KEY') != undefined) && (localStorage.getItem("KEY").length > 2) ? true : false
 var is_mobile = false;
@@ -123,10 +122,31 @@ function irVista(VistaActual_STR, VistaDestino_STR, btnActual_STR, btnSiguiente_
 
     if(this.pantallaActual == "VistaConfirmacion"){
         console.log(this.datosAnteriores);
-       document.getElementById("fotoConfirmacion").src = this.datosAnteriores.foto;
+        document.getElementById("fotoConfirmacion").src = this.datosAnteriores.foto;
         document.getElementById("ModeloConfirmacion").innerHTML = this.datosAnteriores.marca + " " + this.datosAnteriores.modelo;
         document.getElementById("PrecioConfirmacion").innerHTML = 'Precio inicial ' + this.datosAnteriores.precio;
         this.CambiarHtmlDatos();
+
+        if(loggeado) {
+            var botonFinalizarProceso = document.getElementById('CompleteStep');
+            document.getElementById('botonConfirmar').style.display = 'none';
+
+            var botonDatosContacto = document.getElementById('WizardRebatesSelectToggle');
+            botonDatosContacto.setAttribute('style', 'display:none !important');
+            var ref = localStorage.getItem('KEY');
+            var refUser = firebase.database().ref("USUARIOS/"+ref);
+            refUser.once('value').then((snapshot) =>{          
+                this.datosAnteriores.nombre = snapshot.val().nombre;
+                this.datosAnteriores.apellido = snapshot.val().apellido;
+                this.datosAnteriores.correo = snapshot.val().correo;
+                this.datosAnteriores.telefono = snapshot.val().telefono;
+                
+              }).then(
+                botonFinalizarProceso.disabled = false,
+                botonFinalizarProceso.classList.remove('btn-secondary'),
+                botonFinalizarProceso.classList.toggle('btn-primary')
+              );
+        }
     }
 
 }
@@ -143,10 +163,12 @@ function irAddressAndReview(){
 }
 
 function irPerfil(){
-    this.datosAnteriores.nombre = document.getElementById('InputNombre').value;
-    this.datosAnteriores.apellido = document.getElementById('InputApellido').value;
-    this.datosAnteriores.correo = document.getElementById('InputCorreo').value;
-    this.datosAnteriores.telefono = document.getElementById('InputTelefono').value;
+    if(!loggeado){
+        this.datosAnteriores.nombre = document.getElementById('InputNombre').value;
+        this.datosAnteriores.apellido = document.getElementById('InputApellido').value;
+        this.datosAnteriores.correo = document.getElementById('InputCorreo').value;
+        this.datosAnteriores.telefono = document.getElementById('InputTelefono').value;
+    }
     localStorage.removeItem('DATOS');
     saveInfo(this.datosAnteriores, 'usuario');
 }
@@ -183,10 +205,9 @@ function saveInfo(data,tipo){
         var DBgrupos = firebase.database().ref("GRUPOS");
         DBgrupos.orderByChild("marca").equalTo(marca).on("child_added", function(snapshot) {
             key = snapshot.key;
-            console.log(snapshot.val().fecha + " = " + fecha);
             if(snapshot.val().fecha == fecha){
-                console.log("fecha completa");
                 if(snapshot.val().tipoVehiculo == tipoVehiculo){
+                    console.log("agregando a grupo...");
                     precioGrupo = snapshot.val().precio;
                     DBgrupos.child(key+'/infoPedidos').push({
                         data
@@ -209,6 +230,14 @@ function saveInfo(data,tipo){
             this.password = data.telefono;
             refUsers.push({
                 clave: data.telefono,
+                ciudad: data.ciudad,
+                correo: data.correo,
+                nombre: data.nombre,
+                apellido: data.apellido,
+                telefono: data.telefono,
+                tipoCliente: data.tipoCliente,
+                financiamiento: data.financiamiento,
+                entregaCarro: data.entregaCarro,
                 data
             }).then((snap) => {
                 var key = snap.key 
@@ -219,6 +248,7 @@ function saveInfo(data,tipo){
 
           setTimeout(function() { 
             if(nuevoGrupo){
+                console.log("creando grupo...");
                 DBgrupos.push({
                     tipoGrupo: "nuevo",
                     tipoVehiculo: tipoVehiculo,
@@ -244,39 +274,6 @@ function saveInfo(data,tipo){
             $("#over").remove();
             window.location.href= "perfil.html";
            }, 5000);
-       
-        /* var refUsers = firebase.database().ref("USUARIOS");
-        refUsers.push({
-            data
-        }).then((snap) => {
-            var key = snap.key 
-            localStorage.setItem('KEY', key);
-            this.password =  (Math.floor(Math.random() * (999999 - 100000)) + 100000).toString();
-            firebaseAuth.createUserWithEmailAndPassword(this.datosAnteriores.correo, this.password).catch(function(error) {
-				var errorCode = error.code;
-				var errorMessage = error.message;
-                
-				if (errorCode === 'auth/wrong-password') {
-			        alert('Contraseña equivocada.');
-			        errores = true;
-			        return;
-                } else if (errorCode === 'auth/email-already-exists') {
-			        alert('Ya tienes una cuenta, revisa tu correo en SPAM, busca por EconomiCar');
-			        errores = true;
-			        return;
-			    }
-                
-                else {
-			    	errores = true;
-			        alert(errorMessage);
-			        return;
-			    }
-			});
-        }).then((snap) => {
-            
-            window.location.href= "perfil.html";
-        
-        }); */
     }
     
 }
