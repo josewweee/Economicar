@@ -26,7 +26,8 @@ var datos = {
     tipoCliente: '',
     financiamiento: '',
     entregaCarro: '',
-    idVehiculo: ''
+    idVehiculo: '',
+    estado: 1
 }; 
 var datosAnteriores = JSON.parse(localStorage.getItem('DATOS'));
 localStorage.removeItem('DATOS');

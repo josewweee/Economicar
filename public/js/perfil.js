@@ -5,22 +5,10 @@ var nombre, apellido, telefono, ciudad, color1, color2, correo, marca, modelo, t
 var html_vehiculos = "";
 var arregloPedidos=[];
 SearchRef.orderByChild("id").once("value").then((snapshot) =>{
-   /*  nombre = snapshot.val().nombre;
-    apellido = snapshot.val().apellido;
-    telefono = snapshot.val().telefono;
-    ciudad = snapshot.val().ciudad; 
-    correo = snapshot.val().correo;*/
 
-    /* color1 = snapshot.val().color1;
-    color2 = snapshot.val().color2; */
-    
-   /*  marca = snapshot.val().marca;
-    modelo = snapshot.val().modelo;
-    transmision = snapshot.val().transmision;
-    foto = snapshot.val().foto;
-    precio = snapshot.val().precio; */
     arregloPedidos.push(Object.values( snapshot.val() ));
     arregloPedidos = arregloPedidos[0];
+    console.log(arregloPedidos);
     this.htmlVehiculos();
     /* console.log(arregloPedidos) */
     /* document.getElementById("nombreCarro").innerHTML = marca + " " +  modelo;
@@ -39,14 +27,14 @@ SearchRef.orderByChild("id").once("value").then((snapshot) =>{
 
 function htmlVehiculos() {
     var repeticiones = this.arregloPedidos.length;
-    console.log(repeticiones);
     for (var i = 0; i < repeticiones; i++){
             var vehiculoActual = this.arregloPedidos[i].data;
-                console.log(this.arregloPedidos[i].data.apellido);
+                console.log(vehiculoActual.estado);
                 this.html_vehiculos +='<div class="card-text" style="margin-bottom: 50px;">'
                 +'<div class="row">'
                  + '<div class="col-12">'
                   +  '<dl style="text-align: center;">'
+                  + '<span class="circle-with-text-outline" style="margin-left: 80%;">'+vehiculoActual.estado+'</span>'
                    +   '<dt class="key">Comprando:</dt>'
                     +  '<dd class="value" id="nombreCarro">'
                     + vehiculoActual.marca + " " + vehiculoActual.modelo
@@ -68,6 +56,34 @@ function htmlVehiculos() {
                     +'</div>'
                   +'</div>'
                 +'</div>'
+                +'<button type="button" class="btn btn-outline-primary btn-sm" data-toggle="collapse" data-target="#demo'+i+'" style="margin: auto; display: block;">Pasos a seguir</button>'
+                  +'<div id="demo'+i+'" class="collapse">'
+                  +'<h2 class="title" style="text-align:center;">Instrucciones</h2>'
+                  +'<div class="row" style="text-align: left;">'
+                    +'<ol>'
+                      +'<li>'
+                        +'El grupo terminara <strong class="text-underline">el último día del mes</strong> a las 11:59pm.'
+                      +'</li>'
+                      +'<li>'
+                        +'Te mandaramos la informacion del concesionario ganador <strong class="text-underline">el dia 7 del nuevo mes</strong>'
+                      +'</li>'
+                      +'<li>'
+                        +'Recibiras un correo que debes <strong class="text-underline">imprimir o mostrar en el concesionario </strong> el dia <strong'
+                          +'class="text-underline">de la prueba de conducción</strong>'
+                      +'</li>'
+                      +'<li>'
+                        +'Haz la prueba de conducción en el concesionario ganador '
+                          +'<strong class="text-underline">desde el día 7</strong> Hasta el <strong class="text-underline">dia 14'
+                          +'</strong> .Recuerda que no estas obligado a comprar el vehiculo.'
+                      +'</li>'
+                      +'<li>'
+                        +'Califica el servicio del concesionario y tu experiencia general en economicar. al final del dia nos basamos en nuestra'
+                        +'comunidad para mantener los concesionarios honestos.'
+                      +'</li>'
+                    +'</ol>'
+                  +'</div>'
+                  +'</div>'
+                +'<hr>'
               +'</div>';
     }
 
