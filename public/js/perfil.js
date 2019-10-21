@@ -49,7 +49,7 @@ function htmlVehiculos() {
                      +   '<img id="fotoOpcion1" src="'+vehiculoActual.foto+'" class="img-fluid">'
                       +  '<figcaption class="color-name text-center" id="colorCarro">'
                        +   '<p class="option-number">'
-                        +    vehiculoActual.transmision
+                        +    vehiculoActual.version
                          + '</p>'
                        + '</figcaption>'
                       +'</figure>'

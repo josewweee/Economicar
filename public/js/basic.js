@@ -13,7 +13,7 @@ var datos = {
     vehiculo: '',
     marca: '',
     modelo: '',
-    transmision: '',
+    version: '',
     color1: '',
     color2: '',
     ciudad: '',
@@ -70,12 +70,12 @@ function irVista(VistaActual_STR, VistaDestino_STR, btnActual_STR, btnSiguiente_
             this.datos.id = datos[3];
             break;
         case 'TransmisionVehiculo':
-            this.datos.transmision = datos[0];
+            this.datos.version = datos[0];
 
             var botonFinalizarProceso = document.getElementById('CompleteStep');
             botonFinalizarProceso.disabled = false;
             botonFinalizarProceso.classList.remove('btn-secondary');
-            botonFinalizarProceso.classList.toggle('btn-primary');
+            botonFinalizarProceso.classList.toggle('btn-final');
             break;
         case 'VehicleColorSelect':
             var color = document.getElementById('Color1');
@@ -98,12 +98,13 @@ function irVista(VistaActual_STR, VistaDestino_STR, btnActual_STR, btnSiguiente_
         var botonFinalizarProceso = document.getElementById('CompleteStep');
         botonFinalizarProceso.disabled = false;
         botonFinalizarProceso.classList.remove('btn-secondary');
-        botonFinalizarProceso.classList.toggle('btn-primary');
+        botonFinalizarProceso.classList.toggle('btn-final');
     }
 
     switch (nombreValor) {
         case 'ciudad':
             this.datosAnteriores.ciudad = document.getElementById('InputCiudad').value;
+            document.getElementById('navPrincipal').style.display = 'block'
             this.CambiarHtmlInfoAdicional();
             break;
         case 'registro':
@@ -126,7 +127,7 @@ function irVista(VistaActual_STR, VistaDestino_STR, btnActual_STR, btnSiguiente_
         document.getElementById("fotoConfirmacion").src = this.datosAnteriores.foto;
         document.getElementById("ModeloConfirmacion").innerHTML = this.datosAnteriores.marca + " " + this.datosAnteriores.modelo;
         document.getElementById("PrecioConfirmacion").innerHTML = 'Precio inicial ' + this.datosAnteriores.precio;
-        this.CambiarHtmlDatos();
+        
 
         if(loggeado) {
             var botonFinalizarProceso = document.getElementById('CompleteStep');
@@ -145,8 +146,10 @@ function irVista(VistaActual_STR, VistaDestino_STR, btnActual_STR, btnSiguiente_
               }).then(
                 botonFinalizarProceso.disabled = false,
                 botonFinalizarProceso.classList.remove('btn-secondary'),
-                botonFinalizarProceso.classList.toggle('btn-primary')
+                botonFinalizarProceso.classList.toggle('btn-final')
               );
+        }else{
+            this.CambiarHtmlDatos();
         }
     }
 
