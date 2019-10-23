@@ -1,6 +1,6 @@
 
 var password;
-var loggeado = (localStorage.getItem('KEY') != undefined) && (localStorage.getItem("KEY").length > 2) ? true : false
+var loggeado = (localStorage.getItem('KEY') != undefined) && (localStorage.getItem("KEY").length > 10) ? true : false
 var is_mobile = false;
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
     is_mobile = true;
@@ -123,13 +123,12 @@ function irVista(VistaActual_STR, VistaDestino_STR, btnActual_STR, btnSiguiente_
     }
 
     if(this.pantallaActual == "VistaConfirmacion"){
-        console.log(this.datosAnteriores);
         document.getElementById("fotoConfirmacion").src = this.datosAnteriores.foto;
         document.getElementById("ModeloConfirmacion").innerHTML = this.datosAnteriores.marca + " " + this.datosAnteriores.modelo;
         document.getElementById("PrecioConfirmacion").innerHTML = 'Precio inicial ' + this.datosAnteriores.precio;
         
 
-        if(loggeado) {
+        if(this.loggeado) {
             var botonFinalizarProceso = document.getElementById('CompleteStep');
             document.getElementById('botonConfirmar').style.display = 'none';
 
@@ -223,7 +222,7 @@ function saveInfo(data,tipo){
           });
 
           //REGISTRAMOS AL USUARIO O LE AGREGAMOS EL PEDIDO SI YA ESTA REGISTRADO
-        if(loggeado){
+        if(this.loggeado){
             var ref = localStorage.getItem('KEY');
             var refUsers = firebase.database().ref("USUARIOS/"+ref+"/pedidos");
             refUsers.push({
@@ -246,13 +245,13 @@ function saveInfo(data,tipo){
             }).then((snap) => {
                 var key = snap.key 
                 localStorage.setItem('KEY', key);
-                loggeado = true;
+                this.loggeado = true;
             });
         }
 
           setTimeout(function() { 
             if(nuevoGrupo){
-                console.log("creando grupo...");
+                console.log("creando nuevo grupo...");
                 DBgrupos.push({
                     tipoGrupo: "nuevo",
                     tipoVehiculo: tipoVehiculo,
@@ -382,11 +381,38 @@ function EnviarEmail(tipo){
         }).then(
           message => alert(message)
         );
+    }else if(tipo == 'noEncuentro'){
+        var marca = (document.getElementById("inputModalMarca").value).toUpperCase();
+        var tipoRequest = document.getElementById("lblModalMarca").innerHTML;
+        console.log(tipoRequest +  "  " + marca);
+        Email.send({
+            Host : "smtp.elasticemail.com",
+            Username : "economicar024@gmail.com",
+            Password : "6efa2bba-38e7-452c-908c-bd8e8216e0ab",
+            To : "economicar024@gmail.com",
+            From : "economicar024@gmail.com",
+            Subject : "NO ENCUENTRO MI " + tipoRequest,
+            Body : "Buenas, no encuentro el modelo/marca "+ marca + ", espero me puedan colaborar cuanto antes."
+        }).then(
+            
+        );
     }
     
 }
 
-/** MODAL CUANDO EL USUARIO SE REGISTRA **/
+
+
+
+
+
+
+
+
+                                /** MODALS**/
+
+
+
+//MODAL REGISTRO
 
 var span = document.getElementsByClassName("close")[0];
 
@@ -402,9 +428,9 @@ function abrirModal() {
 }
 
 function cerrarModal() {
-/*     document.getElementById("myModal").style.display = "none"; */
     this.irPerfil();
 }
+
 window.onclick = function(event) {
   if (event.target ==  document.getElementById("myModal")) {
 /*     document.getElementById("myModal").style.display = "none"; */
@@ -416,6 +442,40 @@ function Terminado(){
     this.irPerfil();
 }
 
+
+// MODAL ¿NO ENCUENTRAS TU MARCA?
+
+var span2 = document.getElementsByClassName("close")[0];
+
+function abrirModalNoEncuentrasMarca(tipoModal) {
+    if(tipoModal == "modelo"){
+        document.getElementById("lblModalMarca").innerHTML = "Modelo";
+    }
+    document.getElementById("modalNoEncuentrasMarca").style.display = "block";
+}
+
+function cerrarModalNoEncuentrasMarca() {
+    document.getElementById("modalNoEncuentrasMarca").style.display = "none";
+}
+
+function TerminadoModalNoEncuentrasMarca(){
+    EnviarEmail('noEncuentro');
+}
+
+window.onclick = function(event) {
+  if (event.target ==  document.getElementById("modalNoEncuentrasMarca")) {
+    document.getElementById("modalNoEncuentrasMarca").style.display = "none";
+  }
+}
+
+
+
+
+
+
+
+
+// NAV BAR
 function DesplegarMenuNavBar(){
     var attr = document.getElementById('listaNavBar').attributes;
     if(attr['aria-hidden'].value == "true"){

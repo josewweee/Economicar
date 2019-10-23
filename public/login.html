@@ -13,6 +13,8 @@
 <link href="assets/css/style.css" rel="stylesheet">
 <link href="css/vendor.css" rel="stylesheet">
 <link href="css/app.css" rel="stylesheet">
+<link href="css/custom.css" rel="stylesheet">
+
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/favicon-16x16.png" type="image/x-icon">
     <link rel="icon" href="images/favicon-16x16.png" type="image/x-icon">
@@ -89,22 +91,22 @@
           <section class="mrp-bg-cards">
     <div class="container text-center login-container">
       <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-        <div class="card tb depth">
+        <div class="card tb depth" style="border-radius: 1.25rem;">
           <div class="card-body">
             <div class="card-title">
-              <h2 class="text-primary">Log In</h2>
+              <h2 style="color: #49bdac;">Log In</h2>
             </div>
             <div class="form-area">
               <form id="login" class="form-horizontal" role="form" method="POST" action="login.html">
                 <input type="hidden" name="_token" value="1qQ3xaXGreoHSSbnW4W43L3g73Z082TTl6QScScT">
                 <div class="row">
-                  <div class="col-md-12">
+                  <div class="col-md-12" style="margin-top: 50px;">
                     <div class="form-group">
-                                            <label class="small float-left" for="email">Correo Electronico</label>
+                                            <label for="email">Correo Electronico</label>
                       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                       <!--   <div class="input-group-addon"></div> -->
-                        <input type="text" name="email" class="form-control form-control-sm" id="inputEmail"
-                        placeholder="you@example.com" value="" required autofocus style="margin-left: 10px;margin-right: 10px;">
+                        <input type="text" name="email" class="form-control form-control-sm formPersonalizado" id="inputEmail"
+                        placeholder="you@example.com" value="" required autofocus>
                       </div>
                     </div>
                   </div>
@@ -112,16 +114,16 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
-                      <label class="small float-left" for="password">Contraseña</label>
+                      <label for="password">Contraseña</label>
                       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                        <!--  <div class="input-group-addon"></div> -->
-                        <input type="password" name="password" class="form-control form-control-sm" id="inputPassword"
-                        placeholder="Password" required style="margin-left: 10px;margin-right: 10px;">
+                        <input type="password" name="password" class="form-control form-control-sm formPersonalizado" id="inputPassword"
+                        placeholder="Password" required>
                       </div>
                                           </div>
                   </div>
                 </div>
-                <div class="row">
+           <!--      <div class="row">
                   <div class="col-md-12" style="padding-top: .35rem">
                     <div class="form-check mb-2 mr-sm-2 mb-sm-0">
                       <label class="form-check-label">
@@ -131,7 +133,7 @@
                       </label>
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <!-- <div class="row" style="padding-top: 1rem">
                   <div class="col-md-12">
                     <button id="LoginFrmBtn" type="submit" class="btn btn-primary" onclick="IniciarSeccion()">
@@ -147,8 +149,8 @@
                   </div>
                 </div> -->
               </form>
-              <button onclick="IniciarSeccion()" class="btn btn-primary">
-                  <i class="fa fa-sign-in-alt mr-1"></i> Iniciar sesión
+              <button onclick="IniciarSeccion()" class="btn btn-final">
+                  Iniciar sesión
                 </button>
             </div>
           </div>

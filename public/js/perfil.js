@@ -1,5 +1,4 @@
 var userKey = localStorage.getItem('KEY');
-console.log(userKey);
 var SearchRef = firebase.database().ref("USUARIOS/" + userKey+"/pedidos");
 var nombre, apellido, telefono, ciudad, color1, color2, correo, marca, modelo, transmision
 var html_vehiculos = "";
@@ -8,9 +7,7 @@ SearchRef.orderByChild("id").once("value").then((snapshot) =>{
 
     arregloPedidos.push(Object.values( snapshot.val() ));
     arregloPedidos = arregloPedidos[0];
-    console.log(arregloPedidos);
     this.htmlVehiculos();
-    /* console.log(arregloPedidos) */
     /* document.getElementById("nombreCarro").innerHTML = marca + " " +  modelo;
     document.getElementById("transmisionCarro").innerHTML = transmision;
     document.getElementById("colorCarro").innerHTML = color1 + '<p class="option-number"> Opción 1 </p>';
@@ -29,7 +26,6 @@ function htmlVehiculos() {
     var repeticiones = this.arregloPedidos.length;
     for (var i = 0; i < repeticiones; i++){
             var vehiculoActual = this.arregloPedidos[i].data;
-                console.log(vehiculoActual.estado);
                 this.html_vehiculos +='<div class="card-text" style="margin-bottom: 50px;">'
                 +'<div class="row">'
                  + '<div class="col-12">'

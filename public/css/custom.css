@@ -151,6 +151,14 @@
   letter-spacing: 0;
 }
 
+.inputModalNoEncuentrasMarca{
+  text-align: center;
+  margin: auto;
+}
+
+
+
+
 .seleccionContactanos {
 
   line-height: initial;
@@ -283,7 +291,7 @@
     margin-bottom: 50px;
   }
 
-  .nav ul li a{
+  .nav ul li .navSel{
     line-height: 5em;
     text-transform: uppercase;
     text-decoration: none;
@@ -292,6 +300,8 @@
     display: block;
     transition: all ease-out 300ms;
   }
+
+  
 }
 
 .nav {
@@ -313,17 +323,20 @@
   
 }
 
-.nav ul li a{
+.nav ul li .navSel{
   line-height: 5em;
   text-transform: uppercase;
   text-decoration: none;
-  letter-spacing: 0.4em;
+  font-weight: 500;
+  letter-spacing: 0;
+  font-size: large;
   color: #2f435e;
+  font-family: 'Poppins', sans-serif;
   display: block;
   transition: all ease-out 300ms;
 }
 
-.nav ul li .active a {
+.nav ul li .active .navSel {
   color: white;
 }
 
@@ -331,7 +344,7 @@
   opacity: 0.2;
 }
 
-.nav ul li :not(.active):hover a {
+.nav ul li :not(.active):hover .navSel {
   color: rgba(#FFF, 0.75);
 }
 
@@ -344,4 +357,17 @@
   left: 0;
   bottom: 0;
   background-image: linear-gradient(to right, #3f645e, #86c8bd)
+}
+
+
+
+/** LOGIN **/
+.card-login{
+  border-color: #49bdac;
+  border-top-width: 0px;
+}
+
+.formPersonalizado{
+  margin-left: 50px;
+  margin-right: 50px;
 }

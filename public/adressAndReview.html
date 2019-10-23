@@ -155,8 +155,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                                                 <div id="WizardRebatesLocationToggle" data-toggle="collapse"
                                                                 data-target="#WizardRebatesLocation"
                                                                 class="active" style="opacity: 1;">
-                                                              <li class="active"><a href="#"><span data-v-4fa46acd="" class="position" id="number1">01
-                                                               </span>¿Cual es tu ciudad?</a></li>
+                                                              <li class="active"><span class="navSel"><span data-v-4fa46acd="" class="position" id="number1">01
+                                                               </span>¿Cual es tu ciudad?</span></li>
                                                                  </div>
                                                                  <div id="WizardRebatesLocation" data-parent="#WizardAccordion" class="collapse show">
                                                                     <div id="WizardRebatesLocation_" hidden="hidden" class="card-body p-0 pb-3">
@@ -170,8 +170,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                                                 <div id="WizardInfo" data-toggle="collapse"
                                                                 data-target="#WizardInfoSelect"
                                                                 class="active" style="opacity: 0.5;">
-                                                              <li><a href="#"><span data-v-4fa46acd="" class="position" id="number2">02
-                                                               </span>Info adicional</a></li>
+                                                              <li><span class="navSel"><span data-v-4fa46acd="" class="position" id="number2">02
+                                                               </span>Info adicional</span></li>
                                                                  </div>
                                                                  <div id="WizardInfoSelect" data-parent="#WizardAccordion" class="collapse">
                                                                     <div id="WizardInfoSelect_" hidden="hidden" class="card-body p-0 pb-3">
@@ -185,8 +185,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                                                 <div id="WizardRebatesPurchaseTypeToggle"
                                                                 data-target="#WizardRebatesPurchaseType"
                                                                 class="active" style="opacity: 0.5;">
-                                                              <li><a href="#"><span data-v-4fa46acd="" class="position" id="number3">03
-                                                               </span>Confirmación</a></li>
+                                                              <li><span class="navSel"><span data-v-4fa46acd="" class="position" id="number3">03
+                                                               </span>Confirmación</span></li>
                                                                  </div>
                                                                  <div id="WizardRebatesPurchaseType" data-parent="#WizardAccordion" class="collapse">
                                                                     <div id="WizardRebatesPurchaseType_" hidden="hidden" class="card-body p-0 pb-3">
@@ -200,8 +200,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                                                 <div id="WizardRebatesSelectToggle"
                                                                 data-target="#WizardRebatesSelect"
                                                                 class="active" style="opacity: 0.5;">
-                                                              <li><a href="#"><span data-v-4fa46acd="" class="position" id="number4">04
-                                                               </span>Datos de contacto</a></li>
+                                                              <li><span class="navSel"><span data-v-4fa46acd="" class="position" id="number4">04
+                                                               </span>Datos de contacto</span></li>
                                                                  </div>
                                                                  <div id="WizardRebatesSelect"   data-parent="#WizardAccordion" class="collapse">
                                                                     <div id="WizardRebatesSelect_" hidden="hidden" class="card-body p-0 pb-3">
@@ -333,9 +333,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                                                 <div data-v-43dfaa2c="" class="px-3"><button data-v-43dfaa2c=""
                                                         disabled="disabled"
-                                                        class="btn btn-block btn-rounded text-white mt-4 btn-secondary" id="CompleteStep" onclick="irPerfil()"><span
-                                                            data-v-43dfaa2c=""
-                                                            style="display: grid; grid-template-columns: 0.5fr 2fr 0.5fr; align-items: center;"><span
+                                                        class="btn btn-block btn-rounded text-white mt-4 btn-secondary" id="CompleteStep" onclick="irPerfil()">
+                                                        <span data-v-43dfaa2c="" style="display: grid; grid-template-columns: 0.5fr 2fr 0.5fr; align-items: center; font-family: 'Poppins', sans-serif;
+                                                        font-weight: 500;"><span
                                                                 data-v-43dfaa2c=""></span>
                                                             Finalizar
                                                             <svg data-v-43dfaa2c="" aria-hidden="true" focusable="false"
@@ -455,7 +455,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                         </div>
                                     </div>
                                     <div class="text-center">
-                                        <button class="btn btn-blue rounded-pill mx-auto" onclick="irVista('VistaInfo','VistaConfirmacion','WizardInfo', 'WizardRebatesPurchaseTypeToggle', 'number2', 'number3', 'info')">
+                                        <button class="btn btn-final rounded-pill mx-auto" onclick="irVista('VistaInfo','VistaConfirmacion','WizardInfo', 'WizardRebatesPurchaseTypeToggle', 'number2', 'number3', 'info')">
                                             Siguiente
                                         </button>
                                     </div> 
@@ -493,7 +493,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             </div>
                         </div> 
                         <div class="row mb-2">
-                            <button id="botonConfirmar" class="btn btn-blue rounded-pill mx-auto" onclick="irVista('VistaConfirmacion', 'VistaRegistro','WizardRebatesPurchaseTypeToggle','WizardRebatesSelectToggle', 'number2', 'number3', '')">Continuar</button>
+                            <button id="botonConfirmar" class="btn btn-final rounded-pill mx-auto" onclick="irVista('VistaConfirmacion', 'VistaRegistro','WizardRebatesPurchaseTypeToggle','WizardRebatesSelectToggle', 'number2', 'number3', '')">Continuar</button>
                         </div> 
                         <div data-v-7cff97f7="" class="row mt-4">
                             <div data-v-7cff97f7="" class="col-lg-10 mx-auto">

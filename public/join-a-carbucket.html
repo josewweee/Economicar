@@ -24,6 +24,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link href="css/app.css" rel="stylesheet">
   <link href="css/selvehiculo.css" rel="stylesheet">
   <link href="css/custom.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/font-awesome.min.css">
 <!--   <link rel="stylesheet" href="assets/css/typography.css"> -->
 
     <!-- Favicon -->
@@ -154,10 +155,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                   <div id="botonVehiculo" data-toggle="collapse"
                                   data-target="#WizardVehicleMakeSelect"
                                   class="active" style="opacity: 1;">
-                                <li class="active"><a href="#"><span data-v-4fa46acd="" class="position" id="number0">01
-                                 </span>Escoge tu vehiculo</a></li>
+                                <li class="active"><span class="navSel"><span data-v-4fa46acd="" class="position" id="number0">01
+                                 </span>Escoge tu vehiculo</span></li>
                                    </div>
-                                   <div id="seleccionarVehiculoCollapse"                               data-parent="#WizardAccordion" class="collapse show">
+                                   <div id="seleccionarVehiculoCollapse" data-parent="#WizardAccordion" class="collapse show">
                                       <div hidden="hidden" class="card-body p-0 pb-3">
                                                           
                                       </div>
@@ -169,10 +170,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                   <div id="botonMarca" data-toggle="collapse"
                                   data-target="#WizardVehicleMakeSelect"
                                   class="active" style="opacity: 0.5;">
-                                <li><a href="#">                                           <span data-v-4fa46acd="" class="position" id="number1">02
-                                 </span>Escoge tu marca</a></li>
+                                <li><span class="navSel">
+                                  <span data-v-4fa46acd="" class="position" id="number1">02
+                                 </span>Escoge tu marca</span></li>
                                    </div>
-                                   <div id="VehicleSelectCollapse"                               data-parent="#WizardAccordion" class="collapse">
+                                   <div id="VehicleSelectCollapse" data-parent="#WizardAccordion" class="collapse">
                                       <div hidden="hidden" class="card-body p-0 pb-3">
                                                           
                                       </div>
@@ -184,10 +186,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                   <div id="botonModelo"
                                   data-target="#WizardVehicleModelSelect"
                                   class="active" style="opacity: 0.5;">
-                                <li><a href="#"><span data-v-4fa46acd="" class="position" id="number2">03
-                                 </span>Modelo</a></li>
+                                <li><span class="navSel"><span data-v-4fa46acd="" class="position" id="number2">03
+                                 </span>Modelo</span></li>
                                    </div>
-                                   <div id="WizardVehicleModelSelect"                               data-parent="#WizardAccordion" class="collapse">
+                                   <div id="WizardVehicleModelSelect" data-parent="#WizardAccordion" class="collapse">
                                       <div hidden="hidden" class="card-body p-0 pb-3">
                                                           
                                       </div>
@@ -199,10 +201,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                   <div id="botonTransmision"
                                   data-target="#WizardVehicleTransmissionSelect"
                                   class="active" style="opacity: 0.5;">
-                                <li><a href="#"><span data-v-4fa46acd="" class="position" id="number3">04
-                                 </span>Version</a></li>
+                                <li><span class="navSel"><span data-v-4fa46acd="" class="position" id="number3">04
+                                 </span>Version</span></li>
                                    </div>
-                                   <div id="WizardVehicleTransmissionSelect"                               data-parent="#WizardAccordion" class="collapse">
+                                   <div id="WizardVehicleTransmissionSelect" data-parent="#WizardAccordion" class="collapse">
                                       <div hidden="hidden" class="card-body p-0 pb-3">
                                                           
                                       </div>
@@ -213,10 +215,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                     <div id="botonColor"
                                     data-target="#WizardVehicleColorSelect"
                                     class="active" style="opacity: 0.5;">
-                                  <li><a href="#"><span data-v-4fa46acd="" class="position" id="number4">05
-                                   </span>Escoge tu color</a></li>
+                                  <li><span class="navSel"><span data-v-4fa46acd="" class="position" id="number4">05
+                                   </span>Escoge tu color</span></li>
                                      </div>
-                                     <div id="WizardVehicleColorSelect"                               data-parent="#WizardAccordion" class="collapse">
+                                     <div id="WizardVehicleColorSelect" data-parent="#WizardAccordion" class="collapse">
                                         <div hidden="hidden" class="card-body p-0 pb-3">
                                                             
                                         </div>
@@ -383,7 +385,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                           <button data-v-43dfaa2c="" id="CompleteStep" disabled="disabled"
                             class="btn btn-block btn-rounded text-white mt-4 btn-secondary botonFinalSelVehiculo" onclick="irVista('VehicleColorSelect')">
                             <span data-v-43dfaa2c=""
-                              style="display: grid; grid-template-columns: 0.5fr 4fr 0.5fr; align-items: center;">
+                              style="display: grid; grid-template-columns: 0.5fr 4fr 0.5fr; align-items: center;font-family: 'Poppins', sans-serif; font-weight: 500;">
                               <span data-v-43dfaa2c=""></span>
                               Continuar, ¡estas a solo 1 paso mas!.
                               <svg data-v-43dfaa2c="" aria-hidden="true" focusable="false" data-prefix="fas"
@@ -507,6 +509,42 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
 
+
+
+
+
+
+             <!-- ¿NO VES TU MARCA? MODAL -->
+             <div id="modalNoEncuentrasMarca" class="modal">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h2 class="HeaderModalIndex" style="display: -webkit-inline-box;">Cuéntanos que buscas</h2>
+                      <span class="close" style="margin-top: 0px;" onclick="cerrarModalNoEncuentrasMarca()">&times;</span>
+                  </div>
+                  <div class="modal-body">
+                    <div id="loader" style="display: none;"></div>
+
+                    <div class="row form-group">
+                      <div class="col-6 inputModalNoEncuentrasMarca">
+                          <label id="lblModalMarca">Marca</label> 
+                          <input type="text" id="inputModalMarca" class="form-control">
+                      </div>
+                      
+                    </div>
+
+                      <div class="row" style="display: block;">
+                          <label for="descuentoObtenido" class="textCalcularDescuento">Lo agregaremos cuanto antes =)</label> 
+                      </div>
+                      <div class="row" style="margin-bottom: 30px; display: block;">
+                        <div class="download-btns btn-area text-center" >
+                            <button class="BotonModalAddress" onclick="TerminadoModalNoEncuentrasMarca()"></i>Enviar</button>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+
+        
 
 
 
