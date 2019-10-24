@@ -315,7 +315,7 @@ function CambiarHtmlTransmision(id){
         this.HTMLtransmisicion_movil = "";
   }else if ( !this.yaEntramosTransm ) {
     for (var i=0; i < vehiculoActual.length; i++){
-      htmlTransmision +='<label data-value="automatic" class="mini-card" onclick="irVista( '+"'"+'TransmisionVehiculo'+"'" +', '+"'"+'VehicleColorSelect'+"'" +', '+"'"+'botonTransmision'+"'" +', '+"'"+'botonColor'+"'" +', '+"'"+'number3'+"'" +', '+"'"+'number4'+"'" +', '+'null'+', [ '+"'"+vehiculoActual[i].nombreVersion+"'" +' ]);CambiarHtmlColor()">'
+      htmlTransmision +='<label data-value="automatic" class="mini-card" onclick="irVista( '+"'"+'TransmisionVehiculo'+"'" +', '+"'"+'VehicleColorSelect'+"'" +', '+"'"+'botonTransmision'+"'" +', '+"'"+'botonColor'+"'" +', '+"'"+'number3'+"'" +', '+"'"+'number4'+"'" +', '+'null'+', [ '+"'"+vehiculoActual[i].nombreVersion+"'" +' ]);CambiarHtmlColor()" style="font-weight: 500;">'
            + '<picture class="mb-3 p-1">'
              + '<img src="'+vehiculoActual[i].foto+'" alt="">'
            + '</picture>'
@@ -349,7 +349,7 @@ function CambiarHtmlColor(){
     + '<div class="row justify-content-center align-items-center">'
     + '<div class="col m-auto">'
     + '<h4>Color Primario</h4>'
-    + '<select class="custom-select from-control form-control-sm" style="line-height:initial;" name="Color1" id="Color1">'
+    + '<select onchange="CambiarFotoColor.call(this, event, '+"'"+'imgColorFoto1'+"'" +', vehiculoActual)" class="custom-select from-control form-control-sm" style="line-height:initial;" name="Color1" id="Color1">'
     + '<option selected value="'+vehiculoActual[0].nombre+'">'+vehiculoActual[0].nombre+'</option>';
     for(var i=1; i < vehiculoActual.length; i++){
       this.HTMLcolor_movil += '<option value="'+vehiculoActual[i].nombre+'">'+vehiculoActual[i].nombre+'</option>';
@@ -357,17 +357,35 @@ function CambiarHtmlColor(){
     this.HTMLcolor_movil +=' </select>'
     + '</div>' + '</div>' + '</div>';
 
+    if(this.is_mobile){
+      this.HTMLcolor_movil += '<div class="row">'
+      + '<div class="col-12"><img style="width:90%;" id="imgColorFoto1" src="'+vehiculoActual[0].foto+'"></div>'
+      + '</div>';
+    }
+
     this.HTMLcolor_movil += '<div class="col-12 col-xl-6">'
     +'<div class="row justify-content-center align-items-center">'
     +'<div class="col m-auto">'
     + '<h4>Color Alternativo</h4>'
-    + '<select class="custom-select from-control form-control-sm" style="line-height:initial;" name="Color2" id="Color2">'
+    + '<select onchange="CambiarFotoColor.call(this, event, '+"'"+'imgColorFoto2'+"'" +', vehiculoActual)"class="custom-select from-control form-control-sm" style="line-height:initial;" name="Color2" id="Color2">'
     + '<option selected value="'+vehiculoActual[0].nombre+'">'+vehiculoActual[0].nombre+'</option>';
     for(var i=1; i < vehiculoActual.length; i++){
       this.HTMLcolor_movil += '<option value="'+vehiculoActual[i].nombre+'">'+vehiculoActual[i].nombre+'</option>';
     }
     this.HTMLcolor_movil +='</select>'
-    + '</div>' + '</div>' + '</div>' + '</div>';
+    + '</div>' + '</div>' + '</div>';
+
+    if(this.is_mobile){
+      this.HTMLcolor_movil += '<div class="row">'
+      + '<div class="col-12"><img style="width:90%;" id="imgColorFoto2" src="'+vehiculoActual[0].foto+'"></div>'
+      + '</div>';
+    }else{
+      this.HTMLcolor_movil += '<div class="row" style="margin-top:30px;">'
+     +   '<div class="col-6"><img style="width:80%;" id="imgColorFoto1" src="'+vehiculoActual[0].foto+'"></div>'
+      +  '<div class="col-6"><img style="width:80%;" id="imgColorFoto2" src="'+vehiculoActual[0].foto+'"></div>'
+    + '</div>';
+    }
+    this.HTMLcolor_movil += '</div>';
     if(this.is_mobile){
       this.HTMLcolor_movil += '</div>' + '</div>';
       document.getElementById("WizardVehicleColorSelect").innerHTML = this.HTMLcolor_movil;
@@ -377,6 +395,15 @@ function CambiarHtmlColor(){
     
     this.HTMLcolor_movil = "";
     this.yaEntramosColor = true;
+}
+
+function CambiarFotoColor(event, imgColor, vehiculoActual){
+  var vehiculo = vehiculoActual[0].color;
+  console.log(vehiculo)
+  var index =this.selectedIndex;
+  console.log(index);
+  document.getElementById(imgColor).src= vehiculo[index].foto;
+  /* alert(this.options[this.selectedIndex].text + " " + imgColor); */
 }
 
 
