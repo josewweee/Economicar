@@ -236,12 +236,12 @@ function saveInfo(data,tipo){
                 ciudad: data.ciudad,
                 correo: data.correo,
                 nombre: data.nombre,
-                apellido: data.apellido,
+                apellido: data.apellido,    
                 telefono: data.telefono,
                 tipoCliente: data.tipoCliente,
                 financiamiento: data.financiamiento,
                 entregaCarro: data.entregaCarro,
-                data
+                pedidos: {primerPedido: {data: data}}
             }).then((snap) => {
                 var key = snap.key 
                 localStorage.setItem('KEY', key);

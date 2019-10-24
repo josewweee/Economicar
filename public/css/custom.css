@@ -371,3 +371,25 @@
   margin-left: 50px;
   margin-right: 50px;
 }
+
+
+/** Adress and review **/
+
+.tituloCard{
+  font-size: 1.5rem;
+}
+
+.labelCard{
+  font-size: 1rem;
+}
+
+
+@media only screen and (max-width: 415px) {
+  .labelConfirmacionMovil{
+    font-size: small;
+  }
+
+  .precioConfirmacionMovil{
+    font-size: 1rem;
+  }
+}
