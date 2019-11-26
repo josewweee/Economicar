@@ -73,7 +73,7 @@ function htmlVehiculos() {
                           +'</strong> .Recuerda que no estas obligado a comprar el vehiculo.'
                       +'</li>'
                       +'<li>'
-                        +'Califica el servicio del concesionario y tu experiencia general en economicar. al final del dia nos basamos en nuestra'
+                        +'Califica el servicio del concesionario y tu experiencia general en economicar. al final del dia nos basamos en nuestra '
                         +'comunidad para mantener los concesionarios honestos.'
                       +'</li>'
                     +'</ol>'

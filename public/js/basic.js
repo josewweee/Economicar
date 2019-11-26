@@ -5,7 +5,8 @@ var is_mobile = false;
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
     is_mobile = true;
    }
-var pantallaActual = 'VistaLocacion';
+var VistaActual_ = ''; // VISTA EN LA OPCION DE SEL VEHICULO
+var pantallaActual = 'VistaLocacion'; // VISTA EN LA OPCION DE INFORMACION USUARIO
 var contP
 var ventanaMarca = false, ventanaModelo = false, ventanaTransmision = false, ventanaColor = false;
 console.log( window.location.href);
@@ -38,12 +39,43 @@ this.CambiarHtmlCiudad();
 
 function irVista(VistaActual_STR, VistaDestino_STR, btnActual_STR, btnSiguiente_STR, lblNumeroActual, lblNumeroSiguiente, nombreValor, datos){
     
+    //switch con opciones para devolverse de ventana.
+    if(VistaActual_STR == 'null'){
+        console.log("actual " + this.VistaActual_)
+        switch (this.VistaActual_) {
+            case 'VehicleMakeSelect':
+                VistaActual_STR = 'VehicleMakeSelect';
+                btnActual_STR = 'botonMarca';
+                lblNumeroActual = 'number1';
+                break;
+            case 'VehicleModelSelect':
+                VistaActual_STR = 'VehicleModelSelect';
+                btnActual_STR = 'botonModelo';
+                lblNumeroActual = 'number2';
+                break;
+            case 'TransmisionVehiculo':
+                VistaActual_STR = 'TransmisionVehiculo';
+                btnActual_STR = 'botonTransmision';
+                lblNumeroActual = 'number3';
+                break;
+            case 'VehicleColorSelect':
+                VistaActual_STR = 'VehicleColorSelect';
+                btnActual_STR = 'botonColor';
+                lblNumeroActual = 'number4';
+                break;
+            default:
+                break;
+        }
+
+
+    }
+    
     if( VistaActual_STR != 'VehicleColorSelect' ) {
         var VistaActual = document.getElementById(VistaActual_STR);
+        this.VistaActual_ = VistaDestino_STR;
         var VistaDestino = document.getElementById(VistaDestino_STR);
         var Label_index_actual = document.getElementById(lblNumeroActual);
         var Label_index_siguiente = document.getElementById(lblNumeroSiguiente);
-
 
         VistaActual.style.display = 'none';
         VistaDestino.style.display = 'block';
@@ -55,7 +87,7 @@ function irVista(VistaActual_STR, VistaDestino_STR, btnActual_STR, btnSiguiente_
         this.iluminarSiguienteBoton(btnActual_STR, btnSiguiente_STR);
     }
     
-
+    
     switch (VistaActual_STR) {
         case 'seleccionVehiculo':
             this.datos.vehiculo = datos[0];
@@ -71,7 +103,7 @@ function irVista(VistaActual_STR, VistaDestino_STR, btnActual_STR, btnSiguiente_
             break;
         case 'TransmisionVehiculo':
             this.datos.version = datos[0];
-
+            console.log("entramos");
             var botonFinalizarProceso = document.getElementById('CompleteStep');
             botonFinalizarProceso.disabled = false;
             botonFinalizarProceso.classList.remove('btn-secondary');
@@ -89,6 +121,7 @@ function irVista(VistaActual_STR, VistaDestino_STR, btnActual_STR, btnSiguiente_
             this.pantallaActual = "RebatesLocation";
             break;
         default:
+                console.log("ayuda con" + VistaActual_STR);
             break;
     }
 
@@ -152,6 +185,10 @@ function irVista(VistaActual_STR, VistaDestino_STR, btnActual_STR, btnSiguiente_
         }
     }
 
+}
+
+function irVentanaAnterior(VistaActual_STR, VistaDestino_STR, btnActual_STR, btnSiguiente_STR, lblNumeroActual, lblNumeroSiguiente){
+    
 }
 
 

@@ -3,18 +3,6 @@
 
 <head>
   <title>¡Economicar! | Economicar&reg;</title>
-
-  <!--  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-K6DKVL3');</script> -->
-
-
-
-
-  
-  <!-- <link href="css/noIndex.css" rel="stylesheet"> -->
   
   <link href="assets/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/css/slicknav.min.css" rel="stylesheet">
@@ -151,7 +139,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                           <nav class="nav">
                               <ul>
-                                 <div class="">
+                                 <div class="" onclick="irVista('null', 'seleccionVehiculo', 'null' ,'botonVehiculo', 'null', 'number0', 'null', 'null');CambiarHtmlVehiculos();">
                                   <div id="botonVehiculo" data-toggle="collapse"
                                   data-target="#WizardVehicleMakeSelect"
                                   class="active" style="opacity: 1;">
@@ -166,7 +154,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 </div>
                                 
                                 
-                                <div class="">
+                                <div class="" onclick="irVista('null', 'VehicleMakeSelect', 'null' ,'botonMarca', 'null', 'number1', 'null', 'null');CambiarHtmlMarcas('null');">
                                   <div id="botonMarca" data-toggle="collapse"
                                   data-target="#WizardVehicleMakeSelect"
                                   class="active" style="opacity: 0.5;">
@@ -182,7 +170,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 </div>
                                 
                                 
-                                <div class="">
+                                <div class="" onclick="irVista('null', 'VehicleModelSelect', 'null' ,'botonModelo', 'null', 'number2', 'null', 'null');ModelosHTML('null','null');">
                                   <div id="botonModelo"
                                   data-target="#WizardVehicleModelSelect"
                                   class="active" style="opacity: 0.5;">
@@ -197,7 +185,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 </div>
                                 
                                 
-                                <div class="">
+                                <div class="" onclick="irVista('null', 'TransmisionVehiculo', 'null' ,'botonTransmision', 'null', 'number3', 'null', 'null');CambiarHtmlVersion('null');">
                                   <div id="botonTransmision"
                                   data-target="#WizardVehicleTransmissionSelect"
                                   class="active" style="opacity: 0.5;">
@@ -228,158 +216,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                 
                               </ul>
                             </nav>
-<!--                            <div class="card">
-                              <div id="botonVehiculo" data-toggle="collapse"
-                                data-target="#WizardVehicleMakeSelect"
-                                class="card-header d-flex justify-content-between align-items-center active"
-                                style="opacity: 1;">
-                                
-                                <div class="d-flex align-items-center">
-                                  <span data-v-4fa46acd="" class="position active" id="number0">
-                                    01
-                                  </span>
-                                  <div class="ml-2">
-                                    <span>
-                                      Escoge tu vehículo
-                                    </span>
-                                  </div>
-                                </div>
-                                <div
-                                  class="d-flex justify-content-between align-items-center d-flex justify-content-between">
-                                  <svg aria-hidden="true" focusable="false" data-prefix="fas"
-                                    data-icon="arrow-right" role="img" xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 448 512" class="svg-inline--fa fa-arrow-right fa-w-14">
-                                    <path data-v-4fa46acd="" fill="currentColor"
-                                      d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
-                                      class=""></path>
-                                  </svg>
-                                </div>
-                              </div>
-                              <div id="seleccionarVehiculoCollapse" data-parent="#WizardAccordion"
-                                class="collapse show">
-                                <div hidden="hidden" class="card-body p-0 pb-3">
-                                  
-                                </div>
-                              </div>
-                            </div>
-
-
-
-                        <div data-v-4fa46acd="" class="card" data-v-43dfaa2c="">
-                          <div data-v-4fa46acd="" id="botonMarca" data-toggle="collapse"
-                            data-target="#WizardVehicleMakeSelect"
-                            class="card-header d-flex justify-content-between align-items-center" style="opacity: 0.5;">
-                            <div data-v-4fa46acd="" class="d-flex align-items-center">
-                              <span data-v-4fa46acd="" class="position" id="number1">
-                                02
-                              </span>
-                              <div data-v-4fa46acd="" class="ml-2">
-                                <span data-v-4fa46acd="">
-                                  Escoge tu marca
-                                </span>
-                              </div>
-                            </div>
-                            <div data-v-4fa46acd=""
-                            class="d-flex justify-content-between align-items-center d-flex justify-content-between">
-                          
-                            <strong data-v-4fa46acd="" class="value"></strong>
-                           
-                          </div>
-                          </div>
-                          <div data-v-4fa46acd="" id="VehicleSelectCollapse" data-parent="#WizardAccordion"
-                            class="collapse">
-                            <div data-v-4fa46acd="" hidden="hidden" class="card-body p-0 pb-3">
-                              
-                            </div>
-                          </div>
-                        </div>
-                        <div data-v-4fa46acd="" class="card" data-v-43dfaa2c="" >
-                          <div data-v-4fa46acd="" id="botonModelo" data-toggle=""
-                            data-target="#WizardVehicleModelSelect"
-                            class="card-header d-flex justify-content-between align-items-center" style="opacity: 0.5;">
-                            <div data-v-4fa46acd="" class="d-flex align-items-center">
-                              <span data-v-4fa46acd="" class="position" id="number2">
-                                03
-                              </span>
-                              <div data-v-4fa46acd="" class="ml-2">
-                                <span data-v-4fa46acd="">
-                                  Selecciona un modelo.
-                                </span>
-                              </div>
-                            </div>
-                            <div data-v-4fa46acd=""
-                              class="d-flex justify-content-between align-items-center d-flex justify-content-between">
-                              
-                              <strong data-v-4fa46acd="" class="value"></strong>
-                              
-                            </div>
-                          </div>
-                          <div data-v-4fa46acd="" id="WizardVehicleModelSelect" data-parent="#WizardAccordion"
-                            class="collapse">
-                            <div data-v-4fa46acd="" hidden="hidden" class="card-body p-0 pb-3">
-                            </div>
-                          </div>
-                        </div>
-                        <div data-v-4fa46acd="" class="card" data-v-43dfaa2c="" >
-                          <div data-v-4fa46acd="" id="botonTransmision" data-toggle=""
-                            data-target="#WizardVehicleTransmissionSelect"
-                            class="card-header d-flex justify-content-between align-items-center" style="opacity: 0.5;">
-                            <div data-v-4fa46acd="" class="d-flex align-items-center">
-                              <span data-v-4fa46acd="" class="position" id="number3">
-                                04
-                              </span>
-                              <div data-v-4fa46acd="" class="ml-2">
-                                <span data-v-4fa46acd="">
-                                  Escoge tu transmisión.
-                                </span>
-                              </div>
-                            </div>
-                            <div data-v-4fa46acd=""
-                              class="d-flex justify-content-between align-items-center d-flex justify-content-between">
-                             
-                              <strong data-v-4fa46acd="" class="value"></strong>
-                              
-                            </div>
-                          </div>
-                          <div data-v-4fa46acd="" id="WizardVehicleTransmissionSelect" data-parent="#WizardAccordion" class="collapse">
-                            <div data-v-4fa46acd="" class="card-body p-0 pb-3" >
-
-                            </div>
-                          </div>
-                        </div>
-                       
-                        <div data-v-4fa46acd="" class="card" data-v-43dfaa2c="" >
-                          <div data-v-4fa46acd="" id="botonColor" data-toggle=""
-                            data-target="#WizardVehicleColorSelect"
-                            class="card-header d-flex justify-content-between align-items-center" style="opacity: 0.5;">
-                            <div data-v-4fa46acd="" class="d-flex align-items-center">
-                              <span data-v-4fa46acd="" class="position" id="number4">
-                                05
-                              </span>
-                              <div data-v-4fa46acd="" class="ml-2">
-                                <span data-v-4fa46acd="">
-                                  Escoge tu color.
-                                </span>
-                              </div>
-                            </div>
-                            <div data-v-4fa46acd=""
-                              class="d-flex justify-content-between align-items-center d-flex justify-content-between">
-                              <div data-v-4fa46acd="" class="colour-value"><span data-v-4fa46acd=""
-                                  style="background: rgb(255, 255, 255);">
-                                </span>
-                              </div>
-                              <div data-v-4fa46acd="" class="colour-value">
-                                <span data-v-4fa46acd="" style="background: rgb(255, 255, 255);"></span>
-                              </div>
-                             
-                            </div>
-                          </div>
-                          <div data-v-4fa46acd="" id="WizardVehicleColorSelect" data-parent="#WizardAccordion"
-                            class="collapse">
-                            <div data-v-4fa46acd="" hidden="hidden" class="card-body p-0 pb-3">
-                            </div>
-                          </div>
-                        </div> -->
                        
                         <div data-v-43dfaa2c="" class="px-3">
                           <button data-v-43dfaa2c="" id="CompleteStep" disabled="disabled"
@@ -405,47 +241,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   </div>
                 </div>
               </div>
-<!--               <div data-v-43dfaa2c="" class="row no-gutters bg-white">
-                <div data-v-43dfaa2c="" class="col">
-                  <div data-v-43dfaa2c="" class="mx-4">
-
-                  </div>
-                  <div data-v-43dfaa2c="" class="row">
-                    <div data-v-43dfaa2c="" class="col m-4">
-                      <div data-v-6a3a9dc3="" data-v-43dfaa2c="" class="wizard-progress">
-                        <div data-v-6a3a9dc3="" class="progress">
-                          <div data-v-6a3a9dc3="" role="progressbar" aria-valuenow="0" aria-valuemin="0"
-                            aria-valuemax="100" class="progress-bar" style="width: 0%;">
-                          </div>
-                        </div>
-                        <div data-v-6a3a9dc3="" class="point-container">
-                          <a data-v-6a3a9dc3="" href="#" class="">
-                            <div data-v-6a3a9dc3="" class="circle justify-self-start">
-                              <div data-v-6a3a9dc3="" class="inner-circle">
-
-                              </div>
-                            </div>
-                          </a>
-                          <a data-v-6a3a9dc3="" href="#" disabled="disabled" class="disabled">
-                            <div data-v-6a3a9dc3="" class="circle mx-auto disabled">
-                              <div data-v-6a3a9dc3="" class="inner-circle">
-
-                              </div>
-                            </div>
-                          </a>
-                          <a data-v-6a3a9dc3="" href="#" disabled="disabled" class="disabled">
-                            <div data-v-6a3a9dc3="" class="circle float-right disabled">
-                              <div data-v-6a3a9dc3="" class="inner-circle">
-
-                              </div>
-                            </div>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
             </div>
 
 
@@ -579,16 +374,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </label>
               </a>
             </div> 
-            <!-- <div data-v-2d184876="" class="vehicle mini-card d-flex justify-content-center">
-              <a data-v-2d184876="" href="/join-a-carbucket/used-cars" class="">
-                <label data-v-2d184876="" class="m-0" style="position: relative;" onclick="escogerModelo('null');">
-                  <img data-v-2d184876="" src="images/wizard/transparent.svg"> 
-                  <div data-v-2d184876="" class="make-not-available text-dark">
-                    Quiero Un <br data-v-2d184876=""> Carro Usado.
-                  </div>
-                </label>
-              </a>
-            </div> -->
           </div>
         </div>
       </div>
@@ -605,19 +390,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="row">
       <div class="col col-lg-6">
         <div class="mini-card-pair text-center" id="htmlTransmision">
-          <!-- <label data-value="automatic" class="mini-card" onclick="irVista('TransmisionVehiculo', 'VehicleColorSelect', 'botonTransmision' ,'botonColor', 'number3', 'number4', '', ['automatico']);">
-            <picture class="mb-3 p-1">
-              <img src="images/automatic.png" alt="">
-            </picture>
-              Automatico
-          </label> 
-          <label data-value="manual" class="mini-card" onclick="irVista('TransmisionVehiculo', 'VehicleColorSelect', 'botonTransmision' ,'botonColor', 'number3', 'number4', '', ['manual']);">
-            <picture class="mb-3 p-1">
-              <img src="images/manual.png" alt="" style="height: 100%;">
-            </picture>
-              Manual
-          </label> -->
-        </div>
+         </div>
       </div>
     </div>
   </div>
@@ -637,64 +410,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <option value="Metalico Plateado"> Metalico Plateado</option>
                 <option value="Blanco Glaciar Metalico"> Blanco Glaciar Metalico</option>
             </select>
-  <!--           <div data-v-78b4db95="" class="color-select w-100" data-cy="primaryColor">
-              <div tabindex="-1" class="multiselect option__colors border-primary d-sm-block my-4">
-                <div class="multiselect__select">
-
-               </div>  
-<div class="multiselect__tags">
-    <div class="multiselect__tags-wrap" style="display: none;">
-    </div>
-    <div class="multiselect__spinner" style="display: none;">
-    </div> 
-    <input name="" type="text" autocomplete="nope" placeholder="Select Color" tabindex="0" class="multiselect__input" style="width: 0px; position: absolute; padding: 0px;"> 
-    <span class="multiselect__single">
-      <span class="option__swatch" style="background: rgb(11, 13, 12);"></span> 
-    <span class="option__desc">
-      <span class="option__title">Negro Metalico Mythos</span>
-    </span>
-  </span>
-</div>
-
-<div tabindex="-1" class="multiselect__content-wrapper" style="max-height: 300px; display: none;">
-  <ul class="multiselect__content" style="display: inline-block;">
-    <li class="multiselect__element">
-      <span data-select="" data-selected="" data-deselect="" class="multiselect__option">
-        <span class="option__swatch" style="background: rgb(178, 177, 177);"></span> 
-        <div class="option__desc">
-          <span class="option__title">Metalico Plateado</span>
-        </div>
-      </span>
-    </li>
-    <li class="multiselect__element">
-      <span data-select="" data-selected="" data-deselect="" class="multiselect__option">
-        <span class="option__swatch" style="background: rgb(70, 72, 68);"></span> 
-      <div class="option__desc">
-        <span class="option__title">Gris Daytona Perla</span>
-      </div>
-    </span>
-  </li>
-  <li class="multiselect__element">
-    <span data-select="" data-selected="" data-deselect="" class="multiselect__option multiselect__option--highlight">
-      <span class="option__swatch" style="background: rgb(215, 215, 214);"></span> 
-      <div class="option__desc">
-        <span class="option__title">Blanco Glaciar Metalico</span>
-      </div>
-    </span>
-  </li>
-  <li class="multiselect__element">
-    <span data-select="" data-selected="" data-deselect="" class="multiselect__option multiselect__option--selected">
-      <span class="option__swatch" style="background: rgb(11, 13, 12);"></span> 
-      <div class="option__desc">
-        <span class="option__title">Negro Metalico Mythos</span>
-      </div>
-    </span>
-  </li>
-  </ul>
-</div>
-</div> 
-<input type="hidden" name="color1" value="43947">
-</div> -->
         </div>
       </div> 
       <div class="row text-center">
@@ -713,48 +428,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <option value="Gris Daytona Perla" > Gris Daytona Perla</option>
               <option value="Blanco Glaciar Metalico"> Blanco Glaciar Metalico</option>
           </select>
- <!--          <div data-v-78b4db95="" class="color-select" data-cy="secondaryColor">
-            <div tabindex="-1" class="multiselect option__colors border-primary d-sm-block my-4">
-              <div class="multiselect__select">
 
-              </div>  
-              <div class="multiselect__tags">
-                <div class="multiselect__tags-wrap" style="display: none;">
-                </div>
-                <div class="multiselect__spinner" style="display: none;">
-                </div> 
-                <input name="" type="text" autocomplete="nope" placeholder="Select Color" tabindex="0" class="multiselect__input" style="width: 0px; position: absolute; padding: 0px;"> 
-                <span class="multiselect__single">
-                  <span class="option__swatch" style="background: rgb(180, 4, 39);"></span> 
-                <span class="option__desc">
-                  <span class="option__title">Rojo Misano Perla</span>
-                </span>
-              </span>
-            </div> 
-            <div tabindex="-1" class="multiselect__content-wrapper" style="max-height: 300px; display: none;">
-              <ul class="multiselect__content" style="display: inline-block;">
-                <li class="multiselect__element">
-                  <span data-select="" data-selected="" data-deselect="" class="multiselect__option">
-                    <span class="option__swatch" style="background: rgb(178, 177, 177);">
-                    </span> 
-                    <div class="option__desc">
-                      <span class="option__title">Metalico Plateado</span>
-                    </div>
-                  </span>
-                </li>
-                <li class="multiselect__element">
-                  <span data-select="" data-selected="" data-deselect="" class="multiselect__option">
-                    <span class="option__swatch" style="background: rgb(70, 72, 68);">
-                    </span> 
-                    <div class="option__desc">
-                      <span class="option__title">Gris Daytona Perla</span>
-                    </div></span>
-                  </li>
-                  </ul>
-                </div>
-              </div> 
-              <input type="hidden" name="color2" value="43918">
-            </div> -->
     </div>
   </div> 
   <div data-v-78b4db95="" class="row text-center">
@@ -781,41 +455,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                           d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z">
                         </path>
                       </svg>
-                      <!-- <i class="fas fa-times"></i> -->
                     </button>
                   </div>
                   <div class="modal-body pt-0">
-                    <!-- <article>
-                      <h4>Manufacturer Logo Disclaimer:</h4>
-                      <p>
-                        CarBuckets.com is not affiliated with nor endorsed by any Vehicle manufacturer. Any trademarks,
-                        brand names, logos or images are used for reference purposes only and are the intellectual
-                        property of their respective owners.
-                      </p>
-                      <h4>MSRP Disclaimer:</h4>
-                      <p>
-                        MSRP for this Vehicle is provided for informational purposes only based on data received from
-                        our service providers and does not reflect the purchase price which will be offered to you by
-                        the Winning Dealership.
-                      </p>
-                      <h4>Images Disclaimer:</h4>
-                      <p>
-                        The images provided above are shown for illustration purposes only and do not reflect the final
-                        Trim or accessories packages that may be available to you from the Dealership. Please review our
-                        Consumer Terms of Use for more information <a href="/legal/consumers/terms-of-use"
-                          target="_blank">[Consumer Terms of Use]</a>.
-                      </p>
-                      <h4>Trim Disclaimer:</h4>
-                      <p>
-                        If at any time you desire to lease or purchase a different make, model, Trim, or any accessories
-                        other than that which is shown in your Winning Bid Notice, CarBuckets assumes no responsibility
-                        for the final price made available to you. Although CarBuckets strives to ensure that its
-                        Dealerships abide by its Dealership Code of Conduct, Dealerships are responsible only for
-                        upholding the terms contained in your Winning Bid Notice. Any and all negotiation related to a
-                        Vehicle other than that which is quoted in your CarBucket is solely between you and the
-                        Dealership. Please review our Consumer Terms of Use for more information.
-                      </p>
-                    </article> -->
+                    
                   </div>
                   <div class="modal-footer ">
                     <button type="button" data-dismiss="modal"
